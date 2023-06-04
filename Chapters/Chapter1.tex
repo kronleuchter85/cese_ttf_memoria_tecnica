@@ -18,21 +18,76 @@
 %----------------------------------------------------------------------------------------
 
 %\section{Introducción}
+Esta sección presenta la motivación, alcance, objetivos y requerimientos del producto en el marco del estado del arte y su importancia en la industria.  
 
 %----------------------------------------------------------------------------------------
 \section{Motivación}
 
-El presente proyecto es un emprendimiento personal que busca desarrollar un dispositivo robótico de exploración ambiental controlable a distancia con las funciones básicas de desplazamiento, medición y reporte de parámetros ambientales tales como presión, temperatura, humedad y luminosidad. 
+La motivación del presente trabajo es primeramente volcar y unificar en un emprendimiento personal los conceptos aprendidos en la especialización de Sistemas Embebidos, con una arquitectura robusta que pueda ser extrapolada a otros casos de uso de valor en la industria como por ejemplo la exploración de suelos en el agro, la exploración submarina para la perforación de pozos de petróleo, o los mencionados más adelante en el estado del arte.
+Por otra parte, se buscó desarrollar un producto que pueda contribuir a aumentar la oferta de dispositivos robóticos exploradores en Argentina.
+
+\section{Estado del arte}
+
+Los robots exploradores son dispositivos robotizados capaces de moverse de forma autónoma, y/o controlados a distancia, que han sido creados con el fin de reconocer y explorar un lugar o entorno donde una persona no pueda o deba acceder ya sea por motivos de capacidad, practicidad o seguridad. Por este motivo, en función de las necesidades de desplazamiento, existen diferentes sistemas de motricidad, como son por ejemplo, los bípedos, cuadrúpedos, con ruedas, tracción oruga, acuáticos/sumergibles, aéreos, etc. En cuanto a la forma de control, los hay manejados por control remoto cableado o inalámbrico, habiendo equipos más sofisticados, que gracias a aplicaciones de Inteligencia Artificial, están preparados para desplazarse y tomar decisiones de forma autónoma. Algunos de los tipos de robots exploradores más conocidos son los espaciales, de minas, de rescate en catástrofes, de tuberías, acuáticos y/o submarinos, y de suelos.
 
 
 %----------------------------------------------------------------------------------------
 
 \section{Alcance y objetivos}
+A continuación se detallan las funcionalidades incluidas en el alcance del trabajo.
 
-..
+\begin{enumerate}
+	\item Sistema de desplazamiento terrestre.
+	\item Operaciones de exploración:
+	\begin{enumerate}	
+		 \item Medición de humedad ambiental
+		 \item Medición de temperatura, presión ambiental,
+		 \item Medición de presión ambiental,
+		 \item Medición de luminosidad ambiental.
+	\end{enumerate}
+
+	\item Visualización de estado de exploración (lecturas de los sensores).
+	\item Sistema de control por medio de un Joystick cableado.
+\end{enumerate}
+
+Queda fuera del alcance:
+\begin{itemize}
+	\item Locomoción por cualquier otro medio que no sea terrestre,
+	\item Cualquier otra función no contemplada en este alcance.
+\end{itemize}
 
 %----------------------------------------------------------------------------------------
 
-\section{Estado del arte}
 
-Los robots exploradores son dispositivos robotizados capaces de moverse de forma autónoma, y/o controlados a distancia, que han sido creados con el fin de reconocer y explorar un lugar o entorno donde una persona no pueda o deba acceder ya sea por motivos de capacidad, practicidad o seguridad. Por este motivo, en función de las necesidades de desplazamiento, existen diferentes sistemas de motricidad, como son por ejemplo, los bípedos, cuadrúpedos, con ruedas, tracción oruga, acuáticos/sumergibles, aéreos, etc. En cuanto a la forma de control, hay manejados por control remoto cableado o inalámbrico, habiendo equipos más sofisticados que gracias a aplicaciones de Inteligencia Artificial están preparados para desplazarse y tomar decisiones de forma autónoma. Algunos de los tipos de robots exploradores más conocidos son los espaciales, de minas, de rescate en catástrofes, de tuberías, acuáticos y/o submarinos, y de suelos.
+
+\section{Requerimientos}
+A continuación se listan los requerimientos del producto:
+\begin{enumerate}	
+	
+	\item Requerimientos funcionales		
+	\begin{enumerate}			
+		\item El sistema debe contar con funciones de desplazamiento para poder moverse hacia adelante y atrás, y poder girar radialmente hasta un ángulo de 360 grados.			
+		\item El sistema debe ser capaz de realizar las siguientes operaciones de exploración:			
+			\begin{enumerate}				
+				\item medición de humedad ambiental,				
+				\item medición de temperatura ambiental,				
+				\item medición de luminosidad ambiental,				
+				\item medición de presión ambiental.			
+			\end{enumerate}			
+		\item El sistema debe poder ser controlado a distancia mediante un joystick para que el dispositivo pueda realizar sus movimientos. En caso de que alguna de sus operaciones de exploración requiera algún mecanismo de control, el mismo también será integrado en el joystick.		
+		\item El sistema debe proveer un mecanismo de visualización de las operaciones de exploración al usuario que controla el dispositivo para poder ver el estado y lectura de las operaciones de exploración.		
+		\begin{enumerate}	
+			\item la interfaz de usuario debe permitir visualizar las lecturas de cada uno de los sensores,
+			\item debe haber una pequeña leyenda de la magnitud que se está midiendo y la unidad utilizada junto con el valor.
+		\end{enumerate}		
+		
+	\end{enumerate}	
+	
+	\item Requerimientos no funcionales		
+		\begin{enumerate}			
+			\item la arquitectura del producto debe ser robusta y tolerante a fallas
+			\item a fin de maximizar la mantenibilidad, la arquitectura del producto debe estar modularizada para permitir que los diferentes modulos puedan ser integrados y orquestados separadamente
+			
+		\end{enumerate}	
+	
+\end{enumerate}

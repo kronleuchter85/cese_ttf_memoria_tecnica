@@ -65,6 +65,7 @@ headsepline, % Uncomment to get a line under the header
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
 
 
+
 %----------------------------------------------------------------------------------------
 %	RESUMEN - ABSTRACT 
 %----------------------------------------------------------------------------------------
@@ -74,11 +75,20 @@ headsepline, % Uncomment to get a line under the header
 %
 %The Thesis Abstract is written here (and usually kept to just this page). The page is kept centered vertically so can expand into the blank space above the title too\ldots
 \centering
-
+%\usepackage{lipsum}
 \graphicspath{ {./Figures/} }
 
-El presente trabajo describe un emprendimiento personal en el que se desarrolló un dispositivo robótico de exploración ambiental controlable a distancia con las funciones básicas de desplazamiento, medición y reporte de parámetros ambientales tales como presión, temperatura, humedad y luminosidad en una primera versión. No obstante, el sistema cuenta con una una arquitectura base robusta y flexible sobre la cual otros sensores pueden ser adaptados para poder tomar lecturas de otros parámetros ambientales, logrando por tanto brindar una solución que ayuda a incrementar la oferta en robots exploradores en la industria argentina pudiendo ser utilizados por ejemplo en aplicaciones de minería, agro, explotación de petróleo, etc. 
-Para la implementación del trabajo se utilizaron conceptos y herramientas aprendidos en la especialización, tales como buenas prácticas en diseño y desarrollo de firmware, la utilización de sistemas operativos de tiempo real como plataforma de ejecución base, protocolos de comunicaciones para sistemas embebidos, y técnicas y frameworks de testing para asegurar la calidad del producto final. 
+\begin{center}
+El presente trabajo describe un emprendimiento personal en el que se desarrolla un dispositivo robótico de exploración ambiental, controlable a distancia con las funciones básicas de desplazamiento, medición y reporte de parámetros ambientales tales como presión, temperatura, humedad y luminosidad. 
+\end{center}
+\begin{center}
+El sistema cuenta con una arquitectura base robusta y flexible sobre la cual otros sensores y actuadores pueden ser adaptados para poder interacturar con el medio ambiente, y logra por tanto brindar una solución que ayuda a incrementar la oferta de robots exploradores en la industria argentina pudiendo ser utilizados en casos de uso de IoT, como por ejemplo en aplicaciones de explotación de petróleo, Smart Mining, Smart Farming, etc. 
+
+\end{center}
+\begin{center}
+Para su implementación se utilizaron conceptos y herramientas tales como buenas prácticas en el diseño y desarrollo de firmware, la utilización de sistemas operativos de tiempo real como plataforma de ejecución base, protocolos de comunicaciones para sistemas embebidos, y técnicas y frameworks de testing para asegurar la calidad del producto final. 
+\end{center}
+
 
 
 \end{abstract}
@@ -110,7 +120,7 @@ Esta sección es para agradecimientos personales y es totalmente \textbf{OPCIONA
 %	CONTENIDO DE LA MEMORIA  - DEDICATORIA
 %----------------------------------------------------------------------------------------
 
-\dedicatory{\textbf{Dedicado a... [OPCIONAL]}}  % escribir acá si se desea una dedicatoria
+\dedicatory{\textbf{Dedicado a mi familia y mis amigos.}}  % escribir acá si se desea una dedicatoria
 
 %----------------------------------------------------------------------------------------
 %	CONTENIDO DE LA MEMORIA  - CAPÍTULOS
