@@ -50,6 +50,8 @@ Por este motivo, una vez conseguido el alcance basico, se continuo con el desarr
 
 En las siguientes sub secciones se detallan los detalles del disenio e implementacion de la version final.
 
+
+
 \section{Arquitectura de software del sistema}
 
 La arquitectura de software del sistema esta compuesta por los siguientes modulos:
@@ -61,11 +63,36 @@ La arquitectura de software del sistema esta compuesta por los siguientes modulo
 
 
 
-\section{Los diferentes modulos}
-\label{sec:pruebasHW}
+\begin{center}
+  \includegraphics[scale=0.75]{arquitectura_software_global}
+    \captionof{figure}{Arquitectura global.}
+    \label{fig:arquitectura_software_global}
+
+\end{center}
+
+\subsection{Modulos}
+\subsubsection{Control de la red WIFI}
+...
+
+\subsubsection{Gestion de la  de la comunicacion sockets UDP}
+
+...
 
 
-\subsection{Medición de temperatura y humedad}
+\section{Arquitectura de hardware del sistema}
+
+Los macro componentes de hardware presentes en la arquitectura son el robot y el joystick.
+Internamente se disenio su micro arquitectura de forma modular, de forma tal que se permita la adaptacion de los diferentes componentes de forma independiente.
+El conexionado de cada uno de ellos puede apreciase a continuacion:
+(conexionado de los modulos)
+
+La integracion de los mismos se realizo mediante el disenio y contruccion de una placa integradora base que permite
+
+
+\subsection{Los diferentes modulos}
+
+
+\subsubsection{Medición de temperatura y humedad}
 
 Para el desarrollo de este prototipo se utilizó el framework ESP-IDF y la biblioteca de código ESP-IDF Components que provee el soporte para gestionar el DHT11. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_dht11} y los detalles del conexionado de sus pines en la tabla \ref{tab:conexionado_dht11}.
 
@@ -94,8 +121,7 @@ Para el desarrollo de este prototipo se utilizó el framework ESP-IDF y la bibli
 
 
 
-
-\subsection{Medición de presión}
+\subsubsection{Medición de presión}
 Para el desarrollo de este prototipo se utilizó el framework ESP-IDF y la biblioteca de código ESP-IDF Components que provee el soporte para gestionar el BMP280. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_bmp280} y los detalles de sus pines en la tabla \ref{tab:conexionado_bmp280}.
 
 \vspace{0.5cm}    
@@ -124,7 +150,7 @@ Para el desarrollo de este prototipo se utilizó el framework ESP-IDF y la bibli
 
 
 
-\subsection{Medición de valor de luminosidad}
+\subsubsection{Medición de valor de luminosidad}
 Para el desarrollo de este prototipo se utilizó el siguiente conexionado y la biblioteca de código ADC provista por ESP-IDF. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_fotoresistor} y los detalles de sus pines en la tabla \ref{tab:conexionado_fotoresistor}.
 
 \vspace{0.5cm}    
@@ -150,7 +176,8 @@ ADC Fot pin & channel 0 - unit 2 & 4\\
     \label{fig:conexionado_fotoresistor}
     
 \end{center}
-\subsection{Control del joystick analogico}
+
+\subsubsection{Control del joystick analogico}
 Para el desarrollo de este prototipo se utilizó el siguiente conexionado y la biblioteca de código ADC provista por ESP-IDF. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_joystick} y los detalles de sus pines en la tabla \ref{tab:conexionado_joystick}.
 
 
@@ -180,39 +207,48 @@ ADC Y & channel 7 - unit 1 & 35 \\
 
 \end{center}
 
-\subsection{Control del display}
+\subsubsection{Control del display}
  
+\begin{center}
+  \includegraphics[scale=1]{conexionado_display}
+    \captionof{figure}{Conexionado display.}
+    \label{fig:conexionado_display}
 
-\subsection{Control de motores DC}
+\end{center}
 
-
-...
-
-\subsection{Control de la red WIFI}
-
-
-...
+\subsubsection{Control de motores DC}
 
 
-\subsection{Gestion de la  de la comunicacion sockets UDP}
+\begin{center}
+  \includegraphics[scale=1]{conexionado_motores}
+    \captionof{figure}{Conexionado motores.}
+    \label{fig:conexionado_motores}
+
+\end{center}
 
 
-...
+
+\subsection{Conexionados completos}
 
 
+\subsubsection{Conexionado del Robot}
 
-\section{Arquitectura de hardware del sistema}
 
-Los macro componentes de hardware presentes en la arquitectura son el robot y el joystick.
-Internamente se disenio su micro arquitectura de forma modular, de forma tal que se permita la adaptacion de los diferentes componentes de forma independiente.
-El conexionado de cada uno de ellos puede apreciase a continuacion:
-(conexionado de los modulos)
+\begin{center}
+  \includegraphics[scale=0.75]{conexionado_completo_robot}
+    \captionof{figure}{Conexionado del robot.}
+    \label{fig:conexionado_completo_robot}
+\end{center}
 
-La integracion de los mismos se realizo mediante el disenio y contruccion de una placa integradora base que permite
 
-\section{Interfaz de usuario}
+\subsubsection{Conexionado del Joystick}
 
-...
+\begin{center}
+  \includegraphics[scale=0.75]{conexionado_completo_joystick}
+    \captionof{figure}{Conexionado del joystick.}
+    \label{fig:conexionado_completo_joystick}
+\end{center}
+
 
 
 
