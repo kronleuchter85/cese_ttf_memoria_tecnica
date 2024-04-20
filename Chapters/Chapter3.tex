@@ -45,14 +45,106 @@
 
 Esta sección presenta los detalles técnicos del diseño e implementación de las diferentes funcionalidades del producto, la arquitectura hardware y software, y finalmente la interfaz de usuario para el control y reporte de las operaciones del robot.
 
-El proyecto fue realizado siguiendo una metodologia basada en crear un prototipo funcional con un alcance basico, diseniado de forma tal que permita el agregado de nuevas funcionalidades.
-Por este motivo, una vez conseguido el alcance basico, se continuo con el desarrollo de nuevas funcionalidades tales como el control inalambrico del robot por medio de un joystick.
+El proyecto fue realizado siguiendo una metodologia basada en crear un prototipo funcional con una arquitectura escalable que cumpla con alcance basico especificado en el plan de proyecto, y una vez conseguido agregar en lo posible y de acuerdo a la capacidad, funcionalidades adicionales.
+De esta forma, una vez que se logro el alcance basico, considerado como la version v1.0 del producto, se continuo con el desarrollo y se agrego la funcionalidad adicional de control inalambrico por medio de un joystick, en lo que se considera la version v2.0 del mismo.
 
-En las siguientes sub secciones se detallan los detalles del disenio e implementacion de la version final.
+En las siguientes sub secciones se detallan los detalles del disenio e implementacion realizados tanto para el cumplimiento con el alcance basico como con el agregado de la funcionalidad adicional que comprende el robot en su version final.
 
 
 
 \section{Arquitectura de software del sistema}
+
+
+\subsection{Perspectiva global}
+
+A continuacion podemos apreciar la arquitectura macro del sistema.
+
+\begin{center}
+  \includegraphics[scale=0.75]{software/arquitectura_software_global}
+    \captionof{figure}{Arquitectura global.}
+    \label{fig:arquitectura_software_global}
+
+\end{center}
+
+
+
+\subsection{Disenio de componentes y servicios}
+
+
+Con el fin de poder lograr una arquitectura de software modular, se implementaron diferentes componentes software y servicios que abstraen el acceso a los modulos de hardware (explicados en la siguiente seccion) y permitieron un escalamiento facil de funcionalidades en la expancion de las funcionalidades del robot entre su version basica y su version final.
+
+Los componentes y servicios de software del Robot en la version v1 son los siguientes:
+
+\begin{enumerate}	
+	\item Componentes de software del Robot
+	\begin{enumerate}			
+		\item main-core: orquesta las diferentes tareas desde las que se invocan los demas componentes de software.
+		\item Measuring Service: abstrae el acceso a los modulos de medicion de temperatura, humedad, presion y luminosidad.
+		\item Measuring State: mantiene el estado de cada uno de los parametros ambientales medidos.
+		\item Robot Position State: mantiene el estado del movimiento actual del robot.
+		\item ADC Service: abstrae el acceso a los modulos que hacen uso de los canales que requieren conversiones ADC (Analogico/Digital), como el joystick analogico y el fotoresistor. 
+		\item Motors Service: abstrae el acceso al modulo de control de motores.
+		\item Display Service: abstrae el acceso al modulo de control del display mediante Ic2.
+		\item Joystick Service: abstrae el acceso al modulo de control del joystick.
+	\end{enumerate}	
+	\item Servicios (tareas) del Robot
+	\begin{enumerate}				
+		\item Display Task	
+		\item Measuring Task		
+		\item Joystick Task
+		\item Motors Task		
+	\end{enumerate}			
+\end{enumerate}		
+
+
+Luego de expandir su funcionalidad, los componentes y servicios de software se separaron fisicamente en el hardware del robot y el del joystick, agregandose ademas los necesarios para la comunicacion inalambrica, quedando de la siguiente manera:
+
+\begin{enumerate}	
+	\item Componentes de software del Robot
+	\begin{enumerate}			
+		\item main-core
+		\item Measuring Service	
+		\item Measuring State
+		\item Robot Position State
+		\item ADC Service
+		\item Motors Service
+		\item WIFI Service
+		\item UDP Service	
+	\end{enumerate}	
+	\item Servicios (tareas) del Robot
+	\begin{enumerate}				
+		\item Measuring Task		
+		\item Motors Task	
+		\item UDP Server Task
+	\end{enumerate}			
+\end{enumerate}		
+
+
+\begin{enumerate}	
+	\item Componentes de software del Joystick
+	\begin{enumerate}			
+		\item main-core
+		\item Measuring State
+		\item Robot Position State
+		\item UDP Service	
+	\end{enumerate}	
+	\item Servicios (tareas) del Joystick
+	\begin{enumerate}				
+		\item Display Task		
+		\item Joystick Task	
+		\item UDP Server Task
+	\end{enumerate}			
+\end{enumerate}		
+
+\section{Implementacion de los modulos}
+
+Los macro componentes de hardware presentes en la arquitectura de la version 2 son el robot y el joystick.
+Internamente se disenio su micro arquitectura de forma modular, de forma tal que se permita la adaptacion de los diferentes componentes de forma independiente.
+El conexionado de cada uno de ellos puede apreciase a continuacion:
+(conexionado de los modulos)
+
+La integracion de los mismos se realizo mediante el disenio y contruccion de una placa integradora base que permite
+
 
 La arquitectura de software del sistema esta compuesta por los siguientes modulos:
 - servicio de control del display
@@ -63,39 +155,10 @@ La arquitectura de software del sistema esta compuesta por los siguientes modulo
 
 
 
-\begin{center}
-  \includegraphics[scale=0.75]{arquitectura_software_global}
-    \captionof{figure}{Arquitectura global.}
-    \label{fig:arquitectura_software_global}
+\subsection{Medición de temperatura y humedad}
 
-\end{center}
-
-\subsection{Modulos}
-\subsubsection{Control de la red WIFI}
-...
-
-\subsubsection{Gestion de la  de la comunicacion sockets UDP}
-
-...
-
-
-\section{Arquitectura de hardware del sistema}
-
-Los macro componentes de hardware presentes en la arquitectura son el robot y el joystick.
-Internamente se disenio su micro arquitectura de forma modular, de forma tal que se permita la adaptacion de los diferentes componentes de forma independiente.
-El conexionado de cada uno de ellos puede apreciase a continuacion:
-(conexionado de los modulos)
-
-La integracion de los mismos se realizo mediante el disenio y contruccion de una placa integradora base que permite
-
-
-\subsection{Los diferentes modulos}
-
-
-\subsubsection{Medición de temperatura y humedad}
-
-Para el desarrollo de este prototipo se utilizó el framework ESP-IDF y la biblioteca de código ESP-IDF Components que provee el soporte para gestionar el DHT11. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_dht11} y los detalles del conexionado de sus pines en la tabla \ref{tab:conexionado_dht11}.
-
+Para el desarrollo de este prototipo se utilizó la biblioteca de código ESP-IDF-Lib Components Library \cite{esp_idf_lib_website} que provee el soporte para gestionar el DHT11. Para acceder a las lecturas del dispositivo se abstrajo el mismo mediante el componente Measuring Service, el cual es invocado en cada iteracion del 
+A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_dht11} y los detalles de sus pines en la tabla \ref{tab:conexionado_dht11}.
 
 \vspace{0.5cm}
 \begin{table}[h]
@@ -105,7 +168,7 @@ Para el desarrollo de este prototipo se utilizó el framework ESP-IDF y la bibli
 \toprule
 \textbf{Nombre lógico} &  \textbf{Pin GPIO}\\
 \midrule
- Pin DHT11  & 2  \\
+ Pin DHT11  & 4  \\
 \bottomrule
 \hline
 \end{tabular}
@@ -114,14 +177,14 @@ Para el desarrollo de este prototipo se utilizó el framework ESP-IDF y la bibli
  
 \vspace{0.5cm}   
 \begin{center}
-  \includegraphics[scale=1]{conexionado_dht11}
+  \includegraphics[scale=1]{schematics/conexionado_dht11}
     \captionof{figure}{Circuito del conexionado DHT11.}
     \label{fig:conexionado_dht11}
 \end{center}
 
 
 
-\subsubsection{Medición de presión}
+\subsection{Medición de presión}
 Para el desarrollo de este prototipo se utilizó el framework ESP-IDF y la biblioteca de código ESP-IDF Components que provee el soporte para gestionar el BMP280. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_bmp280} y los detalles de sus pines en la tabla \ref{tab:conexionado_bmp280}.
 
 \vspace{0.5cm}    
@@ -142,7 +205,7 @@ Para el desarrollo de este prototipo se utilizó el framework ESP-IDF y la bibli
     
 \vspace{0.5cm}    
 \begin{center}
-  \includegraphics[scale=1]{conexionado_bmp280}
+  \includegraphics[scale=1]{schematics/conexionado_bmp280}
     \captionof{figure}{Conexionado BMP280.}
     \label{fig:conexionado_bmp280}
 \end{center}
@@ -150,7 +213,7 @@ Para el desarrollo de este prototipo se utilizó el framework ESP-IDF y la bibli
 
 
 
-\subsubsection{Medición de valor de luminosidad}
+\subsection{Medición de valor de luminosidad}
 Para el desarrollo de este prototipo se utilizó el siguiente conexionado y la biblioteca de código ADC provista por ESP-IDF. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_fotoresistor} y los detalles de sus pines en la tabla \ref{tab:conexionado_fotoresistor}.
 
 \vspace{0.5cm}    
@@ -171,13 +234,13 @@ ADC Fot pin & channel 0 - unit 2 & 4\\
 
 \vspace{0.5cm}
 \begin{center}
-  \includegraphics[scale=1]{conexionado_fotoresistor}
+  \includegraphics[scale=1]{schematics/conexionado_fotoresistor}
     \captionof{figure}{Conexionado fotorresistor.}
     \label{fig:conexionado_fotoresistor}
     
 \end{center}
 
-\subsubsection{Control del joystick analogico}
+\subsection{Control del joystick analogico}
 Para el desarrollo de este prototipo se utilizó el siguiente conexionado y la biblioteca de código ADC provista por ESP-IDF. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_joystick} y los detalles de sus pines en la tabla \ref{tab:conexionado_joystick}.
 
 
@@ -200,55 +263,59 @@ ADC Y & channel 7 - unit 1 & 35 \\
 \vspace{0.5cm}
 
 \begin{center}
-  \includegraphics[scale=1]{conexionado_joystick}
+  \includegraphics[scale=1]{schematics/conexionado_joystick}
     \captionof{figure}{Conexionado joystick.}
     \label{fig:conexionado_joystick}
     
 
 \end{center}
 
-\subsubsection{Control del display}
+\subsection{Control del display}
  
 \begin{center}
-  \includegraphics[scale=1]{conexionado_display}
+  \includegraphics[scale=1]{schematics/conexionado_display}
     \captionof{figure}{Conexionado display.}
     \label{fig:conexionado_display}
 
 \end{center}
 
-\subsubsection{Control de motores DC}
+\subsection{Control de motores DC}
 
 
 \begin{center}
-  \includegraphics[scale=1]{conexionado_motores}
+  \includegraphics[scale=1]{schematics/conexionado_motores}
     \captionof{figure}{Conexionado motores.}
     \label{fig:conexionado_motores}
 
 \end{center}
 
+\subsection{Control de la red WIFI}
+\subsection{Gestion de la  de la comunicacion sockets UDP}
 
 
-\subsection{Conexionados completos}
+
+\section{Arquitectura de hardware}
 
 
-\subsubsection{Conexionado del Robot}
+\subsection{Conexionado logico }
 
 
 \begin{center}
-  \includegraphics[scale=0.75]{conexionado_completo_robot}
+  \includegraphics[scale=0.75]{schematics/conexionado_completo_robot}
     \captionof{figure}{Conexionado del robot.}
     \label{fig:conexionado_completo_robot}
 \end{center}
 
 
-\subsubsection{Conexionado del Joystick}
 
 \begin{center}
-  \includegraphics[scale=0.75]{conexionado_completo_joystick}
+  \includegraphics[scale=0.75]{schematics/conexionado_completo_joystick}
     \captionof{figure}{Conexionado del joystick.}
     \label{fig:conexionado_completo_joystick}
 \end{center}
 
+
+\subsection{Conexionado fisico }
 
 
 
