@@ -167,28 +167,92 @@ Los macro componentes de hardware presentes en la arquitectura de la version v2.
 La integracion de los mismos se realizo mediante el disenio y contruccion de una placa integradora central, que conecta los dispositivos hardware con el microcontrolador ESP-32.
 
 
+\subsection{Control de la red WIFI}
 
-\subsection{Medición de temperatura y humedad}
+El modulo de red WiFi esta integrado en el chip ESP32 en el cual se soportan multiples features \cite{ESP32_WiFi} por lo cual a nivel hardware no fue necesario realizar ningun conexionado. 
+A nivel software, la gestion del modulo WiFi se encuentra incluida en el SDK ESP-IDF, y el acceso al mismo se realiza desde el modulo ADC 2 \cite{ESP32_adc}. Por este motivo, cuando el sistema embebido utiliza el modulo WiFi, el uso del ADC2 queda restringido a esta funcionalidad por lo cual cualquier otro dispositivo que deba hacer uso del ADC debe ser configurado para utilizar el ADC1, como por ejemplo los modulos de joystick y deteccion de luminosidad, explicados en las siguientes secciones.
 
-Para el desarrollo de este prototipo se utilizó la biblioteca de código ESP-IDF-Lib Components Library \cite{esp_idf_lib_website} que provee el soporte para gestionar el DHT11. Para acceder a las lecturas del dispositivo se abstrajo el mismo mediante el componente Measuring Service, el cual es invocado en cada iteracion del 
-A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_dht11} y los detalles de sus pines en la tabla \ref{tab:conexionado_dht11}.
+El desarrollo del prototipo se baso en el siguiente codigo de ejemplo \cite{ESP32_WiFi_Example} provisto por ESP-IDF y la configuracion del \textit{soft access point WiFi} se realizo en base a los parametros de red detallados en la siguiente tabla  \ref{tab:configuracion_wifi}: 
 
 \vspace{0.5cm}
 \begin{table}[h]
 \centering
-\caption[Conexionado DHT11]{Conexionado DHT11}
-\begin{tabular}{l c }
+\caption[Configuracion de AP WiFi]{Configuracion de AP WiFi}
+\begin{tabular}{l c c}
 \toprule
-\textbf{Nombre lógico} &  \textbf{Pin GPIO}\\
+\textbf{Parametro} & \textbf{Valor} \\
 \midrule
- Pin DHT11  & 4  \\
+SSID & Robot  \\
+password & Robot  \\
 \bottomrule
 \hline
 \end{tabular}
-\label{tab:conexionado_dht11} 
+\label{tab:configuracion_wifi}
 \end{table}
- 
-\vspace{0.5cm}   
+
+
+
+\subsection{Control del joystick analogico}
+Para el desarrollo de este prototipo se utilizó el SDK ESP-IDF y se configuro el modulo ADC1 de acuerdo a los siguientes detalles en la tabla \ref{fig:conexionado_joystick}:
+
+\vspace{0.5cm}
+\begin{table}[h]
+\centering
+\caption[Conexionado joystick]{Conexionado joystick}
+\begin{tabular}{l c c}
+\toprule
+\textbf{Channel} & \textbf{Unit} & \textbf{Pin GPIO}\\
+\midrule
+6 & 1 & 34 \\
+7 & 1 & 35 \\
+\bottomrule
+\hline
+\end{tabular}
+\label{tab:conexionado_joystick}
+\end{table}
+
+A continuación se puede apreciar el conexionado fisico en la figura \ref{fig:conexionado_joystick}.
+
+\begin{center}
+  \includegraphics[scale=1]{schematics/conexionado_joystick}
+    \captionof{figure}{Conexionado joystick.}
+    \label{fig:conexionado_joystick}
+\end{center}
+
+
+
+\subsection{Medición de valor de luminosidad}
+Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configuro el modulo ADC1 de acuerdo a los detalles provistos en la siguiente tabla \ref{tab:conexionado_fotoresistor} 
+
+\vspace{0.5cm}
+\begin{table}[h]
+\centering
+\caption[Conexionado fotoresistor]{Conexionado fotoresistor}
+\begin{tabular}{l c c}
+\toprule
+\textbf{Channel} & \textbf{Unit} & \textbf{Pin GPIO}\\
+\midrule
+0 & 1 & 36 \\
+\bottomrule
+\hline
+\end{tabular}
+\label{tab:conexionado_fotoresistor}
+\end{table}
+
+A continuacion se puede apreciar un diagrama de su conexionado fisico en la figura \ref{fig:conexionado_fotoresistor}.
+
+\begin{center}
+  \includegraphics[scale=1]{schematics/conexionado_fotoresistor}
+    \captionof{figure}{Conexionado fotorresistor.}
+    \label{fig:conexionado_fotoresistor}
+\end{center}
+
+
+\subsection{Medición de temperatura y humedad}
+
+Para el desarrollo de este modulo se utilizó la biblioteca de código ESP-IDF-Lib Components Library \cite{esp_idf_lib_website} que provee el soporte para gestionar el DHT11. Para acceder a las lecturas del dispositivo se abstrajo el mismo mediante el componente Measuring Service, el cual es invocado por la tarea Measuring Task y el estado de la lectura es almacenado en el componente Measuring State.
+A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_dht11}.
+
 \begin{center}
   \includegraphics[scale=1]{schematics/conexionado_dht11}
     \captionof{figure}{Circuito del conexionado DHT11.}
@@ -198,25 +262,8 @@ A continuación se puede apreciar el conexionado del prototipo en la figura \ref
 
 
 \subsection{Medición de presión}
-Para el desarrollo de este prototipo se utilizó el framework ESP-IDF y la biblioteca de código ESP-IDF Components que provee el soporte para gestionar el BMP280. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_bmp280} y los detalles de sus pines en la tabla \ref{tab:conexionado_bmp280}.
-
-\vspace{0.5cm}    
-\begin{table}[h]
-\centering
-\caption[Conexionado BMP280]{Conexionado BMP280}
-\begin{tabular}{l c }
-\toprule
-\textbf{Nombre lógico} &  \textbf{Pin GPIO}\\
-\midrule
- BMP SDA & 18 \\
- BMP280 SCL & 19  \\
-\bottomrule
-\hline
-\end{tabular}
-\label{tab:conexionado_bmp280} 
-\end{table}
-    
-\vspace{0.5cm}    
+Para el desarrollo de este modulo se utilizó el framework ESP-IDF y la biblioteca de código ESP-IDF Components que provee el soporte para gestionar el dispositivo BMP280 por medio del protocolo I2C. El driver es inicializado en el componente main-core para ser posteriormente invocado desde el Measuring Service en la tarea Measuring Task. Sus lecturas son guardadas en el Measuring State. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_bmp280}.
+  
 \begin{center}
   \includegraphics[scale=1]{schematics/conexionado_bmp280}
     \captionof{figure}{Conexionado BMP280.}
@@ -225,72 +272,6 @@ Para el desarrollo de este prototipo se utilizó el framework ESP-IDF y la bibli
 
 
 
-
-\subsection{Medición de valor de luminosidad}
-Para el desarrollo de este prototipo se utilizó el siguiente conexionado y la biblioteca de código ADC provista por ESP-IDF. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_fotoresistor} y los detalles de sus pines en la tabla \ref{tab:conexionado_fotoresistor}.
-
-\vspace{0.5cm}    
-\begin{table}[h]
-\centering
-\caption[Conexionado fotorresistor]{Conexionado fotorresistor}
-\begin{tabular}{l c c}
-\toprule
-\textbf{Nombre lógico} & \textbf{Pin ADC} & \textbf{Pin GPIO}\\
-\midrule
-ADC Fot pin & channel 0 - unit 2 & 4\\
-\bottomrule
-\hline
-\end{tabular}
-\label{tab:conexionado_fotoresistor}
-\end{table}
-
-
-\vspace{0.5cm}
-\begin{center}
-  \includegraphics[scale=1]{schematics/conexionado_fotoresistor}
-    \captionof{figure}{Conexionado fotorresistor.}
-    \label{fig:conexionado_fotoresistor}
-    
-\end{center}
-
-\subsection{Control del joystick analogico}
-Para el desarrollo de este prototipo se utilizó el siguiente conexionado y la biblioteca de código ADC provista por ESP-IDF. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_joystick} y los detalles de sus pines en la tabla \ref{tab:conexionado_joystick}.
-
-
-\vspace{0.5cm}
-\begin{table}[h]
-\centering
-\caption[Conexionado joystick]{Conexionado joystick}
-\begin{tabular}{l c c}
-\toprule
-\textbf{Nombre lógico} & \textbf{Pin ADC} & \textbf{Pin GPIO}\\
-\midrule
-ADC X & channel 1 - unit 2 & 0 \\
-ADC Y & channel 7 - unit 1 & 35 \\
-\bottomrule
-\hline
-\end{tabular}
-\label{tab:conexionado_joystick}
-\end{table}
-
-\vspace{0.5cm}
-
-\begin{center}
-  \includegraphics[scale=1]{schematics/conexionado_joystick}
-    \captionof{figure}{Conexionado joystick.}
-    \label{fig:conexionado_joystick}
-    
-
-\end{center}
-
-\subsection{Control del display}
- 
-\begin{center}
-  \includegraphics[scale=1]{schematics/conexionado_display}
-    \captionof{figure}{Conexionado display.}
-    \label{fig:conexionado_display}
-
-\end{center}
 
 \subsection{Control de motores DC}
 
@@ -302,8 +283,20 @@ ADC Y & channel 7 - unit 1 & 35 \\
 
 \end{center}
 
-\subsection{Control de la red WIFI}
-\subsection{Gestion de la  de la comunicacion sockets UDP}
+
+
+
+
+
+\subsection{Control del display}
+ 
+\begin{center}
+  \includegraphics[scale=1]{schematics/conexionado_display}
+    \captionof{figure}{Conexionado display.}
+    \label{fig:conexionado_display}
+
+\end{center}
+
 
 
 
@@ -326,6 +319,9 @@ ADC Y & channel 7 - unit 1 & 35 \\
     \captionof{figure}{Conexionado del joystick.}
     \label{fig:conexionado_completo_joystick}
 \end{center}
+
+
+
 
 
 \subsection{Conexionado fisico }
