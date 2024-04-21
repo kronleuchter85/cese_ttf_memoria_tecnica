@@ -48,35 +48,31 @@ Esta sección presenta los detalles técnicos del diseño e implementación de l
 El proyecto fue realizado siguiendo una metodologia basada en crear un prototipo funcional con una arquitectura escalable que cumpla con alcance basico especificado en el plan de proyecto, y una vez conseguido agregar en lo posible y de acuerdo a la capacidad, funcionalidades adicionales.
 De esta forma, una vez que se logro el alcance basico, considerado como la version v1.0 del producto, se continuo con el desarrollo y se agrego la funcionalidad adicional de control inalambrico por medio de un joystick, en lo que se considera la version v2.0 del mismo.
 
-En las siguientes sub secciones se detallan los detalles del disenio e implementacion realizados tanto para el cumplimiento con el alcance basico como con el agregado de la funcionalidad adicional que comprende el robot en su version final.
+En las siguientes sub secciones se detallan los detalles del disenio e implementacion realizados para ambas versiones.
 
 
 
 \section{Arquitectura de software del sistema}
 
+Con el fin de poder lograr una arquitectura de software modular, se implementaron diferentes componentes software y servicios que abstraen el acceso a los modulos de hardware (explicados en la siguiente seccion) y permitieron un escalamiento facil de funcionalidades en la expancion de las funcionalidades del robot entre su version v1.0 y la v2.0.
 
-\subsection{Perspectiva global}
 
-A continuacion podemos apreciar la arquitectura macro del sistema.
+\subsection{Arquitectura y disenio de componentes en la version v1.0}
+
+A continuacion podemos apreciar la arquitectura de software del sistema en su version v1.0 y el detalle de sus componentes y servicios.
 
 \begin{center}
-  \includegraphics[scale=0.75]{software/arquitectura_software_global}
+  \includegraphics[scale=0.75]{software/arquitectura_software_global_v1}
     \captionof{figure}{Arquitectura global.}
     \label{fig:arquitectura_software_global}
 
 \end{center}
 
 
-
-\subsection{Disenio de componentes y servicios}
-
-
-Con el fin de poder lograr una arquitectura de software modular, se implementaron diferentes componentes software y servicios que abstraen el acceso a los modulos de hardware (explicados en la siguiente seccion) y permitieron un escalamiento facil de funcionalidades en la expancion de las funcionalidades del robot entre su version basica y su version final.
-
 Los componentes y servicios de software del Robot en la version v1 son los siguientes:
 
 \begin{enumerate}	
-	\item Componentes de software del Robot
+	\item Componentes de software
 	\begin{enumerate}			
 		\item main-core: orquesta las diferentes tareas desde las que se invocan los demas componentes de software.
 		\item Measuring Service: abstrae el acceso a los modulos de medicion de temperatura, humedad, presion y luminosidad.
@@ -87,7 +83,7 @@ Los componentes y servicios de software del Robot en la version v1 son los sigui
 		\item Display Service: abstrae el acceso al modulo de control del display mediante Ic2.
 		\item Joystick Service: abstrae el acceso al modulo de control del joystick.
 	\end{enumerate}	
-	\item Servicios (tareas) del Robot
+	\item Servicios (tareas)
 	\begin{enumerate}				
 		\item Display Task	
 		\item Measuring Task		
@@ -96,11 +92,21 @@ Los componentes y servicios de software del Robot en la version v1 son los sigui
 	\end{enumerate}			
 \end{enumerate}		
 
+\subsection{Arquitectura y disenio de componentes en la version v2.0}
 
-Luego de expandir su funcionalidad, los componentes y servicios de software se separaron fisicamente en el hardware del robot y el del joystick, agregandose ademas los necesarios para la comunicacion inalambrica, quedando de la siguiente manera:
+Luego de expandir su funcionalidad, los componentes y servicios de software se separaron fisicamente en el hardware del robot y el del joystick, agregandose ademas los necesarios para la comunicacion inalambrica. A continuacion podemos apreciar la arquitectura de software del sistema en su version v2.0 y el detalle de sus componentes y servicios.
+
+\begin{center}
+  \includegraphics[scale=0.75]{software/arquitectura_software_global_v2}
+    \captionof{figure}{Arquitectura global.}
+    \label{fig:arquitectura_software_global}
+
+\end{center}
+
+Los componentes de software y servicios del robot son:
 
 \begin{enumerate}	
-	\item Componentes de software del Robot
+	\item Componentes de software
 	\begin{enumerate}			
 		\item main-core
 		\item Measuring Service	
@@ -111,7 +117,7 @@ Luego de expandir su funcionalidad, los componentes y servicios de software se s
 		\item WIFI Service
 		\item UDP Service	
 	\end{enumerate}	
-	\item Servicios (tareas) del Robot
+	\item Servicios (tareas)
 	\begin{enumerate}				
 		\item Measuring Task		
 		\item Motors Task	
@@ -120,15 +126,17 @@ Luego de expandir su funcionalidad, los componentes y servicios de software se s
 \end{enumerate}		
 
 
+Los componentes de software y servicios del joystick son:
+
 \begin{enumerate}	
-	\item Componentes de software del Joystick
+	\item Componentes de software
 	\begin{enumerate}			
 		\item main-core
 		\item Measuring State
 		\item Robot Position State
 		\item UDP Service	
 	\end{enumerate}	
-	\item Servicios (tareas) del Joystick
+	\item Servicios (tareas)
 	\begin{enumerate}				
 		\item Display Task		
 		\item Joystick Task	
@@ -138,20 +146,25 @@ Luego de expandir su funcionalidad, los componentes y servicios de software se s
 
 \section{Implementacion de los modulos}
 
-Los macro componentes de hardware presentes en la arquitectura de la version 2 son el robot y el joystick.
-Internamente se disenio su micro arquitectura de forma modular, de forma tal que se permita la adaptacion de los diferentes componentes de forma independiente.
-El conexionado de cada uno de ellos puede apreciase a continuacion:
-(conexionado de los modulos)
-
-La integracion de los mismos se realizo mediante el disenio y contruccion de una placa integradora base que permite
+Los macro componentes de hardware presentes en la arquitectura de la version v2.0 son el robot y el joystick, los cuales constituyen dos sistemas embebidos independientes implementados con dos microcontroladores ESP32, integrados entre si por medio de una red WiFi y una comunicacion UDP. Los modulos hardware desarrollados son los siguientes.La arquitectura de hardware del sistema esta compuesta por los siguientes modulos:
 
 
-La arquitectura de software del sistema esta compuesta por los siguientes modulos:
-- servicio de control del display
-- servicio de control de los motores DC
-- servicio de control de los sensores
-- servicio de control del joystick
-- servicio de comunicacion inalambrica via WIFI
+\begin{itemize}
+	\item En el robot:
+	\begin{itemize}
+		\item Control de los motores DC.	
+		\item Control de los sensores de medicion (DHT11, BMP280 y fotoresistor).
+		\item Gestion de la  comunicacion inalambrica via WIFI (en la version v2.0).
+	\end{itemize}
+	\item En el joystick:
+	\begin{itemize}
+		\item Control del display.
+		\item Control del joystick.
+		\item Gestion de la  comunicacion inalambrica via WIFI (en la version v2.0).
+	\end{itemize}
+\end{itemize}
+
+La integracion de los mismos se realizo mediante el disenio y contruccion de una placa integradora central, que conecta los dispositivos hardware con el microcontrolador ESP-32.
 
 
 
