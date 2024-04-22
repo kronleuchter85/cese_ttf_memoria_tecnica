@@ -172,7 +172,7 @@ La integracion de los mismos se realizo mediante el disenio y contruccion de una
 El modulo de red WiFi esta integrado en el chip ESP32 en el cual se soportan multiples features \cite{ESP32_WiFi} por lo cual a nivel hardware no fue necesario realizar ningun conexionado. 
 A nivel software, la gestion del modulo WiFi se encuentra incluida en el SDK ESP-IDF, y el acceso al mismo se realiza desde el modulo ADC 2 \cite{ESP32_adc}. Por este motivo, cuando el sistema embebido utiliza el modulo WiFi, el uso del ADC2 queda restringido a esta funcionalidad por lo cual cualquier otro dispositivo que deba hacer uso del ADC debe ser configurado para utilizar el ADC1, como por ejemplo los modulos de joystick y deteccion de luminosidad, explicados en las siguientes secciones.
 
-El desarrollo del prototipo se baso en el siguiente codigo de ejemplo \cite{ESP32_WiFi_Example} provisto por ESP-IDF y la configuracion del \textit{soft access point WiFi} se realizo en base a los parametros de red detallados en la siguiente tabla  \ref{tab:configuracion_wifi}: 
+La configuracion del \textit{soft access point WiFi} implementado se realizo en base a los parametros de red detallados en la siguiente tabla  \ref{tab:configuracion_wifi}: 
 
 \vspace{0.5cm}
 \begin{table}[h]
@@ -188,8 +188,10 @@ password & Robot  \\
 \hline
 \end{tabular}
 \label{tab:configuracion_wifi}
-\end{table}
+\end{table}  
 
+
+El desarrollo de este modulo se baso en el ejemplo provisto por Espressif \cite{ESP32_WiFi_SoftAP}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_WiFi}.
 
 
 \subsection{Control del joystick analogico}
@@ -220,6 +222,8 @@ A continuación se puede apreciar el conexionado fisico en la figura \ref{fig:co
 \end{center}
 
 
+El desarrollo de este modulo se baso en el ejemplo provisto por Espressif \cite{ESP32_ADC1_Example}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_joystick}.
+
 
 \subsection{Medición de valor de luminosidad}
 Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configuro el modulo ADC1 de acuerdo a los detalles provistos en la siguiente tabla \ref{tab:conexionado_fotoresistor} 
@@ -247,6 +251,7 @@ A continuacion se puede apreciar un diagrama de su conexionado fisico en la figu
     \label{fig:conexionado_fotoresistor}
 \end{center}
 
+El desarrollo de este modulo se baso en el ejemplo provisto por Espressif \cite{ESP32_ADC1_Example}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_photoresistor}.
 
 \subsection{Medición de temperatura y humedad}
 
@@ -259,10 +264,11 @@ A continuación se puede apreciar el conexionado del prototipo en la figura \ref
     \label{fig:conexionado_dht11}
 \end{center}
 
-
+El desarrollo de este modulo se baso en el ejemplo provisto por la libreria ESP-IDF-Lib \cite{ESP32_dht11_example}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_dht11}.
 
 \subsection{Medición de presión}
 Para el desarrollo de este modulo se utilizó el framework ESP-IDF y la biblioteca de código ESP-IDF Components que provee el soporte para gestionar el dispositivo BMP280 por medio del protocolo I2C. El driver es inicializado en el componente main-core para ser posteriormente invocado desde el Measuring Service en la tarea Measuring Task. Sus lecturas son guardadas en el Measuring State. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_bmp280}.
+  
   
 \begin{center}
   \includegraphics[scale=1]{schematics/conexionado_bmp280}
@@ -270,26 +276,31 @@ Para el desarrollo de este modulo se utilizó el framework ESP-IDF y la bibliote
     \label{fig:conexionado_bmp280}
 \end{center}
 
-
+El desarrollo de este modulo se baso en el ejemplo provisto por la libreria ESP-IDF-Lib \cite{ESP32_bmp280_example}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_bmp280}.
 
 
 \subsection{Control de motores DC}
 
+Para la implementacion del modulo de control de los motores de corriente continua se utilizaron a nivel hardware dos modulos puentes L298N \cite{L298N} que permiten integrar y controlar dos motores cada uno. Con el fin de alimentar los modulos con una fuente de poder de amperaje y voltaje consistente se utilizaron dos baterias de Li-Ion de 3.7 V y 2000 mA/h conectadas en serie activadas mediante un interruptor.
+A nivel driver en el ESP32 se utilizo el modulo de control de motores por modulacion de pulsos (MCPWM) \cite{ESP32_MCPWM} que por medio de la configuracion de sus unidades y del duty cycle \cite{ESP32_MCPWM_2} se puede controlar el sentido y velocidad de rotacion de los motores. 
+Los puentes L298N brindan ademas una tension de salida de 5 V, y esto fue utilizado para la alimentacion del ESP32 conectandolo su pin Vin.
+
+En el siguiente diagrama puede apreciarse el conexionado logico para el control de los motores con los componentes mencionados.
 
 \begin{center}
   \includegraphics[scale=1]{schematics/conexionado_motores}
     \captionof{figure}{Conexionado motores.}
     \label{fig:conexionado_motores}
-
 \end{center}
 
-
-
+El desarrollo de este modulo se baso en el ejemplo provisto por Espressif \cite{ESP32_MCPWM_example}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_motor_MCPWM}.
 
 
 
 \subsection{Control del display}
- 
+
+Para la implementacion del modulo de visualizacion de valores observados se integro un display de dos lineas y diesiseis caracteres LCM1602A por medio de un driver I2C que facilita su control. Al basarse en el protocolo I2C el display comparte las mismas lineas SCL y SDA que el sensor BMP280. 
+
 \begin{center}
   \includegraphics[scale=1]{schematics/conexionado_display}
     \captionof{figure}{Conexionado display.}
@@ -298,6 +309,7 @@ Para el desarrollo de este modulo se utilizó el framework ESP-IDF y la bibliote
 \end{center}
 
 
+El desarrollo de este modulo se baso en el ejemplo provisto en el enlace \cite{ESP32_Display_Example}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_display}.
 
 
 \section{Arquitectura de hardware}
@@ -313,15 +325,11 @@ Para el desarrollo de este modulo se utilizó el framework ESP-IDF y la bibliote
 \end{center}
 
 
-
 \begin{center}
   \includegraphics[scale=0.75]{schematics/conexionado_completo_joystick}
     \captionof{figure}{Conexionado del joystick.}
     \label{fig:conexionado_completo_joystick}
 \end{center}
-
-
-
 
 
 \subsection{Conexionado fisico }
