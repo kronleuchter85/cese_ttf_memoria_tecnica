@@ -12,32 +12,54 @@ Esta sección presenta los diferentes prototipos realizados para determinar la v
 \section{Proceso de desarrollo y aseguramiento de calidad}
 \label{sec:pruebasHW}
 
-Para el proceso de desarrollo se utilizó TDD (Test Driven Development) con CMock, Ceedling y Unity como frameworks para abordar esto. Para la construcción de los casos de pruebas se utilizó Control Flow Test como técnica de caja blanca a fin de diseñar los tests unitarios y de integración. 
-Adicionalmente, se configuró el entorno de desarrollo basado en Docker, por lo que se extiende la imagen de Espressif y se agregó el conjunto de utilidades ESP-IDF Components como parte de la misma. Luego de versionar esta imagen en el \textit{Docker Registry} utilizado se configuró el servidor de integración continua para ejecutar las compilaciones usando esta imagen por cada push realizado.
-En la siguiente imagen se puede apreciar la infraestructura implementada para abordar el ciclo de desarrollo y despliegue. 
+Para el proceso de desarrollo se realizaron pruebas de concepto de las diferentes funcionalidades utilizando como materiales la bibligrafia encontrada en internet, las hojas de datos y los ejemplos de codigo provistos por el SDK y librerias empleadas. Una vez logrado el objetivo funcional de componente se optimizo y encapsulo cada modulo para ser integrado de manera individual a un prototipo integrador sin afectar el funcionamiento de cualquier otro modulo.
+De esta manera se desarrollo un prototipo integrador como la sumatoria de todos los modulos de forma incremental, probandose por regresion que los modulos ya integrados previamente siquieran funcionando de forma optima.
 
+Una vez logrado el prototipo integrador con todas las funcionalides de la version v1.0 se prosiguio a la expansion en hardware del mismo para crear la version v2.0 extrayendo los modulos de joystick y display -que serian posteriormente agregados al sistema embebido del joystick- e incorporando los modulos de conectividad UDP sobre WiFi.
 
-[pendiente imagen]
+Tras lograr la version v2.0 se repitio el proceso de control de calidad de los diferentes modulos ya integrados.
 
-\section{Prototipos de los diferentes modulos}
+A continuacion se detallan las diferentes pruebas realizadas 
+
+\section{Pruebas de los diferentes módulos}
 \label{sec:pruebasHW}
 
-Se suigio una metodologia basada en lograr prototipar las funcionalidades de los diferentes modulos independientes para luego integrarlas todas juntas en un prototipo integrador. En las siguientes secciones se explican los diferentes prototipos realizados.
+\subsection{Prueba del modulo de medición de temperatura y humedad}
 
+Se compararon los valores medidos por el modulo de medicion de temperatura y humedad basado en el sendor DHT11 con los obtenidos a traves de un dispositivo de medicion de temperatura y humedad. Se realizo la medicion en diferentes contextos:
 
 \begin{itemize}
-	\item Prototipo de funcionalidad de medición de temperatura y humedad.
-	\item Prototipo de funcionalidad de medición de presión.
-	\item Prototipo de funcionalidad de medición de valor de luminosidad.
-	\item Prototipo de funcionalidad de obtencion de valores analogicos del joystick.
-	\item Prototipo de funcionalidad de presentación de display.
-	\item Prototipo de funcionalidad de control de motores DC.
+	\item En el interior de una vivienda.
+	\item En el exterior un dia calido.
+	\item En el exterior un dia frio.
 \end{itemize}
 
 
+\subsection{Prueba del modulo de medición de presión}
 
-\section{Tests de los diferentes módulos}
-\label{sec:pruebasHW}
+Se compararon los valores medidos por el modulo de medicion de presion basado en el sendor BMP280 con los obtenidos a traves de un dispositivo de medicion de temperatura y humedad. Se realizo la medicion en un solo lugar con la misma altitud a nivel del mar.
+
+\subsection{Prueba del modulo de medición de valor de luminosidad}
+
+Se compararon los valores medidos por el modulo de medicion de luminosidad basado en un fotoresistor percibidos por el ojo humano sin utilizar ningun dispositivo de medicion. Se realizo la medicion en diferentes escenarios
+
+\begin{itemize}
+	\item En interiores con luz concentrada sobre el sensor.
+	\item En interiores con luz ambiental no concentrada.
+	\item En interiores con a oscuras
+	\item En el exterior un dia calido.
+	\item En el exterior un dia frio.
+\end{itemize}
+
+Los resultados mostraron que los valores porcentuales indicados por el modulo de medicion de luminosidad son consistentes con los niveles de luz detectados por el ojo humano.
+
+\subsection{Prueba del modulo de medición de obtencion de valores analogicos del joystick}
+
+\subsection{Prueba del modulo de medición de visualización de display}
+
+\subsection{Prueba del modulo de medición de control de motores DC}
+
+\subsection{Prueba del modulo de conexionado WiFi}
 
 ...
 
