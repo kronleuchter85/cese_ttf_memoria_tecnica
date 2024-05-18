@@ -21,8 +21,39 @@ Tras lograr la version v2.0 se repitio el proceso de control de calidad de los d
 
 A continuacion se detallan las diferentes pruebas realizadas 
 
-\section{Pruebas de los diferentes módulos}
-\label{sec:pruebasHW}
+\section{Verificacion tecnica de los diferentes modulos}
+
+
+Todos los modulos fueron probados mediante una inspeccion visual durante el proceso de pruebas de concepto. 
+
+
+\subsection{Verificacion del modulo de joystick}
+Se verifico visualmente que los valores del joystick analogico puedan ser leidos apropiadamente, y que sean representativos y relevantes con la direccion del movimiento de la palanca sobre sus coordenadas X e Y.
+
+\subsection{Verificacion del modulo de control del display}
+Se verifico visualmente que el display represente los caracteres programados en la prueba de concepto con una intensidad de luz aceptable para poder leerlos apropiadamente.
+
+
+\subsection{Verificacion del modulo de control de motores}
+Se verifico visualmente que individualmente el motor pudiera girar en ambos sentidos. Luego, al implementarse los cuatro motores con sus ruedas, se probo que se pueda realizar los giros en todas las direcciones.
+
+\subsection{Verificacion del modulo de medicion de temperatura y humedad}
+Se verifico visualmente que los valores obtenidos por el sensor DHT11 fueran cercanos a lo esperado en relacion a la temperatura en el interior del lugar de experimentacion y la humedad en un valor cercano a lo reportado en Google.
+
+\subsection{Verificacion del modulo de medicion de presion atmosferica}
+Se verifico visualmente que el valor obtenido por el sensor BMP280 fuera cercano a lo esperado en relacion al valor reportado por Google.
+
+
+\subsection{Verificacion del modulo de medicion de luminosidad}
+Se verifico visualmente que los valores obtenidos del fotorresistor, tras ser transformados a valores absolutos porcentuales, guarden relacion con el nivel de luminosidad ambiental del interior de lugar de experimentacion.
+
+
+\subsection{Verificacion del modulo de comunicacion UTP sobre WiFi}
+Por medio de un dos programas UDP, uno cliente y uno servidor, se probo el establecimiento de la comunicacion UDP entre dos ESP32. Luego se incorporo el servicio de comunicaciones UDP en el robot y mientras que desde el programa cliente se enviaban las acciones representando las direcciones del movimiento a realizar (FORWARD, BACKWARD, LEFT, RIGHT) y se observo visualmente como el robot giraba sus ruedas en funcion de los comandos enviados. Finalmente se incorporo el modulo de comunicaciones en el joystick para enviar los comandos al robot cuando se realizaba dicho 
+
+
+\section{Pruebas funcionales del producto}
+
 
 \subsection{Prueba del modulo de medición de temperatura y humedad}
 
@@ -39,7 +70,7 @@ Se compararon los valores medidos por el modulo de medicion de temperatura y hum
 
 Se compararon los valores medidos por el modulo de medicion de presion basado en el sendor BMP280 con los obtenidos a traves de un dispositivo de medicion de temperatura y humedad. Se realizo la medicion en un solo lugar con la misma altitud a nivel del mar.
 
-\subsection{Prueba del modulo de medición de valor de luminosidad}
+\subsection{Prueba del modulo de medición de luminosidad ambiental}
 
 Se compararon los valores medidos por el modulo de medicion de luminosidad basado en un fotoresistor percibidos por el ojo humano sin utilizar ningun dispositivo de medicion. Se realizo la medicion en diferentes escenarios
 
@@ -53,35 +84,36 @@ Se compararon los valores medidos por el modulo de medicion de luminosidad basad
 
 Los resultados mostraron que los valores porcentuales indicados por el modulo de medicion de luminosidad son consistentes con los niveles de luz detectados por el ojo humano.
 
-\subsection{Prueba del modulo de medición de obtencion de valores analogicos del joystick}
+\subsection{Prueba del control y desplazamiento del robot}
 
-\subsection{Prueba del modulo de medición de visualización de display}
+Se verifico el control y desplazamiento del robot de forma visual por medio de accionar el joystick en las diferentes coordenadas (X;Y) y controlar que la direccion del movimiento del robot sea acorde a las mismas.
 
-\subsection{Prueba del modulo de medición de control de motores DC}
 
-\subsection{Prueba del modulo de conexionado WiFi}
+\subsection{Prueba del modulo de visualización de display}
 
-...
+Se verifico el funcionamiento del display visualizando las lecturas de los valores sensados y transmitidos por el robot. Se verifico que 
 
-\section{Tests del producto final}
-\label{sec:pruebasHW}
-
-...
+\begin{itemize}
+	\item las lecturas sean nitidas y entendibles
+	\item las unidades de medida esten presentes
+	\item haya un detalle de lo que se esta midiendo acompaniando las lecturas y la unidad de medida
+	\item el nivel de luminosidad sea optimo para permitir la lectura independientemente de la iluminacion ambiental
+	\item se presenten las lecturas de todos los valores observados 
+\end{itemize}
 
 \section{Reportes de testing}
-\label{sec:pruebasHW}
 
 ...
 
-\section{Verificacion y validacion del producto}
-\label{sec:pruebasHW}
-
-...
 
 \section{Documentacion del producto }
-\label{sec:pruebasHW}
 
-...
+Se desarrollo la documentacion del producto compuesta de los siguientes entregables
+\begin{itemize}
+	\item Documentacion tecnica
+	\item Manual de usuario
+\end{itemize}
+
 
 
 
