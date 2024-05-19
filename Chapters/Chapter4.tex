@@ -49,7 +49,7 @@ Se verifico visualmente que los valores obtenidos del fotorresistor, tras ser tr
 
 
 \subsection{Verificacion del modulo de comunicacion UTP sobre WiFi}
-Por medio de un dos programas UDP, uno cliente y uno servidor, se probo el establecimiento de la comunicacion UDP entre dos ESP32. Luego se incorporo el servicio de comunicaciones UDP en el robot y mientras que desde el programa cliente se enviaban las acciones representando las direcciones del movimiento a realizar (FORWARD, BACKWARD, LEFT, RIGHT) y se observo visualmente como el robot giraba sus ruedas en funcion de los comandos enviados. Finalmente se incorporo el modulo de comunicaciones en el joystick para enviar los comandos al robot cuando se realizaba dicho 
+Por medio de un dos programas UDP, uno cliente y uno servidor, se probo el establecimiento de la comunicacion UDP entre dos ESP32. Luego se incorporo el servicio de comunicaciones UDP en el robot y mientras que desde el programa cliente se enviaban las acciones representando las direcciones del movimiento a realizar (FORWARD, BACKWARD, LEFT, RIGHT) y se observo visualmente como el robot giraba sus ruedas en funcion de los comandos enviados. Finalmente se incorporo el modulo de comunicaciones en el joystick para enviar los comandos al robot cuando se realizaba dicho
 
 
 \section{Pruebas funcionales del producto}
@@ -61,14 +61,50 @@ Se compararon los valores medidos por el modulo de medicion de temperatura y hum
 
 \begin{itemize}
 	\item En el interior de una vivienda.
-	\item En el exterior un dia calido.
-	\item En el exterior un dia frio.
+	\item En el exterior durante el dia.
+	\item En el exterior durante la noche.
 \end{itemize}
 
+En la siguiente tabla se pueden apreciar los resultados.
+
+\begin{table}[h]
+\centering
+\caption[Resultados de mediciones de temperatura y humedad]{Resultados de mediciones de temperatura y humedad}
+\begin{tabular}{l c c c c}
+\toprule
+\textbf{Contexto} & \textbf{Temp. Robot} & \textbf{Temp. Ref.} & \textbf{Hume. Robot}  & \textbf{Hume. Ref.}\\
+\midrule
+Interior & 22.0 & 23.6 & 44.0 - 45.0 & 58.5 \\
+Exterior (dia) & 17.0  & 14.0 & 47.0 - 53.0 & 62.9 - 64.0 \\
+Exterior (noche) & - & - & - & - \\
+\bottomrule
+\hline
+\end{tabular}
+\end{table}
+
+En el siguiente video se puede apreciar el experimento \cite{Video_Prueba_TempHum}.
 
 \subsection{Prueba del modulo de medición de presión}
 
-Se compararon los valores medidos por el modulo de medicion de presion basado en el sendor BMP280 con los obtenidos a traves de un dispositivo de medicion de temperatura y humedad. Se realizo la medicion en un solo lugar con la misma altitud a nivel del mar.
+Se compararon los valores medidos por el modulo de medicion de presion basado en el sendor BMP280 con los obtenidos a traves de un dispositivo marometro digital. Se realizo la medicion en el interior de la vivienda dos dias distintos.
+
+En la siguiente tabla pueden apreciarse los resultados obtenidos:
+
+\begin{table}[h]
+\centering
+\caption[Resultados de mediciones de presion ambiental]{Resultados de mediciones de presion ambiental}
+\begin{tabular}{l c c}
+\toprule
+\textbf{Contexto} & \textbf{Presion. Robot} & \textbf{Presion. Ref.} \\
+\midrule
+Dia 1 & 1013 & 1018.9 \\
+Dia 2 & 1003.9 & 998 \\
+\bottomrule
+\hline
+\end{tabular}
+\end{table}
+
+En el siguiente video se puede apreciar el experimento \cite{Video_Prueba_Presion}.
 
 \subsection{Prueba del modulo de medición de luminosidad ambiental}
 
@@ -78,20 +114,27 @@ Se compararon los valores medidos por el modulo de medicion de luminosidad basad
 	\item En interiores con luz concentrada sobre el sensor.
 	\item En interiores con luz ambiental no concentrada.
 	\item En interiores con a oscuras
-	\item En el exterior un dia calido.
-	\item En el exterior un dia frio.
+	\item En el exterior de dia.
+	\item En el exterior de noche.
 \end{itemize}
 
-Los resultados mostraron que los valores porcentuales indicados por el modulo de medicion de luminosidad son consistentes con los niveles de luz detectados por el ojo humano.
+Los resultados mostraron que los valores porcentuales indicados por el modulo de medicion de luminosidad son consistentes con los niveles de luz detectados por el ojo humano. En el siguiente video se puede apreciar el experimento \cite{Video_Prueba_Luminosidad}.
 
 \subsection{Prueba del control y desplazamiento del robot}
 
-Se verifico el control y desplazamiento del robot de forma visual por medio de accionar el joystick en las diferentes coordenadas (X;Y) y controlar que la direccion del movimiento del robot sea acorde a las mismas.
+Se verifico el control del desplazamiento del robot de forma visual por medio de accionar el joystick en las diferentes coordenadas (X;Y) y se controlo que:
+
+\begin{itemize}
+	\item la direccion del movimiento del robot sea acorde al accionamiento del joystick
+	\item el tiempo de respuesta en el movimiento del robot y tras accionar del joystick sea minimo, permitiendo una buena experiencia de usuario
+\end{itemize}
+
+En el siguiente video puede apreciarse dicho experimento \cite{Video_Prueba_Movimiento}. 
 
 
 \subsection{Prueba del modulo de visualización de display}
 
-Se verifico el funcionamiento del display visualizando las lecturas de los valores sensados y transmitidos por el robot. Se verifico que 
+Se verifico el funcionamiento del display visualizando las lecturas de los valores sensados y transmitidos por el robot. Se controlo que: 
 
 \begin{itemize}
 	\item las lecturas sean nitidas y entendibles
@@ -100,6 +143,8 @@ Se verifico el funcionamiento del display visualizando las lecturas de los valor
 	\item el nivel de luminosidad sea optimo para permitir la lectura independientemente de la iluminacion ambiental
 	\item se presenten las lecturas de todos los valores observados 
 \end{itemize}
+
+En el siguiente video se puede apreciar el experimento \cite{Video_Prueba_Visualizacion_Display}.
 
 \section{Reportes de testing}
 
