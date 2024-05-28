@@ -10,32 +10,32 @@
 % parámetros para configurar el formato del código en los entornos lstlisting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lstset{ %
-  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
-  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
-  breaklines=true,                 % sets automatic line breaking
-  captionpos=b,                    % sets the caption-position to bottom
-  commentstyle=\color{mygreen},    % comment style
-  deletekeywords={...},            % if you want to delete keywords from the given language
-  %escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
-  %extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-  %frame=single,	                % adds a frame around the code
-  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-  keywordstyle=\color{blue},       % keyword style
-  language=[ANSI]C,                % the language of the code
-  %otherkeywords={*,...},           % if you want to add more keywords to the set
-  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
-  numbersep=5pt,                   % how far the line-numbers are from the code
-  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
-  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
-  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
-  showstringspaces=false,          % underline spaces within strings only
-  showtabs=false,                  % show tabs within strings adding particular underscores
-  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
-  stringstyle=\color{mymauve},     % string literal style
-  tabsize=2,	                   % sets default tabsize to 2 spaces
-  title=\lstname,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
-  morecomment=[s]{/*}{*/}
+ backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+ basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+ breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+ breaklines=true,                 % sets automatic line breaking
+ captionpos=b,                    % sets the caption-position to bottom
+ commentstyle=\color{mygreen},    % comment style
+ deletekeywords={...},            % if you want to delete keywords from the given language
+ %escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+ %extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+ %frame=single,	                % adds a frame around the code
+ keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+ keywordstyle=\color{blue},       % keyword style
+ language=[ANSI]C,                % the language of the code
+ %otherkeywords={*,...},           % if you want to add more keywords to the set
+ numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+ numbersep=5pt,                   % how far the line-numbers are from the code
+ numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+ rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+ showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+ showstringspaces=false,          % underline spaces within strings only
+ showtabs=false,                  % show tabs within strings adding particular underscores
+ stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+ stringstyle=\color{mymauve},     % string literal style
+ tabsize=2,	                   % sets default tabsize to 2 spaces
+ title=\lstname,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
+ morecomment=[s]{/*}{*/}
 }
 
 
@@ -45,43 +45,43 @@
 
 Esta sección presenta los detalles técnicos del diseño e implementación de las diferentes funcionalidades del producto, la arquitectura hardware y software, y finalmente la interfaz de usuario para el control y reporte de las operaciones del robot.
 
-El proyecto fue realizado siguiendo una metodologia basada en crear un prototipo funcional con una arquitectura escalable que cumpla con alcance basico especificado en el plan de proyecto, y una vez conseguido agregar en lo posible y de acuerdo a la capacidad, funcionalidades adicionales.
-De esta forma, una vez que se logro el alcance basico, considerado como la version v1.0 del producto, se continuo con el desarrollo y se agrego la funcionalidad adicional de control inalambrico por medio de un joystick, en lo que se considera la version v2.0 del mismo.
+El proyecto fue realizado siguiendo una metodología basada en crear un prototipo funcional con una arquitectura escalable que cumpla con alcance básico especificado en el plan de proyecto, y una vez conseguido agregar en lo posible y de acuerdo a la capacidad, funcionalidades adicionales.
+De esta forma, una vez que se logró el alcance básico, considerado como la versión v1.0 del producto, se continuó con el desarrollo y se agregó la funcionalidad adicional de control inalámbrico por medio de un joystick, en lo que se considera la versión v2.0 del mismo.
 
-En las siguientes sub secciones se detallan los detalles del disenio e implementacion realizados para ambas versiones.
+En las siguientes sub secciones se detallan los detalles del diseño e implementación realizados para ambas versiones.
 
 
 
 \section{Arquitectura de software del sistema}
 
-Con el fin de poder lograr una arquitectura de software modular, se implementaron diferentes componentes software y servicios que abstraen el acceso a los modulos de hardware (explicados en la siguiente seccion) y permitieron un escalamiento facil de funcionalidades en la expancion de las funcionalidades del robot entre su version v1.0 y la v2.0.
+Con el fin de poder lograr una arquitectura de software modular, se implementaron diferentes componentes software y servicios que abstraen el acceso a los módulos de hardware (explicados en la siguiente sección) y permite un escalamiento fácil de funcionalidades en la expansión de las funcionalidades del robot entre su versión v1.0 y la v2.0.
 
 
-\subsection{Arquitectura y disenio de componentes en la version v1.0}
+\subsection{Arquitectura y diseño de componentes en la versión v1.0}
 
-A continuacion podemos apreciar la arquitectura de software del sistema en su version v1.0 y el detalle de sus componentes y servicios.
+A continuación podemos apreciar la arquitectura de software del sistema en su versión v1.0 y el detalle de sus componentes y servicios.
 
 \begin{center}
-  \includegraphics[scale=0.75]{software/arquitectura_software_global_v1}
-    \captionof{figure}{Arquitectura global.}
-    \label{fig:arquitectura_software_global}
+ \includegraphics[scale=0.75]{software/arquitectura_software_global_v1}
+   \captionof{figure}{Arquitectura global.}
+   \label{fig:arquitectura_software_global}
 
 \end{center}
 
 
-Los componentes y servicios de software del Robot en la version v1 son los siguientes:
+Los componentes y servicios de software del Robot en la versión v1 son los siguientes:
 
 \begin{enumerate}	
 	\item Componentes de software
 	\begin{enumerate}			
-		\item main-core: orquesta las diferentes tareas desde las que se invocan los demas componentes de software.
-		\item Measuring Service: abstrae el acceso a los modulos de medicion de temperatura, humedad, presion y luminosidad.
-		\item Measuring State: mantiene el estado de cada uno de los parametros ambientales medidos.
+		\item main-core: orquesta las diferentes tareas desde las que se invocan los demás componentes de software.
+		\item Measuring Service: abstrae el acceso a los módulos de medición de temperatura, humedad, presión y luminosidad.
+		\item Measuring State: mantiene el estado de cada uno de los parámetros ambientales medidos.
 		\item Robot Position State: mantiene el estado del movimiento actual del robot.
-		\item ADC Service: abstrae el acceso a los modulos que hacen uso de los canales que requieren conversiones ADC (Analogico/Digital), como el joystick analogico y el fotoresistor. 
-		\item Motors Service: abstrae el acceso al modulo de control de motores.
-		\item Display Service: abstrae el acceso al modulo de control del display mediante Ic2.
-		\item Joystick Service: abstrae el acceso al modulo de control del joystick.
+		\item ADC Service: abstrae el acceso a los módulos que hacen uso de los canales que requieren conversiones ADC (Analogico/Digital), como el joystick analógico y el fotoresistor.
+		\item Motors Service: abstrae el acceso al módulo de control de motores.
+		\item Display Service: abstrae el acceso al módulo de control del display mediante Ic2.
+		\item Joystick Service: abstrae el acceso al módulo de control del joystick.
 	\end{enumerate}	
 	\item Servicios (tareas)
 	\begin{enumerate}				
@@ -92,14 +92,14 @@ Los componentes y servicios de software del Robot en la version v1 son los sigui
 	\end{enumerate}			
 \end{enumerate}		
 
-\subsection{Arquitectura y disenio de componentes en la version v2.0}
+\subsection{Arquitectura y diseño de componentes en la versión v2.0}
 
-Luego de expandir su funcionalidad, los componentes y servicios de software se separaron fisicamente en el hardware del robot y el del joystick, agregandose ademas los necesarios para la comunicacion inalambrica. A continuacion podemos apreciar la arquitectura de software del sistema en su version v2.0 y el detalle de sus componentes y servicios.
+Luego de expandir su funcionalidad, los componentes y servicios de software se separaron físicamente en el hardware del robot y el del joystick, agregando además los necesarios para la comunicación inalámbrica. A continuación podemos apreciar la arquitectura de software del sistema en su versión v2.0 y el detalle de sus componentes y servicios.
 
 \begin{center}
-  \includegraphics[scale=0.75]{software/arquitectura_software_global_v2}
-    \captionof{figure}{Arquitectura global.}
-    \label{fig:arquitectura_software_global}
+ \includegraphics[scale=0.75]{software/arquitectura_software_global_v2}
+   \captionof{figure}{Arquitectura global.}
+   \label{fig:arquitectura_software_global}
 
 \end{center}
 
@@ -144,43 +144,43 @@ Los componentes de software y servicios del joystick son:
 	\end{enumerate}			
 \end{enumerate}		
 
-\section{Implementacion de los modulos}
+\section{Implementación de los módulos}
 
-Los macro componentes de hardware presentes en la arquitectura de la version v2.0 son el robot y el joystick, los cuales constituyen dos sistemas embebidos independientes implementados con dos microcontroladores ESP32, integrados entre si por medio de una red WiFi y una comunicacion UDP. Los modulos hardware desarrollados son los siguientes.La arquitectura de hardware del sistema esta compuesta por los siguientes modulos:
+Los macro componentes de hardware presentes en la arquitectura de la versión v2.0 son el robot y el joystick, los cuales constituyen dos sistemas embebidos independientes implementados con dos microcontroladores ESP32, integrados entre sí por medio de una red WiFi y una comunicación UDP. Los modulos hardware desarrollados son los siguientes.La arquitectura de hardware del sistema esta compuesta por los siguientes módulos:
 
 
 \begin{itemize}
 	\item En el robot:
 	\begin{itemize}
 		\item Control de los motores DC.	
-		\item Control de los sensores de medicion (DHT11, BMP280 y fotoresistor).
-		\item Gestion de la  comunicacion inalambrica via WIFI (en la version v2.0).
+		\item Control de los sensores de medición (DHT11, BMP280 y fotoresistor).
+		\item Gestión de la  comunicación inalámbrica vía WIFI (en la versión v2.0).
 	\end{itemize}
 	\item En el joystick:
 	\begin{itemize}
 		\item Control del display.
 		\item Control del joystick.
-		\item Gestion de la  comunicacion inalambrica via WIFI (en la version v2.0).
+		\item Gestión de la  comunicación inalámbrica vía WIFI (en la versión v2.0).
 	\end{itemize}
 \end{itemize}
 
-La integracion de los mismos se realizo mediante el disenio y contruccion de una placa integradora central, que conecta los dispositivos hardware con el microcontrolador ESP-32.
+La integración de los mismos se realizó mediante el diseño y construcción de una placa integradora central, que conecta los dispositivos hardware con el microcontrolador ESP-32.
 
 
 \subsection{Control de la red WIFI}
 
-El modulo de red WiFi esta integrado en el chip ESP32 en el cual se soportan multiples features \cite{ESP32_WiFi} por lo cual a nivel hardware no fue necesario realizar ningun conexionado. 
-A nivel software, la gestion del modulo WiFi se encuentra incluida en el SDK ESP-IDF, y el acceso al mismo se realiza desde el modulo ADC 2 \cite{ESP32_adc}. Por este motivo, cuando el sistema embebido utiliza el modulo WiFi, el uso del ADC2 queda restringido a esta funcionalidad por lo cual cualquier otro dispositivo que deba hacer uso del ADC debe ser configurado para utilizar el ADC1, como por ejemplo los modulos de joystick y deteccion de luminosidad, explicados en las siguientes secciones.
+El módulo de red WiFi está integrado en el chip ESP32 en el cual se soportan múltiples features \cite{ESP32_WiFi} por lo cual a nivel hardware no fue necesario realizar ningún conexionado.
+A nivel software, la gestión del módulo WiFi se encuentra incluida en el SDK ESP-IDF, y el acceso al mismo se realiza desde el módulo ADC 2 \cite{ESP32_adc}. Por este motivo, cuando el sistema embebido utiliza el módulo WiFi, el uso del ADC2 queda restringido a esta funcionalidad por lo cual cualquier otro dispositivo que deba hacer uso del ADC debe ser configurado para utilizar el ADC1, como por ejemplo los módulos de joystick y detección de luminosidad, explicados en las siguientes secciones.
 
-La configuracion del \textit{soft access point WiFi} implementado se realizo en base a los parametros de red detallados en la siguiente tabla  \ref{tab:configuracion_wifi}: 
+La configuración del \textit{soft access point WiFi} implementado se realizó en base a los parámetros de red detallados en la siguiente tabla  \ref{tab:configuracion_wifi}:
 
 \vspace{0.5cm}
 \begin{table}[h]
 \centering
-\caption[Configuracion de AP WiFi]{Configuracion de AP WiFi}
+\caption[Configuración de AP WiFi]{Configuración de AP WiFi}
 \begin{tabular}{l c c}
 \toprule
-\textbf{Parametro} & \textbf{Valor} \\
+\textbf{Parámetro} & \textbf{Valor} \\
 \midrule
 SSID & Robot  \\
 password & Robot  \\
@@ -188,14 +188,14 @@ password & Robot  \\
 \hline
 \end{tabular}
 \label{tab:configuracion_wifi}
-\end{table}  
+\end{table} 
 
 
-El desarrollo de este modulo se baso en el ejemplo provisto por Espressif \cite{ESP32_WiFi_SoftAP}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_WiFi}.
+El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cite{ESP32_WiFi_SoftAP}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_WiFi}.
 
 
 \subsection{Control del joystick analogico}
-Para el desarrollo de este prototipo se utilizó el SDK ESP-IDF y se configuro el modulo ADC1 de acuerdo a los siguientes detalles en la tabla \ref{fig:conexionado_joystick}:
+Para el desarrollo de este prototipo se utilizó el SDK ESP-IDF y se configuró el módulo ADC1 de acuerdo a los siguientes detalles en la tabla \ref{fig:conexionado_joystick}:
 
 \vspace{0.5cm}
 \begin{table}[h]
@@ -213,12 +213,12 @@ Para el desarrollo de este prototipo se utilizó el SDK ESP-IDF y se configuro e
 \label{tab:conexionado_joystick}
 \end{table}
 
-A continuación se puede apreciar el conexionado fisico en la figura \ref{fig:conexionado_joystick}.
+A continuación se puede apreciar el conexionado físico en la figura \ref{fig:conexionado_joystick}.
 
 \begin{center}
-  \includegraphics[scale=1]{schematics/conexionado_joystick}
-    \captionof{figure}{Conexionado joystick.}
-    \label{fig:conexionado_joystick}
+ \includegraphics[scale=1]{schematics/conexionado_joystick}
+   \captionof{figure}{Conexionado joystick.}
+   \label{fig:conexionado_joystick}
 \end{center}
 
 
@@ -226,7 +226,7 @@ El desarrollo de este modulo se baso en el ejemplo provisto por Espressif \cite{
 
 
 \subsection{Medición de valor de luminosidad}
-Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configuro el modulo ADC1 de acuerdo a los detalles provistos en la siguiente tabla \ref{tab:conexionado_fotoresistor} 
+Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configuró el módulo ADC1 de acuerdo a los detalles provistos en la siguiente tabla \ref{tab:conexionado_fotoresistor}
 
 \vspace{0.5cm}
 \begin{table}[h]
@@ -243,15 +243,15 @@ Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configur
 \label{tab:conexionado_fotoresistor}
 \end{table}
 
-A continuacion se puede apreciar un diagrama de su conexionado fisico en la figura \ref{fig:conexionado_fotoresistor}.
+A continuación se puede apreciar un diagrama de su conexionado físico en la figura \ref{fig:conexionado_fotoresistor}.
 
 \begin{center}
-  \includegraphics[scale=1]{schematics/conexionado_fotoresistor}
-    \captionof{figure}{Conexionado fotorresistor.}
-    \label{fig:conexionado_fotoresistor}
+ \includegraphics[scale=1]{schematics/conexionado_fotoresistor}
+   \captionof{figure}{Conexionado fotorresistor.}
+   \label{fig:conexionado_fotoresistor}
 \end{center}
 
-El desarrollo de este modulo se baso en el ejemplo provisto por Espressif \cite{ESP32_ADC1_Example}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_photoresistor}.
+El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cite{ESP32_ADC1_Example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_photoresistor}.
 
 \subsection{Medición de temperatura y humedad}
 
@@ -259,94 +259,97 @@ Para el desarrollo de este modulo se utilizó la biblioteca de código ESP-IDF-L
 A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_dht11}.
 
 \begin{center}
-  \includegraphics[scale=1]{schematics/conexionado_dht11}
-    \captionof{figure}{Circuito del conexionado DHT11.}
-    \label{fig:conexionado_dht11}
+ \includegraphics[scale=1]{schematics/conexionado_dht11}
+   \captionof{figure}{Circuito del conexionado DHT11.}
+   \label{fig:conexionado_dht11}
 \end{center}
 
-El desarrollo de este modulo se baso en el ejemplo provisto por la libreria ESP-IDF-Lib \cite{ESP32_dht11_example}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_dht11}.
+El desarrollo de este módulo se basó en el ejemplo provisto por la librería ESP-IDF-Lib \cite{ESP32_dht11_example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_dht11}.
 
 \subsection{Medición de presión}
-Para el desarrollo de este modulo se utilizó el framework ESP-IDF y la biblioteca de código ESP-IDF Components que provee el soporte para gestionar el dispositivo BMP280 por medio del protocolo I2C. El driver es inicializado en el componente main-core para ser posteriormente invocado desde el Measuring Service en la tarea Measuring Task. Sus lecturas son guardadas en el Measuring State. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_bmp280}.
-  
-  
+Para el desarrollo de este módulo se utilizó el framework ESP-IDF y la biblioteca de código ESP-IDF Components que provee el soporte para gestionar el dispositivo BMP280 por medio del protocolo I2C. El driver es inicializado en el componente main-core para ser posteriormente invocado desde el Measuring Service en la tarea Measuring Task. Sus lecturas son guardadas en el Measuring State. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_bmp280}.
+ 
 \begin{center}
-  \includegraphics[scale=1]{schematics/conexionado_bmp280}
-    \captionof{figure}{Conexionado BMP280.}
-    \label{fig:conexionado_bmp280}
+ \includegraphics[scale=1]{schematics/conexionado_bmp280}
+   \captionof{figure}{Conexionado BMP280.}
+   \label{fig:conexionado_bmp280}
 \end{center}
 
-El desarrollo de este modulo se baso en el ejemplo provisto por la libreria ESP-IDF-Lib \cite{ESP32_bmp280_example}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_bmp280}.
+El desarrollo de este módulo se basó en el ejemplo provisto por la librería ESP-IDF-Lib \cite{ESP32_bmp280_example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_bmp280}.
 
 
 \subsection{Control de motores DC}
 
-Para la implementacion del modulo de control de los motores de corriente continua se utilizaron a nivel hardware dos modulos puentes L298N \cite{L298N} que permiten integrar y controlar dos motores cada uno. Con el fin de alimentar los modulos con una fuente de poder de amperaje y voltaje consistente se utilizaron dos baterias de Li-Ion de 3.7 V y 2000 mA/h conectadas en serie activadas mediante un interruptor.
-A nivel driver en el ESP32 se utilizo el modulo de control de motores por modulacion de pulsos (MCPWM) \cite{ESP32_MCPWM} que por medio de la configuracion de sus unidades y del duty cycle \cite{ESP32_MCPWM_2} se puede controlar el sentido y velocidad de rotacion de los motores. 
-Los puentes L298N brindan ademas una tension de salida de 5 V, y esto fue utilizado para la alimentacion del ESP32 conectandolo su pin Vin.
+Para la implementación del módulo de control de los motores de corriente continua se utilizaron a nivel hardware dos módulos puentes L298N \cite{L298N} que permiten integrar y controlar dos motores cada uno. Con el fin de alimentar los módulos con una fuente de poder de amperaje y voltaje consistente se utilizaron dos baterías de Li-Ion de 3.7 V y 2000 mA/h conectadas en serie activadas mediante un interruptor.
+A nivel driver en el ESP32 se utilizó el módulo de control de motores por modulación de pulsos (MCPWM) \cite{ESP32_MCPWM} que por medio de la configuración de sus unidades y del duty cycle \cite{ESP32_MCPWM_2} se puede controlar el sentido y velocidad de rotación de los motores.
+Los puentes L298N brindan además una tensión de salida de 5V, y esto fue utilizado para la alimentación del ESP32 conectando su pin Vin.
 
-En el siguiente diagrama puede apreciarse el conexionado logico para el control de los motores con los componentes mencionados.
+En el siguiente diagrama puede apreciarse el conexionado lógico para el control de los motores con los componentes mencionados.
 
 \begin{center}
-  \includegraphics[scale=1]{schematics/conexionado_motores}
-    \captionof{figure}{Conexionado motores.}
-    \label{fig:conexionado_motores}
+ \includegraphics[scale=1]{schematics/conexionado_motores}
+   \captionof{figure}{Conexionado motores.}
+   \label{fig:conexionado_motores}
 \end{center}
 
-El desarrollo de este modulo se baso en el ejemplo provisto por Espressif \cite{ESP32_MCPWM_example}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_motor_MCPWM}.
+El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cite{ESP32_MCPWM_example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_motor_MCPWM}.
 
 
 
 \subsection{Control del display}
 
-Para la implementacion del modulo de visualizacion de valores observados se integro un display de dos lineas y diesiseis caracteres LCM1602A por medio de un driver I2C que facilita su control. Al basarse en el protocolo I2C el display comparte las mismas lineas SCL y SDA que el sensor BMP280. 
+Para la implementación del módulo de visualización de valores observados se integró un display de dos líneas y dieciséis caracteres LCM1602A por medio de un driver I2C que facilita su control. Al basarse en el protocolo I2C el display comparte las mismas líneas SCL y SDA que el sensor BMP280.
 
 \begin{center}
-  \includegraphics[scale=1]{schematics/conexionado_display}
-    \captionof{figure}{Conexionado display.}
-    \label{fig:conexionado_display}
+ \includegraphics[scale=1]{schematics/conexionado_display}
+   \captionof{figure}{Conexionado display.}
+   \label{fig:conexionado_display}
 
 \end{center}
 
 
-El desarrollo de este modulo se baso en el ejemplo provisto en el enlace \cite{ESP32_Display_Example}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_display}.
+El desarrollo de este módulo se basó en el ejemplo provisto en el enlace \cite{ESP32_Display_Example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_display}.
 
 
 \section{Arquitectura de hardware}
 
 
-\subsection{Conexionado logico }
+\subsection{Conexionado lógico }
 
 
 \begin{center}
-  \includegraphics[scale=0.75]{schematics/conexionado_completo_robot}
-    \captionof{figure}{Conexionado del robot.}
-    \label{fig:conexionado_completo_robot}
+ \includegraphics[scale=0.75]{schematics/conexionado_completo_robot}
+   \captionof{figure}{Conexionado del robot.}
+   \label{fig:conexionado_completo_robot}
 \end{center}
 
 
 \begin{center}
-  \includegraphics[scale=0.75]{schematics/conexionado_completo_joystick}
-    \captionof{figure}{Conexionado del joystick.}
-    \label{fig:conexionado_completo_joystick}
+ \includegraphics[scale=0.75]{schematics/conexionado_completo_joystick}
+   \captionof{figure}{Conexionado del joystick.}
+   \label{fig:conexionado_completo_joystick}
 \end{center}
 
 
 
 
 
-\subsection{Conexionado fisico del robot}
+\subsection{Conexionado físico del robot}
 
 \begin{center}
-  \includegraphics[scale=0.6]{schematics/conexionado_fisico}
-    \captionof{figure}{Conexionado fisico del robot.}
-    \label{fig:conexionado_fisico}
+ \includegraphics[scale=0.6]{schematics/conexionado_fisico}
+   \captionof{figure}{Conexionado físico del robot.}
+   \label{fig:conexionado_fisico}
 \end{center}
 
 
 
 \section{Ciclo de desarrollo}
 
-Durante el ciclo de desarrollo se utilizaron las herramientas explicadas en el capitulo anterior, y se creo por cada prototipo una imagen Docker extendiendo la de espressif/idf \cite{Espressif_docker_image}. El proceso de compilacion y despliegue esta explicado en la documentacion tecnica del producto \cite{Robot_Tecnical_doc}.
+Durante el ciclo de desarrollo se utilizaron las herramientas explicadas en el capítulo anterior, y se creó por cada prototipo una imagen Docker extendiendo la de espressif/idf \cite{Espressif_docker_image}. El proceso de compilación y despliegue está explicado en la documentación técnica del producto \cite{Robot_Tecnical_doc}.
+
+
+
+
 
 

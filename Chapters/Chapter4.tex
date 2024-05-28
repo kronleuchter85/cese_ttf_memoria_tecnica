@@ -12,56 +12,56 @@ Esta sección presenta los diferentes prototipos realizados para determinar la v
 \section{Proceso de desarrollo y aseguramiento de calidad}
 \label{sec:pruebasHW}
 
-Para el proceso de desarrollo se realizaron pruebas de concepto de las diferentes funcionalidades utilizando como materiales la bibligrafia encontrada en internet, las hojas de datos y los ejemplos de codigo provistos por el SDK y librerias empleadas. Una vez logrado el objetivo funcional de componente se optimizo y encapsulo cada modulo para ser integrado de manera individual a un prototipo integrador sin afectar el funcionamiento de cualquier otro modulo.
-De esta manera se desarrollo un prototipo integrador como la sumatoria de todos los modulos de forma incremental, probandose por regresion que los modulos ya integrados previamente siquieran funcionando de forma optima.
+Para el proceso de desarrollo se realizaron pruebas de concepto de las diferentes funcionalidades utilizando como materiales la bibliografía encontrada en internet, las hojas de datos y los ejemplos de código provistos por el SDK y librerías empleadas. Una vez logrado el objetivo funcional de componente se optimizó y encapsuló cada módulo para ser integrado de manera individual a un prototipo integrador sin afectar el funcionamiento de cualquier otro módulo.
+De esta manera se desarrolló un prototipo integrador como la sumatoria de todos los módulos de forma incremental, probándose por regresión que los módulos ya integrados previamente siguieran funcionando de forma óptima.
 
-Una vez logrado el prototipo integrador con todas las funcionalides de la version v1.0 se prosiguio a la expansion en hardware del mismo para crear la version v2.0 extrayendo los modulos de joystick y display -que serian posteriormente agregados al sistema embebido del joystick- e incorporando los modulos de conectividad UDP sobre WiFi.
+Una vez logrado el prototipo integrador con todas las funcionalidades de la versión v1.0 se prosiguió a la expansión en hardware del mismo para crear la versión v2.0 extrayendo los módulos de joystick y display -que serían posteriormente agregados al sistema embebido del joystick- e incorporando los módulos de conectividad UDP sobre WiFi.
 
-Tras lograr la version v2.0 se repitio el proceso de control de calidad de los diferentes modulos ya integrados.
+Tras lograr la versión v2.0 se repite el proceso de control de calidad de los diferentes módulos ya integrados.
 
-A continuacion se detallan las diferentes pruebas realizadas 
+A continuación se detallan las diferentes pruebas realizadas
 
-\section{Verificacion tecnica de los diferentes modulos}
-
-
-Todos los modulos fueron probados mediante una inspeccion visual durante el proceso de pruebas de concepto. 
+\section{Verificación técnica de los diferentes módulos}
 
 
-\subsection{Verificacion del modulo de joystick}
-Se verifico visualmente que los valores del joystick analogico puedan ser leidos apropiadamente, y que sean representativos y relevantes con la direccion del movimiento de la palanca sobre sus coordenadas X e Y.
-
-\subsection{Verificacion del modulo de control del display}
-Se verifico visualmente que el display represente los caracteres programados en la prueba de concepto con una intensidad de luz aceptable para poder leerlos apropiadamente.
+Todos los módulos fueron probados mediante una inspección visual durante el proceso de pruebas de concepto.
 
 
-\subsection{Verificacion del modulo de control de motores}
-Se verifico visualmente que individualmente el motor pudiera girar en ambos sentidos. Luego, al implementarse los cuatro motores con sus ruedas, se probo que se pueda realizar los giros en todas las direcciones.
+\subsection{Verificación del módulo de joystick}
+Se verificó visualmente que los valores del joystick analógico puedan ser leídos apropiadamente, y que sean representativos y relevantes con la dirección del movimiento de la palanca sobre sus coordenadas X e Y.
 
-\subsection{Verificacion del modulo de medicion de temperatura y humedad}
-Se verifico visualmente que los valores obtenidos por el sensor DHT11 fueran cercanos a lo esperado en relacion a la temperatura en el interior del lugar de experimentacion y la humedad en un valor cercano a lo reportado en Google.
-
-\subsection{Verificacion del modulo de medicion de presion atmosferica}
-Se verifico visualmente que el valor obtenido por el sensor BMP280 fuera cercano a lo esperado en relacion al valor reportado por Google.
+\subsection{Verificación del módulo de control del display}
+Se verificó visualmente que el display representa los caracteres programados en la prueba de concepto con una intensidad de luz aceptable para poder leerlos apropiadamente.
 
 
-\subsection{Verificacion del modulo de medicion de luminosidad}
-Se verifico visualmente que los valores obtenidos del fotorresistor, tras ser transformados a valores absolutos porcentuales, guarden relacion con el nivel de luminosidad ambiental del interior de lugar de experimentacion.
+\subsection{Verificación del módulo de control de motores}
+Se verificó visualmente que individualmente el motor pudiera girar en ambos sentidos. Luego, al implementarse los cuatro motores con sus ruedas, se probó que se pueda realizar los giros en todas las direcciones.
+
+\subsection{Verificación del módulo de medición de temperatura y humedad}
+Se verificó visualmente que los valores obtenidos por el sensor DHT11 fueran cercanos a lo esperado en relación a la temperatura en el interior del lugar de experimentación y la humedad en un valor cercano a lo reportado en Google.
+
+\subsection{Verificación del modulo de medicion de presion atmosferica}
+Se verificó visualmente que el valor obtenido por el sensor BMP280 fuera cercano a lo esperado en relación al valor reportado por Google.
 
 
-\subsection{Verificacion del modulo de comunicacion UTP sobre WiFi}
-Por medio de un dos programas UDP, uno cliente y uno servidor, se probo el establecimiento de la comunicacion UDP entre dos ESP32. Luego se incorporo el servicio de comunicaciones UDP en el robot y mientras que desde el programa cliente se enviaban las acciones representando las direcciones del movimiento a realizar (FORWARD, BACKWARD, LEFT, RIGHT) y se observo visualmente como el robot giraba sus ruedas en funcion de los comandos enviados. Finalmente se incorporo el modulo de comunicaciones en el joystick para enviar los comandos al robot cuando se realizaba dicho
+\subsection{Verificación del módulo de medición de luminosidad}
+Se verificó visualmente que los valores obtenidos del fotorresistor, tras ser transformados a valores absolutos porcentuales, guardan relación con el nivel de luminosidad ambiental del interior del lugar de experimentación.
+
+
+\subsection{Verificación del módulo de comunicación UTP sobre WiFi}
+Por medio de un dos programas UDP, uno cliente y uno servidor, se probó el establecimiento de la comunicación UDP entre dos ESP32. Luego se incorporó el servicio de comunicaciones UDP en el robot y mientras que desde el programa cliente se enviaban las acciones representando las direcciones del movimiento a realizar (FORWARD, BACKWARD, LEFT, RIGHT) y se observó visualmente como el robot giraba sus ruedas en función de los comandos enviados. Finalmente se incorporó el módulo de comunicaciones en el joystick para enviar los comandos al robot cuando se realizaba dicho
 
 
 \section{Pruebas funcionales del producto}
 
 
-\subsection{Prueba del modulo de medición de temperatura y humedad}
+\subsection{Prueba del módulo de medición de temperatura y humedad}
 
-Se compararon los valores medidos por el modulo de medicion de temperatura y humedad basado en el sendor DHT11 con los obtenidos a traves de un dispositivo de medicion de temperatura y humedad. Se realizo la medicion en diferentes contextos:
+Se compararon los valores medidos por el módulo de medición de temperatura y humedad basado en el sensor DHT11 con los obtenidos a través de un dispositivo de medición de temperatura y humedad. Se realizó la medición en diferentes contextos:
 
 \begin{itemize}
 	\item En el interior de una vivienda.
-	\item En el exterior durante el dia.
+	\item En el exterior durante el día.
 	\item En el exterior durante la noche.
 \end{itemize}
 
@@ -84,18 +84,18 @@ Exterior (noche) & - & - & - & - \\
 
 En el siguiente video se puede apreciar el experimento \cite{Video_Prueba_TempHum}.
 
-\subsection{Prueba del modulo de medición de presión}
+\subsection{Prueba del módulo de medición de presión}
 
-Se compararon los valores medidos por el modulo de medicion de presion basado en el sendor BMP280 con los obtenidos a traves de un dispositivo marometro digital. Se realizo la medicion en el interior de la vivienda dos dias distintos.
+Se compararon los valores medidos por el módulo de medición de presión basado en el sensor BMP280 con los obtenidos a través de un dispositivo manómetro digital. Se realizó la medición en el interior de la vivienda dos días distintos.
 
 En la siguiente tabla pueden apreciarse los resultados obtenidos:
 
 \begin{table}[h]
 \centering
-\caption[Resultados de mediciones de presion ambiental]{Resultados de mediciones de presion ambiental}
+\caption[Resultados de mediciones de presión ambiental]{Resultados de mediciones de presión ambiental}
 \begin{tabular}{l c c}
 \toprule
-\textbf{Contexto} & \textbf{Presion. Robot} & \textbf{Presion. Ref.} \\
+\textbf{Contexto} & \textbf{Presión. Robot} & \textbf{Presión. Ref.} \\
 \midrule
 Dia 1 & 1013 & 1018.9 \\
 Dia 2 & 1003.9 & 998 \\
@@ -106,42 +106,42 @@ Dia 2 & 1003.9 & 998 \\
 
 En el siguiente video se puede apreciar el experimento \cite{Video_Prueba_Presion}.
 
-\subsection{Prueba del modulo de medición de luminosidad ambiental}
+\subsection{Prueba del módulo de medición de luminosidad ambiental}
 
-Se compararon los valores medidos por el modulo de medicion de luminosidad basado en un fotoresistor percibidos por el ojo humano sin utilizar ningun dispositivo de medicion. Se realizo la medicion en diferentes escenarios
+Se compararon los valores medidos por el módulo de medición de luminosidad basado en un fotoresistor percibidos por el ojo humano sin utilizar ningún dispositivo de medición. Se realizó la medición en diferentes escenarios
 
 \begin{itemize}
 	\item En interiores con luz concentrada sobre el sensor.
 	\item En interiores con luz ambiental no concentrada.
 	\item En interiores con a oscuras
-	\item En el exterior de dia.
+	\item En el exterior de día.
 	\item En el exterior de noche.
 \end{itemize}
 
-Los resultados mostraron que los valores porcentuales indicados por el modulo de medicion de luminosidad son consistentes con los niveles de luz detectados por el ojo humano. En el siguiente video se puede apreciar el experimento \cite{Video_Prueba_Luminosidad}.
+Los resultados mostraron que los valores porcentuales indicados por el módulo de medición de luminosidad son consistentes con los niveles de luz detectados por el ojo humano. En el siguiente video se puede apreciar el experimento \cite{Video_Prueba_Luminosidad}.
 
 \subsection{Prueba del control y desplazamiento del robot}
 
-Se verifico el control del desplazamiento del robot de forma visual por medio de accionar el joystick en las diferentes coordenadas (X;Y) y se controlo que:
+Se verificó el control del desplazamiento del robot de forma visual por medio de accionar el joystick en las diferentes coordenadas (X;Y) y se controló que:
 
 \begin{itemize}
-	\item la direccion del movimiento del robot sea acorde al accionamiento del joystick
-	\item el tiempo de respuesta en el movimiento del robot y tras accionar del joystick sea minimo, permitiendo una buena experiencia de usuario
+	\item la dirección del movimiento del robot sea acorde al accionamiento del joystick
+	\item el tiempo de respuesta en el movimiento del robot y tras accionar del joystick sea mínimo, permitiendo una buena experiencia de usuario
 \end{itemize}
 
-En el siguiente video puede apreciarse dicho experimento \cite{Video_Prueba_Movimiento}. 
+En el siguiente video puede apreciarse dicho experimento \cite{Video_Prueba_Movimiento}.
 
 
-\subsection{Prueba del modulo de visualización de display}
+\subsection{Prueba del módulo de visualización de display}
 
-Se verifico el funcionamiento del display visualizando las lecturas de los valores sensados y transmitidos por el robot. Se controlo que: 
+Se verificó el funcionamiento del display visualizando las lecturas de los valores censados y transmitidos por el robot. Se controló que:
 
 \begin{itemize}
-	\item las lecturas sean nitidas y entendibles
-	\item las unidades de medida esten presentes
-	\item haya un detalle de lo que se esta midiendo acompaniando las lecturas y la unidad de medida
-	\item el nivel de luminosidad sea optimo para permitir la lectura independientemente de la iluminacion ambiental
-	\item se presenten las lecturas de todos los valores observados 
+	\item las lecturas sean nítidas y entendibles
+	\item las unidades de medida están presentes
+	\item haya un detalle de lo que se está midiendo acompañando las lecturas y la unidad de medida
+	\item el nivel de luminosidad sea óptimo para permitir la lectura independientemente de la iluminación ambiental
+	\item se presentan las lecturas de todos los valores observados
 \end{itemize}
 
 En el siguiente video se puede apreciar el experimento \cite{Video_Prueba_Visualizacion_Display}.
@@ -151,13 +151,17 @@ En el siguiente video se puede apreciar el experimento \cite{Video_Prueba_Visual
 ...
 
 
-\section{Documentacion del producto }
+\section{Documentación del producto }
 
-Se desarrollo la documentacion del producto compuesta de los siguientes entregables
+Se desarrolló la documentación del producto compuesta de los siguientes entregables
 \begin{itemize}
-	\item Documentacion tecnica \cite{Robot_Tecnical_doc}.
+	\item Documentación técnica \cite{Robot_Tecnical_doc}.
 	\item Manual de usuario \cite{Robot_User_manual}.
 \end{itemize}
+
+
+
+
 
 
 
