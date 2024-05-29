@@ -58,7 +58,22 @@ En las siguientes secciones se presentan las diferentes pruebas funcionales real
 
 %\subsection{Prueba de medición de parametros ambientales }
 
-\subsection{Prueba de medición de temperatura y humedad}
+
+\subsection{Prueba del módulo de visualización de display}
+
+Se verificó el funcionamiento del display visualizando las lecturas de los valores censados y transmitidos por el robot. Se controló que:
+
+\begin{itemize}
+	\item las lecturas sean nítidas y entendibles
+	\item las unidades de medida están presentes
+	\item haya un detalle de lo que se está midiendo acompañando las lecturas y la unidad de medida
+	\item el nivel de luminosidad sea óptimo para permitir la lectura independientemente de la iluminación ambiental
+	\item se presentan las lecturas de todos los valores observados
+\end{itemize}
+
+En la siguiente seccion puede encontrase el video que muestra el funcionamiento del módulo de mediciones en el que se aprecia el funcionamiento del display \cite{DemoMediciones}.
+
+\subsection{Prueba del módulo de medición de temperatura y humedad}
 
 Se compararon los valores medidos por el módulo de medición de temperatura y humedad basado en el sensor DHT11 con los obtenidos a través de un dispositivo de medición de temperatura y humedad. Se realizó la medición en diferentes contextos:
 
@@ -85,9 +100,36 @@ Exterior (noche) & - & - & - & - \\
 \end{tabular}
 \end{table}
 
-En la siguiente seccion puede encontrase el video \cite{DemoMediciones} evidenciando la demostracion de este experimento.
+A continuacion se pueden apreciar algunas fotografias tomadas durante el proceso de experimentacion:
 
-\subsection{Prueba del módulo de medición de presión}
+\begin{center}
+ \includegraphics[scale=0.094]{demo_product/humedad_interior_retouched}
+   \captionof{figure}{Medición de humedad en el interior.}
+   \label{fig:humedad_interior}
+\end{center}
+
+\begin{center}
+ \includegraphics[scale=0.1]{demo_product/temp_interior_retouched}
+   \captionof{figure}{Medición de temperatura en el interior.}
+   \label{fig:humedad_interior}
+\end{center}
+
+
+\begin{center}
+ \includegraphics[scale=0.125]{demo_product/humedad_exterior_retouched}
+   \captionof{figure}{Medición de humedad en el exterior.}
+   \label{fig:humedad_interior}
+\end{center}
+
+\begin{center}
+ \includegraphics[scale=0.1]{demo_product/temp_exterior_dia_retouched}
+   \captionof{figure}{Medición de temperatura en el exterior.}
+   \label{fig:humedad_interior}
+\end{center}
+
+En la siguiente seccion puede encontrase el video que muestra el funcionamiento del módulo de mediciones en el que se aprecia el funcionamiento del módulo de medición de temperatura y humedad \cite{DemoMediciones}.
+
+\subsection{Prueba del módulo de medición de presión atmosferica}
 
 Se compararon los valores medidos por el módulo de medición de presión basado en el sensor BMP280 con los obtenidos a través de un dispositivo manómetro digital. Se realizó la medición en el interior de la vivienda dos días distintos.
 
@@ -107,7 +149,19 @@ Dia 2 & 1003.9 & 998 \\
 \end{tabular}
 \end{table}
 
-En la siguiente seccion puede encontrase el video \cite{DemoMediciones} evidenciando la demostracion de este experimento.
+\begin{center}
+ \includegraphics[scale=0.1]{demo_product/presion_interior_retouched}
+   \captionof{figure}{Medición de presión atmosferica en el interior.}
+   \label{fig:humedad_interior}
+\end{center}
+
+\begin{center}
+ \includegraphics[scale=0.1]{demo_product/presion_exterior_retouched}
+   \captionof{figure}{Medición de presión atmosferica en el exterior.}
+   \label{fig:humedad_interior}
+\end{center}
+
+En la siguiente seccion puede encontrase el video que muestra el funcionamiento del módulo de mediciones en el que se aprecia el funcionamiento del módulo de medición de presión atmosferica \cite{DemoMediciones}.
 
 \subsection{Prueba del módulo de medición de luminosidad ambiental}
 
@@ -123,9 +177,7 @@ Se compararon los valores medidos por el módulo de medición de luminosidad bas
 
 Los resultados mostraron que los valores porcentuales indicados por el módulo de medición de luminosidad son consistentes con los niveles de luz detectados por el ojo humano. 
 
-
-En la siguiente seccion puede encontrase el video \cite{DemoMediciones} evidenciando la demostracion de este experimento.
-
+En la siguiente seccion puede encontrase el video que muestra el funcionamiento del módulo de mediciones en el que se aprecia el funcionamiento del módulo de medición de luminosidad ambiental \cite{DemoMediciones}.
 
 \subsection{Prueba del control y desplazamiento del robot}
 
@@ -139,38 +191,25 @@ Se verificó el control del desplazamiento del robot de forma visual por medio d
 En la siguiente seccion pueden encontrase los videos \cite{Video_Demo_Control_Movimiento_1} y \cite{Video_Demo_Control_Movimiento_2} evidenciando la demostracion de este experimento.
 
 
-\subsection{Prueba del módulo de visualización de display}
 
-Se verificó el funcionamiento del display visualizando las lecturas de los valores censados y transmitidos por el robot. Se controló que:
-
-\begin{itemize}
-	\item las lecturas sean nítidas y entendibles
-	\item las unidades de medida están presentes
-	\item haya un detalle de lo que se está midiendo acompañando las lecturas y la unidad de medida
-	\item el nivel de luminosidad sea óptimo para permitir la lectura independientemente de la iluminación ambiental
-	\item se presentan las lecturas de todos los valores observados
-\end{itemize}
-
-En la siguiente seccion puede encontrase el video \cite{DemoMediciones} evidenciando la demostracion de este experimento.
-
-\section{Videos demostrativos del proceso de armado y experimentacion}
+\section{Videos del producto durante el prototipado, ensamblado y experimentacion}
 
 En las siguientes subsecciones se listan los videos realizados durante el proceso de demostracion del producto funcionando asi como los grabados casualmente durante armado y prototipado del mismo.
 
 
-\subsection{Videos demostrativos del robot funcionando}
+\subsection{Videos demostrativos del producto final}
 
 Los experimentos realizados para evidenciar el cumplimiento con los requerimientos funcionales del producto son los siguientes:
 \begin{itemize}
-	\item Demo - Hardware del producto \cite{DemoHardware}
-	\item Demo - Comunicacion WiFi \cite{DemoComWifi}
-	\item Demo - Control de movimiento de las ruedas \cite{Video_Demo_Control_Movimiento_1}.
-	\item Demo - Medicion y visualizacion de parametros ambientales \cite{DemoMediciones}
-	\item Demo - Control de despazamiento en un circuito \cite{Video_Demo_Control_Movimiento_2}
+	\item Demo - Hardware del producto \cite{Demo_Hardware}
+	\item Demo - Comunicacion WiFi \cite{Demo_ComWifi}
+	\item Demo - Control de movimiento de las ruedas \cite{Demo_Control_Movimiento_1}.
+	\item Demo - Medicion y visualizacion de parametros ambientales \cite{Demo_Mediciones}
+	\item Demo - Control de despazamiento en un circuito \cite{Demo_Control_Movimiento_2}
 \end{itemize}
 
 
-\subsection{Videos del prototipado y armado del Robot}
+\subsection{Videos durante el prototipado y ensamblado del robot}
 
 \begin{itemize}
 	\item Prototipado Robot v1 - Ensamblado  (1) \cite{Prototipado_Ensamblado_1}.	
