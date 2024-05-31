@@ -10,32 +10,32 @@
 % parámetros para configurar el formato del código en los entornos lstlisting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lstset{ %
- backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
- basicstyle=\footnotesize,        % the size of the fonts that are used for the code
- breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
- breaklines=true,                 % sets automatic line breaking
- captionpos=b,                    % sets the caption-position to bottom
- commentstyle=\color{mygreen},    % comment style
- deletekeywords={...},            % if you want to delete keywords from the given language
- %escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
- %extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
- %frame=single,	                % adds a frame around the code
- keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
- keywordstyle=\color{blue},       % keyword style
- language=[ANSI]C,                % the language of the code
- %otherkeywords={*,...},           % if you want to add more keywords to the set
- numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
- numbersep=5pt,                   % how far the line-numbers are from the code
- numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
- rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
- showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
- showstringspaces=false,          % underline spaces within strings only
- showtabs=false,                  % show tabs within strings adding particular underscores
- stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
- stringstyle=\color{mymauve},     % string literal style
- tabsize=2,	                   % sets default tabsize to 2 spaces
- title=\lstname,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
- morecomment=[s]{/*}{*/}
+backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+breaklines=true,                 % sets automatic line breaking
+captionpos=b,                    % sets the caption-position to bottom
+commentstyle=\color{mygreen},    % comment style
+deletekeywords={...},            % if you want to delete keywords from the given language
+%escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+%extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+%frame=single,	                % adds a frame around the code
+keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+keywordstyle=\color{blue},       % keyword style
+language=[ANSI]C,                % the language of the code
+%otherkeywords={*,...},           % if you want to add more keywords to the set
+numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+numbersep=5pt,                   % how far the line-numbers are from the code
+numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+showstringspaces=false,          % underline spaces within strings only
+showtabs=false,                  % show tabs within strings adding particular underscores
+stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+stringstyle=\color{mymauve},     % string literal style
+tabsize=2,	                   % sets default tabsize to 2 spaces
+title=\lstname,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
+morecomment=[s]{/*}{*/}
 }
 
 
@@ -61,9 +61,9 @@ Con el fin de poder lograr una arquitectura de software modular, se implementaro
 A continuación podemos apreciar la arquitectura de software del sistema en su versión v1.0 y el detalle de sus componentes y servicios.
 
 \begin{center}
- \includegraphics[scale=0.75]{software/arquitectura_software_global_v1}
-   \captionof{figure}{Arquitectura global.}
-   \label{fig:arquitectura_software_global}
+\includegraphics[scale=0.75]{software/arquitectura_software_global_v1}
+  \captionof{figure}{Arquitectura global.}
+  \label{fig:arquitectura_software_global}
 
 \end{center}
 
@@ -96,9 +96,9 @@ Los componentes y servicios de software del Robot en la versión v1 son los sigu
 Luego de expandir su funcionalidad, los componentes y servicios de software se separaron físicamente en el hardware del robot y el del joystick, agregando además los necesarios para la comunicación inalámbrica. A continuación podemos apreciar la arquitectura de software del sistema en su versión v2.0 y el detalle de sus componentes y servicios.
 
 \begin{center}
- \includegraphics[scale=0.75]{software/arquitectura_software_global_v2}
-   \captionof{figure}{Arquitectura global.}
-   \label{fig:arquitectura_software_global}
+\includegraphics[scale=0.75]{software/arquitectura_software_global_v2}
+  \captionof{figure}{Arquitectura global.}
+  \label{fig:arquitectura_software_global}
 
 \end{center}
 
@@ -187,7 +187,7 @@ password & Robot  \\
 \hline
 \end{tabular}
 \label{tab:configuracion_wifi}
-\end{table} 
+\end{table}
 
 
 El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cite{ESP32_WiFi_SoftAP}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_WiFi}.
@@ -215,17 +215,17 @@ Para el desarrollo de este prototipo se utilizó el SDK ESP-IDF y se configuró 
 A continuación se puede apreciar el conexionado físico en la figura \ref{fig:conexionado_joystick}.
 
 \begin{center}
- \includegraphics[scale=1]{schematics/conexionado_joystick}
-   \captionof{figure}{Conexionado joystick.}
-   \label{fig:conexionado_joystick}
+\includegraphics[scale=1]{schematics/conexionado_joystick}
+  \captionof{figure}{Conexionado joystick.}
+  \label{fig:conexionado_joystick}
 \end{center}
 
 
-El desarrollo de este modulo se baso en el ejemplo provisto por Espressif \cite{ESP32_ADC1_Example}. El codigo fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_joystick}.
+El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cite{ESP32_ADC1_Example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_joystick}.
 
 
 \subsection{Medición de valor de luminosidad}
-Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configuró el módulo ADC1 de acuerdo a los detalles provistos en la tabla \ref{tab:conexionado_fotoresistor}. Los valores leidos por el fotoresistor corresponden a niveles de voltage ...
+Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configuró el módulo ADC1 de acuerdo a los detalles provistos en la tabla \ref{tab:conexionado_fotoresistor}. Los valores leídos por el fotoresistor corresponden a niveles de voltaje ...
 
 \vspace{0.5cm}
 \begin{table}[h]
@@ -245,9 +245,9 @@ Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configur
 A continuación se puede apreciar un diagrama de su conexionado físico en la figura \ref{fig:conexionado_fotoresistor}.
 
 \begin{center}
- \includegraphics[scale=1]{schematics/conexionado_fotoresistor}
-   \captionof{figure}{Conexionado fotorresistor.}
-   \label{fig:conexionado_fotoresistor}
+\includegraphics[scale=1]{schematics/conexionado_fotoresistor}
+  \captionof{figure}{Conexionado fotorresistor.}
+  \label{fig:conexionado_fotoresistor}
 \end{center}
 
 El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cite{ESP32_ADC1_Example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_photoresistor}.
@@ -258,20 +258,19 @@ Para el desarrollo de este modulo se utilizó la biblioteca de código ESP-IDF-L
 A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_dht11}.
 
 \begin{center}
- \includegraphics[scale=1]{schematics/conexionado_dht11}
-   \captionof{figure}{Circuito del conexionado DHT11.}
-   \label{fig:conexionado_dht11}
+\includegraphics[scale=1]{schematics/conexionado_dht11}
+  \captionof{figure}{Circuito del conexionado DHT11.}
+  \label{fig:conexionado_dht11}
 \end{center}
 
 El desarrollo de este módulo se basó en el ejemplo provisto por la librería ESP-IDF-Lib \cite{ESP32_dht11_example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_dht11}.
 
 \subsection{Medición de presión}
 Para el desarrollo de este módulo se utilizó el framework ESP-IDF y la biblioteca de código ESP-IDF Components que provee el soporte para gestionar el dispositivo BMP280 por medio del protocolo I2C. El driver es inicializado en el componente main-core para ser posteriormente invocado desde el Measuring Service en la tarea Measuring Task. Sus lecturas son guardadas en el Measuring State. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_bmp280}.
- 
 \begin{center}
- \includegraphics[scale=1]{schematics/conexionado_bmp280}
-   \captionof{figure}{Conexionado BMP280.}
-   \label{fig:conexionado_bmp280}
+\includegraphics[scale=1]{schematics/conexionado_bmp280}
+  \captionof{figure}{Conexionado BMP280.}
+  \label{fig:conexionado_bmp280}
 \end{center}
 
 El desarrollo de este módulo se basó en el ejemplo provisto por la librería ESP-IDF-Lib \cite{ESP32_bmp280_example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_bmp280}.
@@ -286,9 +285,9 @@ Los puentes L298N brindan además una tensión de salida de 5V, y esto fue utili
 En el siguiente diagrama puede apreciarse el conexionado lógico para el control de los motores con los componentes mencionados.
 
 \begin{center}
- \includegraphics[scale=1]{schematics/conexionado_motores}
-   \captionof{figure}{Conexionado motores.}
-   \label{fig:conexionado_motores}
+\includegraphics[scale=1]{schematics/conexionado_motores}
+  \captionof{figure}{Conexionado motores.}
+  \label{fig:conexionado_motores}
 \end{center}
 
 El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cite{ESP32_MCPWM_example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_motor_MCPWM}.
@@ -300,9 +299,9 @@ El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cit
 Para la implementación del módulo de visualización de valores observados se integró un display de dos líneas y dieciséis caracteres LCM1602A por medio de un driver I2C que facilita su control. Al basarse en el protocolo I2C el display comparte las mismas líneas SCL y SDA que el sensor BMP280.
 
 \begin{center}
- \includegraphics[scale=1]{schematics/conexionado_display}
-   \captionof{figure}{Conexionado display.}
-   \label{fig:conexionado_display}
+\includegraphics[scale=1]{schematics/conexionado_display}
+  \captionof{figure}{Conexionado display.}
+  \label{fig:conexionado_display}
 
 \end{center}
 
@@ -313,54 +312,58 @@ El desarrollo de este módulo se basó en el ejemplo provisto en el enlace \cite
 \section{Arquitectura de hardware}
 
 
+\subsection{Ensamblado final del producto v2.0}
+
+\begin{center}
+\includegraphics[scale=0.6]{demo_product/all_perspectives_robot}
+  \captionof{figure}{Hardware del robot.}
+  \label{fig:conexionado_fisico}
+\end{center}
+
+
+\begin{center}
+\includegraphics[scale=0.55]{demo_product/all_perspectives_joystick}
+  \captionof{figure}{Hardware del joystick.}
+  \label{fig:conexionado_fisico}
+\end{center}
+
 
 
 \subsection{Conexionado lógico }
 
 
 \begin{center}
- \includegraphics[scale=0.75]{schematics/conexionado_completo_robot}
-   \captionof{figure}{Conexionado del robot.}
-   \label{fig:conexionado_completo_robot}
+\includegraphics[scale=0.75]{schematics/conexionado_completo_robot}
+  \captionof{figure}{Conexionado del robot.}
+  \label{fig:conexionado_completo_robot}
 \end{center}
 
 
 \begin{center}
- \includegraphics[scale=0.75]{schematics/conexionado_completo_joystick}
-   \captionof{figure}{Conexionado del joystick.}
-   \label{fig:conexionado_completo_joystick}
+\includegraphics[scale=0.75]{schematics/conexionado_completo_joystick}
+  \captionof{figure}{Conexionado del joystick.}
+  \label{fig:conexionado_completo_joystick}
 \end{center}
 
 
 \subsection{Conexionado físico}
 
 \begin{center}
- \includegraphics[scale=0.6]{schematics/conexionado_fisico}
-   \captionof{figure}{Conexionado físico del robot.}
-   \label{fig:conexionado_fisico}
+\includegraphics[scale=0.6]{schematics/conexionado_fisico}
+  \captionof{figure}{Conexionado físico del robot.}
+  \label{fig:conexionado_fisico}
 \end{center}
 
-
-\subsection{Ensamblado final del producto v2.0}
-
-\begin{center}
- \includegraphics[scale=0.6]{demo_product/all_perspectives_robot}
-   \captionof{figure}{Conexionado físico del robot.}
-   \label{fig:conexionado_fisico}
-\end{center}
-
-
-\begin{center}
- \includegraphics[scale=0.6]{demo_product/all_perspectives_joystick}
-   \captionof{figure}{Conexionado físico del joystick.}
-   \label{fig:conexionado_fisico}
-\end{center}
 
 
 
 \section{Ciclo de desarrollo}
 
 Durante el ciclo de desarrollo se utilizaron las herramientas explicadas en el capítulo anterior, y se creó por cada prototipo una imagen Docker extendiendo la de espressif/idf \cite{Espressif_docker_image}. El proceso de compilación y despliegue está explicado en la documentación técnica del producto \cite{Robot_Tecnical_doc}.
+
+
+
+
 
 
 

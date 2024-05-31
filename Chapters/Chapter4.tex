@@ -52,33 +52,32 @@ Se verificó visualmente que los valores obtenidos del fotorresistor, tras ser t
 Por medio de un dos programas UDP, uno cliente y uno servidor, se probó el establecimiento de la comunicación UDP entre dos ESP32. Luego se incorporó el servicio de comunicaciones UDP en el robot y mientras que desde el programa cliente se enviaban las acciones representando las direcciones del movimiento a realizar (FORWARD, BACKWARD, LEFT, RIGHT) y se observó visualmente como el robot giraba sus ruedas en función de los comandos enviados. Finalmente se incorporó el módulo de comunicaciones en el joystick para enviar los comandos al robot cuando se realizaba dicho
 
 
-\section{Pruebas funcionales y validacion del producto}
+\section{Pruebas funcionales y validación del producto}
 
-El proceso de validacion y pruebas del producto se realizo comparando el resultado optenido con los valores esperados en el alcance del proyecto. Las pruebas realizadas fueron las siguientes:
+El proceso de validación y pruebas del producto se realizó comparando el resultado obtenido con los valores esperados en el alcance del proyecto. Las pruebas realizadas fueron las siguientes:
 \begin{itemize}
-	\item Prueba y validacion del módulo de visualización de display.
-	\item Prueba y validacion del módulo de medición de temperatura y humedad.
-	\item Prueba y validacion del módulo de medición de presión atmosferica.
-	\item Prueba y validacion del módulo de medición de luminosidad ambiental.
-	\item Prueba y validacion del control y desplazamiento del robot.
+	\item Prueba y validación del módulo de visualización de display.
+	\item Prueba y validación del módulo de medición de temperatura y humedad.
+	\item Prueba y validación del módulo de medición de presión atmosférica.
+	\item Prueba y validación del módulo de medición de luminosidad ambiental.
+	\item Prueba y validación del control y desplazamiento del robot.
 \end{itemize}
 
-Para la validacion de los parametros ambientales medidos por el robot se utilizo un dispositivo anemometro digital AOPUTTRIVER AP-007-WM capaz de medir presion, temperatura y humedad ambiental, y de esta manera poder comparar los valores medidos. En la figura puede apreciarse una imagen del mismo.
+Para la validación de los parámetros ambientales medidos por el robot se utilizó un dispositivo anemómetro digital AOPUTTRIVER AP-007-WM capaz de medir presión, temperatura y humedad ambiental, y de esta manera poder comparar los valores medidos. En la figura puede apreciarse una imagen del mismo.
 
 \begin{center}
- \includegraphics[scale=0.3]{electronics/anemometro}
-   \captionof{figure}{Anemometro digital AOPUTTRIVER AP-007-WM.}
-   \label{fig:anemometro}
+\includegraphics[scale=0.3]{electronics/anemometro}
+  \captionof{figure}{Anemometro digital AOPUTTRIVER AP-007-WM.}
+  \label{fig:anemometro}
 \end{center}
 
-Para la validacion de la medicion de luminosidad ambiental ...
+Para la validación de la medición de luminosidad ambiental ...
 
 En las siguientes secciones se presentan las diferentes pruebas funcionales realizadas sobre el producto.
 
-%\subsection{Prueba de medición de parametros ambientales }
 
 
-\subsection{Prueba y validacion del módulo de visualización de display}
+\subsection{Prueba y validación del módulo de visualización de display}
 
 Se verificó el funcionamiento del display visualizando las lecturas de los valores censados y transmitidos por el robot. Se controló que:
 
@@ -91,25 +90,24 @@ Se verificó el funcionamiento del display visualizando las lecturas de los valo
 \end{itemize}
 
 
-A continuacion se pueden apreciar algunas fotografias tomadas durante el proceso de experimentacion:
+A continuación se pueden apreciar algunas fotografías tomadas durante el proceso de experimentación:
 
 \begin{center}
- \includegraphics[scale=0.094]{demo_product/DisplayNoche}
-   \captionof{figure}{Visualizacion del displa en la oscuridad.}
-   \label{fig:DisplayNoche}
+\includegraphics[scale=0.094]{demo_product/DisplayNoche}
+  \captionof{figure}{Visualización del display en la oscuridad.}
+  \label{fig:DisplayNoche}
 \end{center}
 
 
-En la siguiente seccion pueden encontrase los videos en los que se puede apreciar el funcionamiento del display durante el dia \cite{Demo_Mediciones} y en la oscuridad \cite{Demo_Display_Oscuridad}.
+En la siguiente sección pueden encontrarse los videos en los que se puede apreciar el funcionamiento del display durante el dia \cite{Demo_Mediciones} y en la oscuridad \cite{Demo_Display_Oscuridad}.
 
-\subsection{Prueba y validacion del módulo de medición de temperatura y humedad}
+\subsection{Prueba y validación del módulo de medición de temperatura y humedad}
 
 Se compararon los valores medidos por el módulo de medición de temperatura y humedad basado en el sensor DHT11 con los obtenidos a través de un dispositivo de medición de temperatura y humedad. Se realizó la medición en diferentes contextos:
 
 \begin{itemize}
-	\item En el interior de una vivienda.
+	\item En el interior de una casa.
 	\item En el exterior durante el día.
-	\item En el exterior durante la noche.
 \end{itemize}
 
 En la siguiente tabla se pueden apreciar los resultados.
@@ -129,36 +127,36 @@ Exterior (noche) & - & - & - & - \\
 \end{tabular}
 \end{table}
 
-A continuacion se pueden apreciar algunas fotografias tomadas durante el proceso de experimentacion:
+A continuación se pueden apreciar algunas fotografías tomadas durante el proceso de experimentación:
 
 \begin{center}
- \includegraphics[scale=0.094]{demo_product/humedad_interior_retouched}
-   \captionof{figure}{Medición de humedad en el interior.}
-   \label{fig:humedad_interior}
+\includegraphics[scale=0.094]{demo_product/humedad_interior_retouched}
+  \captionof{figure}{Medición de humedad en el interior.}
+  \label{fig:humedad_interior}
 \end{center}
 
 \begin{center}
- \includegraphics[scale=0.1]{demo_product/temp_interior_retouched}
-   \captionof{figure}{Medición de temperatura en el interior.}
-   \label{fig:humedad_interior}
+\includegraphics[scale=0.1]{demo_product/temp_interior_retouched}
+  \captionof{figure}{Medición de temperatura en el interior.}
+  \label{fig:humedad_interior}
 \end{center}
 
 
 \begin{center}
- \includegraphics[scale=0.125]{demo_product/humedad_exterior_retouched}
-   \captionof{figure}{Medición de humedad en el exterior.}
-   \label{fig:humedad_interior}
+\includegraphics[scale=0.125]{demo_product/humedad_exterior_retouched}
+  \captionof{figure}{Medición de humedad en el exterior.}
+  \label{fig:humedad_interior}
 \end{center}
 
 \begin{center}
- \includegraphics[scale=0.1]{demo_product/temp_exterior_dia_retouched}
-   \captionof{figure}{Medición de temperatura en el exterior.}
-   \label{fig:humedad_interior}
+\includegraphics[scale=0.1]{demo_product/temp_exterior_dia_retouched}
+  \captionof{figure}{Medición de temperatura en el exterior.}
+  \label{fig:humedad_interior}
 \end{center}
 
-En la siguiente seccion puede encontrase el video que muestra el funcionamiento del módulo de mediciones en el que se aprecia el funcionamiento del módulo de medición de temperatura y humedad \cite{Demo_Mediciones}.
+En la siguiente sección puede encontrarse el video que muestra el funcionamiento del módulo de mediciones en el que se aprecia el funcionamiento del módulo de medición de temperatura y humedad \cite{Demo_Mediciones}.
 
-\subsection{Prueba y validacion del módulo de medición de presión atmosferica}
+\subsection{Prueba y validación del módulo de medición de presión atmosférica}
 
 Se compararon los valores medidos por el módulo de medición de presión basado en el sensor BMP280 con los obtenidos a través de un dispositivo manómetro digital. Se realizó la medición en el interior de la vivienda dos días distintos.
 
@@ -179,20 +177,20 @@ Dia 2 & 1003.9 & 998 \\
 \end{table}
 
 \begin{center}
- \includegraphics[scale=0.1]{demo_product/presion_interior_retouched}
-   \captionof{figure}{Medición de presión atmosferica en el interior.}
-   \label{fig:humedad_interior}
+\includegraphics[scale=0.1]{demo_product/presion_interior_retouched}
+  \captionof{figure}{Medición de presión atmosférica en el interior.}
+  \label{fig:humedad_interior}
 \end{center}
 
 \begin{center}
- \includegraphics[scale=0.1]{demo_product/presion_exterior_retouched}
-   \captionof{figure}{Medición de presión atmosferica en el exterior.}
-   \label{fig:humedad_interior}
+\includegraphics[scale=0.1]{demo_product/presion_exterior_retouched}
+  \captionof{figure}{Medición de presión atmosférica en el exterior.}
+  \label{fig:humedad_interior}
 \end{center}
 
-En la siguiente seccion puede encontrase el video que muestra el funcionamiento del módulo de mediciones en el que se aprecia el funcionamiento del módulo de medición de presión atmosferica \cite{Demo_Mediciones}.
+En la siguiente sección puede encontrarse el video que muestra el funcionamiento del módulo de mediciones en el que se aprecia el funcionamiento del módulo de medición de presión atmosférica \cite{Demo_Mediciones}.
 
-\subsection{Prueba y validacion del módulo de medición de luminosidad ambiental}
+\subsection{Prueba y validación del módulo de medición de luminosidad ambiental}
 
 Se compararon los valores medidos por el módulo de medición de luminosidad basado en un fotoresistor percibidos por el ojo humano sin utilizar ningún dispositivo de medición. Se realizó la medición en diferentes escenarios
 
@@ -204,11 +202,11 @@ Se compararon los valores medidos por el módulo de medición de luminosidad bas
 	\item En el exterior de noche.
 \end{itemize}
 
-Los resultados mostraron que los valores porcentuales indicados por el módulo de medición de luminosidad son consistentes con los niveles de luz detectados por el ojo humano. 
+Los resultados mostraron que los valores porcentuales indicados por el módulo de medición de luminosidad son consistentes con los niveles de luz detectados por el ojo humano.
 
-En la siguiente seccion puede encontrase el video que muestra el funcionamiento del módulo de mediciones en el que se aprecia el funcionamiento del módulo de medición de luminosidad ambiental \cite{Demo_Mediciones}.
+En la siguiente sección puede encontrarse el video que muestra el funcionamiento del módulo de mediciones en el que se aprecia el funcionamiento del módulo de medición de luminosidad ambiental \cite{Demo_Mediciones}.
 
-\subsection{Prueba y validacion del control y desplazamiento del robot}
+\subsection{Prueba y validación del control y desplazamiento del robot}
 
 Se verificó el control del desplazamiento del robot de forma visual por medio de accionar el joystick en las diferentes coordenadas (X;Y) y se controló que:
 
@@ -217,25 +215,25 @@ Se verificó el control del desplazamiento del robot de forma visual por medio d
 	\item el tiempo de respuesta en el movimiento del robot y tras accionar del joystick sea mínimo, permitiendo una buena experiencia de usuario.
 \end{itemize}
 
-En la siguiente seccion pueden encontrase los videos \cite{Demo_Control_Movimiento_1} y \cite{Demo_Control_Movimiento_2} evidenciando la demostracion de este experimento.
+En la siguiente sección pueden encontrarse los videos \cite{Demo_Control_Movimiento_1} y \cite{Demo_Control_Movimiento_2} evidenciando la demostración de este experimento.
 
 
 
-\section{Videos del producto durante el prototipado, ensamblado y experimentacion}
+\section{Videos del producto durante el prototipo, ensamblado y experimentación}
 
-En las siguientes subsecciones se listan los videos realizados durante el proceso de demostracion del producto funcionando asi como los grabados casualmente durante armado y prototipado del mismo.
+En las siguientes subsecciones se listan los videos realizados durante el proceso de demostración del producto funcionando así como los grabados casualmente durante armado y prototipado del mismo.
 
 
 \subsection{Videos demostrativos del producto final}
 
 Los experimentos realizados para evidenciar el cumplimiento con los requerimientos funcionales del producto son los siguientes:
 \begin{itemize}
-	\item Demo - Hardware del producto (*) \cite{Demo_Hardware}.
+	\item Demo - Hardware del producto \cite{Demo_Hardware}.
 	\item Demo - Comunicacion WiFi (*) \cite{Demo_ComWifi}.
 	\item Demo - Control de movimiento de las ruedas \cite{Demo_Control_Movimiento_1}.
-	\item Demo - Medicion y visualizacion de parametros ambientales (*) \cite{Demo_Mediciones}.
-	\item Demo - Control de despazamiento en un circuito \cite{Demo_Control_Movimiento_2}.
-	\item Demo - Visualizacion del Display en la oscuridad \cite{Demo_Display_Oscuridad}.
+	\item Demo - Medición y visualización de parámetros ambientales (*) \cite{Demo_Mediciones}.
+	\item Demo - Control de desplazamiento en un circuito \cite{Demo_Control_Movimiento_2}.
+	\item Demo - Visualización del Display en la oscuridad \cite{Demo_Display_Oscuridad}.
 	
 \end{itemize}
 
@@ -247,10 +245,10 @@ Los experimentos realizados para evidenciar el cumplimiento con los requerimient
 	\item Prototipado Robot v1 - Ensamblado  (2) \cite{Prototipado_Ensamblado_2}.
 	\item Prototipado Robot v1 - Ensamblado  (3) \cite{Prototipado_Ensamblado_3}.
 	\item Prototipado Robot v1 - Ensamblado  (4) \cite{Prototipado_Ensamblado_4}.
-	\item Prototipado Robot v2 - Comunicacion Joystick Robot (1) \cite{Prototipado_Comunicacion_JoystickRobot1}.
-	\item Prototipado Robot v2 - Comunicacion Joystick Robot (2) \cite{Prototipado_Comunicacion_JoystickRobot2}.
-	\item Prototipado Desplazamiento (alimentacion USB) \cite{Prototipado_Desplazamiento_USB}.
-	\item Prototipado Desplazamiento (alimentacion por pilas) \cite{Prototipado_Desplazamiento_Pilas}.
+	\item Prototipado Robot v2 - Comunicación Joystick Robot (1) \cite{Prototipado_Comunicacion_JoystickRobot1}.
+	\item Prototipado Robot v2 - Comunicación Joystick Robot (2) \cite{Prototipado_Comunicacion_JoystickRobot2}.
+	\item Prototipado Desplazamiento (alimentación USB) \cite{Prototipado_Desplazamiento_USB}.
+	\item Prototipado Desplazamiento (alimentación por pilas) \cite{Prototipado_Desplazamiento_Pilas}.
 
 \end{itemize}
 
@@ -267,6 +265,9 @@ Se desarrolló la documentación del producto compuesta de los siguientes entreg
 	\item Documentación técnica \cite{Robot_Tecnical_doc}.
 	\item Manual de usuario \cite{Robot_User_manual}.
 \end{itemize}
+
+
+
 
 
 
