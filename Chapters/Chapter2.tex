@@ -13,7 +13,7 @@ Esta sección presenta una breve introducción técnica a las herramientas hardw
 \subsection{Espressif ESP32}
 
 
-ESP32 \cite{ESP32} es una serie de microcontroladores embebidos en un chip con Wi-Fi y Bluetooth integrados, de bajo costo y consumo, desarrollado por \textit{Espressif Systems}. Emplea dos cores Xtensa® 32-bit LX6 CPU, incluye interruptores de antena, amplificador de potencia, amplificador de recepción de bajo ruido, un co-procesador ULP (Ultra Low Power), módulos de administración de energía y varios periféricos.
+ESP32 \cite{ESP32} es una serie de microcontroladores embebidos en un chip con Wi-Fi y Bluetooth integrados, de bajo costo y consumo, desarrollado por \textit{Espressif Systems}. Emplea dos cores Xtensa® 32-bit LX6 CPU, incluye interruptores de antena, amplificador de potencia, amplificador de recepción de bajo ruido, un co-procesador ULP (\textit{ Ultra Low Power}), módulos de administración de energía y varios periféricos.
 En la siguiente imagen (\ref{fig:esp32}) se puede apreciar la placa ESP32-WROOM-32D \cite{ESP32_wroom_32d_datasheet} utilizada para el desarrollo del presente trabajo.
 
 \begin{center}
@@ -45,19 +45,19 @@ El BMP280 \cite{BMP280_datasheet} es un sensor de presión barométrica absoluta
 
 \subsection{Fotoresistor como sensor de luminosidad}
 
-El fotoresistor es una resistencia eléctrica que varía su valor en función de la cantidad de luz que incide sobre su superficie.
-Cuando el fotoresistor no está expuesto a radiaciones luminosas, los electrones están firmemente unidos en los átomos que lo conforman, por lo que alcanza su máxima resistencia eléctrica, y cuando sobre él inciden radiaciones luminosas, esta energía libera los electrones con lo cual el material se vuelve más conductor, y se disminuye su resistencia. En la figura \ref{fig:fotoresistor} se puede apreciar una imagen del componente.
+El fotorresistor es una resistencia eléctrica que varía su valor en función de la cantidad de luz que incide sobre su superficie.
+Cuando el fotorresistor no está expuesto a radiaciones luminosas, los electrones están firmemente unidos en los átomos que lo conforman, por lo que alcanza su máxima resistencia eléctrica, y cuando sobre él inciden radiaciones luminosas, esta energía libera los electrones con lo cual el material se vuelve más conductor, y se disminuye su resistencia. En la figura \ref{fig:fotoresistor} se puede apreciar una imagen del componente.
 
 \begin{center}
    \includegraphics[scale=0.10]{electronics/fot2}
-   \captionof{figure}{Fotoresistor.}
+   \captionof{figure}{Fotorresistor.}
    \label{fig:fotoresistor}
 \end{center}
 
 
 \subsection{Joystick analógico}
 El módulo de joystick analógico \cite{analog_joystick_datasheet} está construido sobre el montaje de dos potenciómetros en un ángulo de 90 grados. Los potenciómetros están conectados a una palanca corta centrada por resortes.
-Este módulo produce una salida de alrededor de 2,5 Volts cuando la palanca se encuentra en reposo (en el centro), mientras que al desplazarse hará que la salida varíe de 0 a 5 Volts dependiendo de su posición. La obtención de los valores en Volts se obtiene tras convertir las lecturas en niveles lógicos mediante el módulo ADC (conversor analógico digital) \cite{ESP32_adc} del microcontrolador ESP32. En la figura \ref{fig:joystick} se puede apreciar una imagen del componente.
+Este módulo produce una salida de alrededor de 2,5 V cuando la palanca se encuentra en reposo (en el centro), mientras que al desplazarse hará que la salida varíe de 0 a 5 V dependiendo de su posición. La obtención de los valores en Volts se obtiene tras convertir las lecturas en niveles lógicos mediante el módulo ADC (conversor analógico digital) \cite{ESP32_adc} del microcontrolador ESP32. En la figura \ref{fig:joystick} se puede apreciar una imagen del componente.
 
 \begin{center}
    \includegraphics[scale=0.10]{electronics/joystick2}
@@ -76,7 +76,7 @@ El display LCM1602A \cite{LCM1602A_datasheet} consta de una pantalla de cristal 
 \end{center}
 
 \subsection{Motores de corriente continua}
-El motor DC (corriente continua) \cite{dc_motor_datasheet} es un electromotor que transforma energía eléctrica en energía mecánica. Estos motores operan con un voltaje entre 3 y 6 Volts, corriente de 150 mA, permiten una velocidad de entre 90 y 200 RPM y un torque de entre 0,15 Nm y 0,60 Nm. En la figura \ref{fig:dc_motors} se puede apreciar una imagen del componente.
+El motor DC (corriente continua) \cite{dc_motor_datasheet} es un electromotor que transforma energía eléctrica en energía mecánica. Estos motores operan con una tensión entre 3 y 6 V, corriente de 150 mA, permiten una velocidad de entre 90 y 200 RPM y un torque de entre 0,15 Nm y 0,60 Nm. En la figura \ref{fig:dc_motors} se puede apreciar una imagen del componente.
 
 
 %\begin{figure}[htbp]
@@ -90,44 +90,44 @@ El motor DC (corriente continua) \cite{dc_motor_datasheet} es un electromotor qu
 
 
 \subsection{Módulos L298N}
-Los módulos L298N son controladores de motores de puente H duales muy utilizados en proyectos de robótica y automoción para controlar motores de corriente continua (DC) y motores paso a paso. El módulo se basa en el IC L298N, que es un controlador de motor de doble puente H fabricado por STMicroelectronics. Este módulo posee dos puentes H que permiten controlar 2 motores DC o un motor paso a paso bipolar/unipolar. El módulo permite controlar el sentido de giro y velocidad mediante señales TTL (transistor-transistor logic) que se pueden obtener de microcontroladores. Tiene integrado un regulador de voltaje de 5V encargado de alimentar la parte lógica del L298N cuya configuración se hace a través de un Jumper y se puede usar para alimentar el microcontrolador.
+Los módulos L298N son controladores de motores de puente H duales muy utilizados en proyectos de robótica y automoción para controlar motores de corriente continua (DC) y motores paso a paso. El módulo se basa en el IC L298N, que es un controlador de motor de doble puente H fabricado por STMicroelectronics. Este módulo posee dos puentes H que permiten controlar 2 motores DC o un motor paso a paso bipolar/unipolar. El módulo permite controlar el sentido de giro y velocidad mediante señales TTL (\textit{transistor-transistor logic}) que se pueden obtener de microcontroladores. Tiene integrado un regulador de tensión de 5 V encargado de alimentar la parte lógica del L298N cuya configuración se hace a través de un Jumper y se puede usar para alimentar el microcontrolador.
 
 \begin{center}
   \centering
   \includegraphics[scale=0.25]{electronics/l298n}
-  \captionof{figure}{Interruptores de On-Off}
+  \captionof{figure}{Interruptores de On-Off.}
   \label{fig:l298n}
 \end{center}
 
-\subsection{Pilas de Li-Ion 3.7 V}
+\subsection{Pilas de Li-Ion 3,7 V}
 Las pilas 18650 de 3000 mAh son baterías recargables que utilizan tecnología de iones de litio y se emplean comúnmente en una variedad de dispositivos electrónicos, como por ejemplo linternas de alta potencia, laptops, vehículos eléctricos (como bicicletas y scooters), etc. Las baterías de iones de litio son conocidas por su alta densidad de energía, su baja tasa de autodescarga y su larga vida útil en comparación con otras tecnologías de baterías recargables. Con 3000 mAh (miliamperios-hora), estas baterías ofrecen una duración prolongada, lo que es ideal para dispositivos que requieren mucha energía. Al ser recargables, son más ecológicas y económicas a largo plazo en comparación con las baterías desechables. Además, son generalmente seguras y tienen una buena estabilidad térmica, reduciendo el riesgo de explosiones o incendios.
 
 \begin{center}
   \centering
   \includegraphics[scale=0.2]{electronics/baterias_liion}
-  \captionof{figure}{Baterias Li-Ion}
+  \captionof{figure}{Baterias Li-Ion.}
   \label{fig:baterias_liion}
 \end{center}
 
-\subsection{Baterías AA 1.5 V}
+\subsection{Baterías AA 1,5 V}
 
-Las pilas AA de 1.5V con 2600 mWh son baterías de tamaño AA que proporcionan una tensión de 1.5 voltios y tienen una capacidad energética de 2600 miliwatts-hora (mWh). Ofrecen alta capacidad  pudiendo durar más tiempo entre recargas o reemplazos en comparación con las baterías de menor capacidad, y versatilidad, ya que al ser AA son compatibles con la mayoría de los dispositivos electrónicos que requieren alimentación de bajo voltaje.
-Las pilas AA de 1.5V con una alta capacidad como 2600 mWh son ideales para dispositivos que requieren un mayor consumo de energía, tales como cámaras digitales, linternas, juguetes electrónicos, mandos a distancia, controles de videojuegos, etc.
+Las pilas AA de 1,5 V con 2600 mWh son baterías de tamaño AA que proporcionan una tensión de 1,5 V y tienen una capacidad energética de 2600 mWh. Ofrecen alta capacidad  pudiendo durar más tiempo entre recargas o reemplazos en comparación con las baterías de menor capacidad, y versatilidad, ya que al ser AA son compatibles con la mayoría de los dispositivos electrónicos que requieren alimentación de bajo voltaje.
+Las pilas AA de 1,5 V con una alta capacidad como 2600 mWh son ideales para dispositivos que requieren un mayor consumo de energía, tales como cámaras digitales, linternas, juguetes electrónicos, mandos a distancia, controles de videojuegos, etc.
 \begin{center}
   \centering
   \includegraphics[scale=0.2]{electronics/pilasAA}
-  \captionof{figure}{Baterías AA}
+  \captionof{figure}{Baterías AA.}
   \label{fig:pilasAA}
 \end{center}
 
 
 \subsection{Plaquetas genéricas PCB}
-Las plaquetas electrónicas genéricas del tipo PCB (Printed Circuit Board), también conocidas como placas de desarrollo, son herramientas utilizadas principalmente en la educación, el diseño y el prototipado de circuitos electrónicos que constan de material aislante con patrones de cobre en una o ambas caras, donde se pueden soldar componentes para crear circuitos permanentes. Permiten el montaje de circuitos electrónicos de manera más duradera y fiable que el uso de un Protoboard y son asequibles de forma online a un bajo costo.
+Las plaquetas electrónicas genéricas del tipo PCB (\textit{Printed Circuit Board}), también conocidas como placas de desarrollo, son herramientas utilizadas principalmente en la educación, el diseño y el prototipado de circuitos electrónicos que constan de material aislante con patrones de cobre en una o ambas caras, donde se pueden soldar componentes para crear circuitos permanentes. Permiten el montaje de circuitos electrónicos de manera más duradera y fiable que el uso de un Protoboard y son asequibles de forma online a un bajo costo.
 
 \begin{center}
   \centering
   \includegraphics[scale=0.25]{electronics/plaquetas_genericas}
-  \captionof{figure}{Plaquetas genéricas}
+  \captionof{figure}{Plaquetas genéricas.}
   \label{fig:plaquetas_genericas}
 \end{center}
 
@@ -138,7 +138,7 @@ Los cables Dupont son cables de conexión eléctrica utilizados comúnmente en p
 \begin{center}
   \centering
   \includegraphics[scale=0.25]{electronics/dupont}
-  \captionof{figure}{Cables DuPont}
+  \captionof{figure}{Cables DuPont.}
   \label{fig:dupont}
 \end{center}
 
@@ -148,28 +148,28 @@ Los pines de cabecera son componentes electrónicos que consisten en filas de pi
 \begin{center}
   \centering
   \includegraphics[scale=0.2]{electronics/pines}
-  \captionof{figure}{Pines}
+  \captionof{figure}{Pines.}
   \label{fig:pines}
 \end{center}
 
 \subsection{Interruptores de On-Off}
-Los interruptores de encendido-apagado (on-off) son componentes fundamentales en circuitos electrónicos que permiten controlar el flujo de corriente eléctrica. Son utilizados para conectar o desconectar la corriente en un circuito, funcionando como un medio sencillo y efectivo para gestionar la energía de dispositivos electrónicos. Se los puede encontrar en diferentes tipos,     Interruptores Basculantes (Rocker Switches) -se operan basculando de una posición a otra-, interruptores deslizantes (Slide Switches) -se operan deslizando un pequeño botón a lo largo de una pista-, interruptores de palanca (Toggle Switches) -utilizan una palanca que se mueve hacia arriba y hacia abajo para cambiar entre las posiciones on y off, e interruptores de pulsador (Push-Button Switches) -al presionar el botón se conecta o desconecta el circuito-.
+Los interruptores de encendido-apagado (on-off) son componentes fundamentales en circuitos electrónicos que permiten controlar el flujo de corriente eléctrica. Son utilizados para conectar o desconectar la corriente en un circuito, funcionando como un medio sencillo y efectivo para gestionar la energía de dispositivos electrónicos. Se los puede encontrar en diferentes tipos, interruptores basculantes (\textit{Rocker Switches}) -se operan basculando de una posición a otra-, interruptores deslizantes (\textit{Slide Switches}) -se operan deslizando un pequeño botón a lo largo de una pista-, interruptores de palanca (\textit{Toggle Switches}) -utilizan una palanca que se mueve hacia arriba y hacia abajo para cambiar entre las posiciones on y off, e interruptores de pulsador (\textit{Push-Button Switches}) -al presionar el botón se conecta o desconecta el circuito-.
 
 \begin{center}
   \centering
   \includegraphics[scale=0.2]{electronics/interruptores}
-  \captionof{figure}{Interruptores de On-Off}
+  \captionof{figure}{Interruptores de On-Off.}
   \label{fig:interruptores}
 \end{center}
 
 \subsection{Portapilas}
 
-Los porta pilas son componentes diseñados para alojar y conectar baterías en un circuito electrónico. Estos dispositivos, generalmente hechos de plástico resistente con contactos metálicos (normalmente de níquel o acero) para asegurar una buena conductividad, facilitan la instalación y el reemplazo de baterías, asegurando una conexión segura y confiable. Se los puede encontrar comúnmente para los tipos de pilas y baterías más utilizadas, como por ejemplo AA, AAA, 9V, 18650, CR2032, etc. Además, suelen venir en tres posibles configuraciones, un solo compartimento (para una sola batería), múltiples compartimentos (para conectar varias baterías en serie o en paralelo), y con interruptor (algunos portapilas incluyen un interruptor para encender o apagar la conexión de las baterías al circuito).
+Los portapilas son componentes diseñados para alojar y conectar baterías en un circuito electrónico. Estos dispositivos, generalmente hechos de plástico resistente con contactos metálicos (normalmente de níquel o acero) para asegurar una buena conductividad, facilitan la instalación y el reemplazo de baterías, asegurando una conexión segura y confiable. Se los puede encontrar comúnmente para los tipos de pilas y baterías más utilizadas, como por ejemplo AA, AAA, 9 V, 18650, CR2032, etc. Además, suelen venir en tres posibles configuraciones, un solo compartimento (para una sola batería), múltiples compartimentos (para conectar varias baterías en serie o en paralelo), y con interruptor (algunos portapilas incluyen un interruptor para encender o apagar la conexión de las baterías al circuito).
 
 \begin{center}
   \centering
   \includegraphics[scale=0.3]{electronics/porta_pilas}
-  \captionof{figure}{Porta Pilas}
+  \captionof{figure}{Porta Pilas.}
   \label{fig:porta_pilas}
 \end{center}
 
@@ -180,7 +180,7 @@ Las ruedas de plástico son componentes genéricos utilizados en la comunidad ho
 \begin{center}
   \centering
   \includegraphics[scale=0.2]{electronics/ruedas}
-  \captionof{figure}{Ruedas}
+  \captionof{figure}{Ruedas.}
   \label{fig:ruedas}
 \end{center}
 

@@ -45,10 +45,10 @@ morecomment=[s]{/*}{*/}
 
 Esta sección presenta los detalles técnicos del diseño e implementación de las diferentes funcionalidades del producto, la arquitectura hardware y software, y finalmente la interfaz de usuario para el control y reporte de las operaciones del robot.
 
-El proyecto fue realizado siguiendo una metodología basada en crear un prototipo funcional con una arquitectura escalable que cumpla con alcance básico especificado en el plan de proyecto, y una vez conseguido agregar en lo posible y de acuerdo a la capacidad, funcionalidades adicionales.
+El trabajo fue realizado siguiendo una metodología basada en crear un prototipo funcional con una arquitectura escalable que cumpla con alcance básico especificado en el plan de proyecto, y una vez conseguido agregar en lo posible y de acuerdo a la capacidad, funcionalidades adicionales.
 De esta forma, una vez que se logró el alcance básico, considerado como la versión v1.0 del producto, se continuó con el desarrollo y se agregó la funcionalidad adicional de control inalámbrico por medio de un joystick, en lo que se considera la versión v2.0 del mismo.
 
-En las siguientes sub secciones se detallan los detalles del diseño e implementación realizados para ambas versiones.
+En las siguientes subsecciones se detallan los detalles del diseño e implementación realizados para ambas versiones.
 
 
 \section{Arquitectura de software del sistema}
@@ -58,7 +58,7 @@ Con el fin de poder lograr una arquitectura de software modular, se implementaro
 
 \subsection{Arquitectura y diseño de componentes en la versión v1.0}
 
-A continuación podemos apreciar la arquitectura de software del sistema en su versión v1.0 y el detalle de sus componentes y servicios.
+A continuación se puede apreciar la arquitectura de software del sistema en su versión v1.0 y el detalle de sus componentes y servicios.
 
 \begin{center}
 \includegraphics[scale=0.75]{software/arquitectura_software_global_v1}
@@ -73,13 +73,13 @@ Los componentes y servicios de software del Robot en la versión v1 son los sigu
 \begin{enumerate}	
 	\item Componentes de software
 	\begin{enumerate}			
-		\item main-core: orquesta las diferentes tareas desde las que se invocan los demás componentes de software.
+		\item Main-core: orquesta las diferentes tareas desde las que se invocan los demás componentes de software.
 		\item Measuring Service: abstrae el acceso a los módulos de medición de temperatura, humedad, presión y luminosidad.
 		\item Measuring State: mantiene el estado de cada uno de los parámetros ambientales medidos.
 		\item Robot Position State: mantiene el estado del movimiento actual del robot.
-		\item ADC Service: abstrae el acceso a los módulos que hacen uso de los canales que requieren conversiones ADC (Analogico/Digital), como el joystick analógico y el fotoresistor.
+		\item ADC Service: abstrae el acceso a los módulos que hacen uso de los canales que requieren conversiones ADC (analógico/digital), como el joystick analógico y el fotorresistor.
 		\item Motors Service: abstrae el acceso al módulo de control de motores.
-		\item Display Service: abstrae el acceso al módulo de control del display mediante Ic2.
+		\item Display Service: abstrae el acceso al módulo de control del display mediante I2C.
 		\item Joystick Service: abstrae el acceso al módulo de control del joystick.
 	\end{enumerate}	
 	\item Servicios (tareas)
@@ -93,7 +93,7 @@ Los componentes y servicios de software del Robot en la versión v1 son los sigu
 
 \subsection{Arquitectura y diseño de componentes en la versión v2.0}
 
-Luego de expandir su funcionalidad, los componentes y servicios de software se separaron físicamente en el hardware del robot y el del joystick, agregando además los necesarios para la comunicación inalámbrica. A continuación podemos apreciar la arquitectura de software del sistema en su versión v2.0 y el detalle de sus componentes y servicios.
+Luego de expandir su funcionalidad, los componentes y servicios de software se separaron físicamente en el hardware del robot y el del joystick, agregando además los necesarios para la comunicación inalámbrica. A continuación se puede apreciar la arquitectura de software del sistema en su versión v2.0 y el detalle de sus componentes y servicios.
 
 \begin{center}
 \includegraphics[scale=0.75]{software/arquitectura_software_global_v2}
@@ -107,7 +107,7 @@ Los componentes de software y servicios del robot son:
 \begin{enumerate}	
 	\item Componentes de software
 	\begin{enumerate}			
-		\item main-core
+		\item Main-core
 		\item Measuring Service	
 		\item Measuring State
 		\item Robot Position State
@@ -145,33 +145,33 @@ Los componentes de software y servicios del joystick son:
 
 \section{Implementación de los módulos}
 
-Los macro componentes de hardware presentes en la arquitectura de la versión v2.0 son el robot y el joystick, los cuales constituyen dos sistemas embebidos independientes implementados con dos microcontroladores ESP32, integrados entre sí por medio de una red WiFi y una comunicación UDP. Los modulos hardware desarrollados son los siguientes.La arquitectura de hardware del sistema esta compuesta por los siguientes módulos:
+Los macro componentes de hardware presentes en la arquitectura de la versión v2.0 son el robot y el joystick, que constituyen dos sistemas embebidos independientes implementados con dos microcontroladores ESP32, integrados entre sí por medio de una red WiFi y una comunicación UDP. La arquitectura de hardware del sistema esta compuesta por los siguientes módulos:
 
 
 \begin{itemize}
 	\item En el robot:
 	\begin{itemize}
 		\item Control de los motores DC.	
-		\item Control de los sensores de medición (DHT11, BMP280 y fotoresistor).
-		\item Gestión de la  comunicación inalámbrica vía WIFI (en la versión v2.0).
+		\item Control de los sensores de medición (DHT11, BMP280 y fotorresistor).
+		\item Gestión de la  comunicación inalámbrica vía Wi-Fi (en la versión v2.0).
 	\end{itemize}
 	\item En el joystick:
 	\begin{itemize}
 		\item Control del display.
 		\item Control del joystick.
-		\item Gestión de la  comunicación inalámbrica vía WIFI (en la versión v2.0).
+		\item Gestión de la  comunicación inalámbrica vía Wi-Fi (en la versión v2.0).
 	\end{itemize}
 \end{itemize}
 
 La integración de los mismos se realizó mediante el diseño y construcción de una placa integradora central, que conecta los dispositivos hardware con el microcontrolador ESP-32.
 
 
-\subsection{Control de la red WIFI}
+\subsection{Control de la red Wi-Fi}
 
-El módulo de red WiFi está integrado en el chip ESP32 en el cual se soportan múltiples features \cite{ESP32_WiFi} por lo cual a nivel hardware no fue necesario realizar ningún conexionado.
-A nivel software, la gestión del módulo WiFi se encuentra incluida en el SDK ESP-IDF, y el acceso al mismo se realiza desde el módulo ADC 2 \cite{ESP32_adc}. Por este motivo, cuando el sistema embebido utiliza el módulo WiFi, el uso del ADC2 queda restringido a esta funcionalidad por lo cual cualquier otro dispositivo que deba hacer uso del ADC debe ser configurado para utilizar el ADC1, como por ejemplo los módulos de joystick y detección de luminosidad, explicados en las siguientes secciones.
+El módulo de red WiFi está integrado en el chip ESP32, el cual soporta múltiples características \cite{ESP32_WiFi} por lo tanto a nivel hardware no fue necesario realizar ningún conexionado.
+A nivel de software, la gestión del módulo WiFi está incluida en el SDK ESP-IDF, y el acceso a este se realiza desde el módulo ADC 2 \cite{ESP32_adc}. Por este motivo, cuando el sistema embebido utiliza el módulo WiFi, el uso del ADC2 queda restringido a esta funcionalidad por lo tanto cualquier otro dispositivo que deba hacer uso del ADC debe ser configurado para utilizar el ADC1, como en el caso de los módulos de joystick y detección de luminosidad, que se explican en las siguientes secciones.
 
-La configuración del \textit{soft access point WiFi} implementado se realizó en base a los parámetros de red detallados en la siguiente tabla  \ref{tab:configuracion_wifi}:
+La configuración del \textit{soft access point Wi-Fi} implementado se realizó en base a los parámetros de red detallados en la siguiente tabla  \ref{tab:configuracion_wifi}:
 
 \vspace{0.5cm}
 \begin{table}[h]
@@ -182,7 +182,7 @@ La configuración del \textit{soft access point WiFi} implementado se realizó e
 \textbf{Parámetro} & \textbf{Valor} \\
 \midrule
 SSID & Robot  \\
-password & Robot  \\
+Password & Robot  \\
 \bottomrule
 \hline
 \end{tabular}
@@ -193,13 +193,13 @@ password & Robot  \\
 El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cite{ESP32_WiFi_SoftAP}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_WiFi}.
 
 
-\subsection{Control del joystick analogico}
+\subsection{Control del joystick analógico}
 Para el desarrollo de este prototipo se utilizó el SDK ESP-IDF y se configuró el módulo ADC1 de acuerdo a los siguientes detalles en la tabla \ref{fig:conexionado_joystick}:
 
 \vspace{0.5cm}
 \begin{table}[h]
 \centering
-\caption[Conexionado joystick]{Conexionado joystick}
+\caption[Conexionado joystick]{Conexionado joystick.}
 \begin{tabular}{l c c}
 \toprule
 \textbf{Channel} & \textbf{Unit} & \textbf{Pin GPIO}\\
@@ -212,7 +212,7 @@ Para el desarrollo de este prototipo se utilizó el SDK ESP-IDF y se configuró 
 \label{tab:conexionado_joystick}
 \end{table}
 
-A continuación se puede apreciar el conexionado físico en la figura \ref{fig:conexionado_joystick}.
+A continuación, se puede apreciar el conexionado físico en la figura \ref{fig:conexionado_joystick}.
 
 \begin{center}
 \includegraphics[scale=1]{schematics/conexionado_joystick}
@@ -225,12 +225,12 @@ El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cit
 
 
 \subsection{Medición de valor de luminosidad}
-Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configuró el módulo ADC1 de acuerdo a los detalles provistos en la tabla \ref{tab:conexionado_fotoresistor}. Los valores leídos por el fotoresistor corresponden a niveles de voltaje ...
+Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configuró el módulo ADC1 de acuerdo a los detalles provistos en la tabla \ref{tab:conexionado_fotoresistor}. 
 
 \vspace{0.5cm}
 \begin{table}[h]
 \centering
-\caption[Conexionado fotoresistor]{Conexionado fotoresistor}
+\caption[Conexionado fotoresistor]{Conexionado fotorresistor.}
 \begin{tabular}{l c c}
 \toprule
 \textbf{Channel} & \textbf{Unit} & \textbf{Pin GPIO}\\
@@ -242,7 +242,7 @@ Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configur
 \label{tab:conexionado_fotoresistor}
 \end{table}
 
-A continuación se puede apreciar un diagrama de su conexionado físico en la figura \ref{fig:conexionado_fotoresistor}.
+A continuación, se puede apreciar un diagrama de su conexionado físico en la figura \ref{fig:conexionado_fotoresistor}.
 
 \begin{center}
 \includegraphics[scale=1]{schematics/conexionado_fotoresistor}
@@ -254,8 +254,8 @@ El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cit
 
 \subsection{Medición de temperatura y humedad}
 
-Para el desarrollo de este modulo se utilizó la biblioteca de código ESP-IDF-Lib Components Library \cite{esp_idf_lib_website} que provee el soporte para gestionar el DHT11. Para acceder a las lecturas del dispositivo se abstrajo el mismo mediante el componente Measuring Service, el cual es invocado por la tarea Measuring Task y el estado de la lectura es almacenado en el componente Measuring State.
-A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_dht11}.
+Para el desarrollo de este modulo se utilizó la biblioteca de código ESP-IDF-Lib Components Library \cite{esp_idf_lib_website} que provee el soporte para gestionar el DHT11. Para acceder a las lecturas del dispositivo se abstrajo mediante el componente Measuring Service, este es invocado por la tarea Measuring Task y el estado de la lectura es almacenado en el componente Measuring State.
+A continuación, se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_dht11}.
 
 \begin{center}
 \includegraphics[scale=1]{schematics/conexionado_dht11}
@@ -263,24 +263,24 @@ A continuación se puede apreciar el conexionado del prototipo en la figura \ref
   \label{fig:conexionado_dht11}
 \end{center}
 
-El desarrollo de este módulo se basó en el ejemplo provisto por la librería ESP-IDF-Lib \cite{ESP32_dht11_example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_dht11}.
+El desarrollo de este módulo se basó en el ejemplo provisto por la biblioteca ESP-IDF-Lib \cite{ESP32_dht11_example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_dht11}.
 
 \subsection{Medición de presión}
-Para el desarrollo de este módulo se utilizó el framework ESP-IDF y la biblioteca de código ESP-IDF Components que provee el soporte para gestionar el dispositivo BMP280 por medio del protocolo I2C. El driver es inicializado en el componente main-core para ser posteriormente invocado desde el Measuring Service en la tarea Measuring Task. Sus lecturas son guardadas en el Measuring State. A continuación se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_bmp280}.
+Para el desarrollo de este módulo se utilizó el framework ESP-IDF y la biblioteca de código ESP-IDF Components que provee el soporte para gestionar el dispositivo BMP280 por medio del protocolo I2C. El driver es inicializado en el componente main-core para ser posteriormente invocado desde el Measuring Service en la tarea Measuring Task. Sus lecturas son guardadas en el Measuring State. A continuación, se puede apreciar el conexionado del prototipo en la figura \ref{fig:conexionado_bmp280}.
 \begin{center}
 \includegraphics[scale=1]{schematics/conexionado_bmp280}
   \captionof{figure}{Conexionado BMP280.}
   \label{fig:conexionado_bmp280}
 \end{center}
 
-El desarrollo de este módulo se basó en el ejemplo provisto por la librería ESP-IDF-Lib \cite{ESP32_bmp280_example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_bmp280}.
+El desarrollo de este módulo se basó en el ejemplo provisto por la biblioteca ESP-IDF-Lib \cite{ESP32_bmp280_example}. El código fuente del prototipo realizado puede apreciarse en el siguiente enlace \cite{ESP32_POC_bmp280}.
 
 
 \subsection{Control de motores DC}
 
-Para la implementación del módulo de control de los motores de corriente continua se utilizaron a nivel hardware dos módulos puentes L298N \cite{L298N} que permiten integrar y controlar dos motores cada uno. Con el fin de alimentar los módulos con una fuente de poder de amperaje y voltaje consistente se utilizaron dos baterías de Li-Ion de 3.7 V y 2000 mA/h conectadas en serie activadas mediante un interruptor.
-A nivel driver en el ESP32 se utilizó el módulo de control de motores por modulación de pulsos (MCPWM) \cite{ESP32_MCPWM} que por medio de la configuración de sus unidades y del duty cycle \cite{ESP32_MCPWM_2} se puede controlar el sentido y velocidad de rotación de los motores.
-Los puentes L298N brindan además una tensión de salida de 5V, y esto fue utilizado para la alimentación del ESP32 conectando su pin Vin.
+Para la implementación del módulo de control de los motores de corriente continua se utilizaron a nivel de hardware dos módulos puentes L298N \cite{L298N}, que permiten integrar y controlar dos motores cada uno. Con el fin de alimentar los módulos con una fuente de poder de corriente y tensión consistente, se utilizaron dos baterías de Li-Ion de 3,7 V y 2000 mA/h conectadas en serie, activadas mediante un interruptor.
+A nivel driver en el ESP32 se utilizó el módulo de control de motores por modulación de pulsos (MCPWM) \cite{ESP32_MCPWM} que por medio de la configuración de sus unidades y del \textit{duty cycle} \cite{ESP32_MCPWM_2} se puede controlar el sentido y velocidad de rotación de los motores.
+Los puentes L298N proporcionan también además una tensión de salida de 5 V, y que se utilizó para la alimentación del ESP32 conectando su pin Vin.
 
 En el siguiente diagrama puede apreciarse el conexionado lógico para el control de los motores con los componentes mencionados.
 
