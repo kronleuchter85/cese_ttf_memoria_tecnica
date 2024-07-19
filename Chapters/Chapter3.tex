@@ -225,7 +225,22 @@ El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cit
 
 
 \subsection{Medición de valor de luminosidad}
-Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configuró el módulo ADC1 de acuerdo a los detalles provistos en la tabla \ref{tab:conexionado_fotoresistor}. 
+Debido a su fuerte dependencia con la temperatura, y especialmente a que su distribución espectral no resulta adecuada para la medición de iluminancia, los fotoresistores no pueden proporcionar una medición precisa de iluminancia como lo haría un luxómetro. No obstante, el fotorresistor resulta puede ser utilizado como sensor para proporcionar medidas cuantitativas sobre el nivel de luz, tanto en interiores como en exteriores.
+Para leer los valores del fotorresistor se utilizó la función \textbf{adc1\textunderscore get\textunderscore raw } del SDK ESP-IDF, donde el valor devuelto se encuentra en el rango [0 - 2050], con \textit{\textbf{0}} el valor de mayor iluminación y \textit{\textbf{2050}} el menor.
+Finalmente, para calcular el nivel de iluminación como valor porcentual, en el rango [0-100], siendo cero el nivel más oscuro y cien más iluminado, se utilizó la siguiente función matemática:
+
+\begin{equation*}
+\mbox{Nivel de Iluminación}=\frac{\mbox{MaxReading - reading}}{\mbox{MaxReading}} x 100
+\end{equation*}
+
+Donde:
+\begin{itemize}
+	\item El valor \textit{reading} es la lectura analógica del valor del fotorresistor.
+	\item El valor \textit{MaxReading} es el máximo valor analógico posible de ser entregado por el fotorresistor, en este caso 2050.
+	\item El valor \textit{MaxReading} es el máximo valor analógico posible de ser entregado por el fotorresistor, en este caso 0.
+\end{itemize}
+
+Para el desarrollo de este prototipo se utilizó el SDK de ESP-IDF y se configuró el módulo ADC1 de acuerdo a los detalles provistos en la tabla \ref{tab:conexionado_fotoresistor}.
 
 \vspace{0.5cm}
 \begin{table}[h]
