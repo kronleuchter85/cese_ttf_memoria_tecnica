@@ -163,13 +163,13 @@ Los macro componentes de hardware presentes en la arquitectura de la versión v2
 	\end{itemize}
 \end{itemize}
 
-La integración de los mismos se realizó mediante el diseño y construcción de una placa integradora central, que conecta los dispositivos hardware con el microcontrolador ESP-32.
+La integración de los módulos se realizó mediante el diseño y construcción de una placa integradora central, que conecta los dispositivos hardware con el microcontrolador ESP-32.
 
 
 \subsection{Control de la red Wi-Fi}
 
-El módulo de red WiFi está integrado en el chip ESP32, el cual soporta múltiples características \cite{ESP32_WiFi} por lo tanto a nivel hardware no fue necesario realizar ningún conexionado.
-A nivel de software, la gestión del módulo WiFi está incluida en el SDK ESP-IDF, y el acceso a este se realiza desde el módulo ADC 2 \cite{ESP32_adc}. Por este motivo, cuando el sistema embebido utiliza el módulo WiFi, el uso del ADC2 queda restringido a esta funcionalidad por lo tanto cualquier otro dispositivo que deba hacer uso del ADC debe ser configurado para utilizar el ADC1, como en el caso de los módulos de joystick y detección de luminosidad, que se explican en las siguientes secciones.
+El módulo de red Wi-Fi está integrado en el chip ESP32, el cual soporta múltiples características \cite{ESP32_WiFi} por lo tanto a nivel hardware no fue necesario realizar ningún conexionado.
+A nivel de software, la gestión del módulo Wi-Fi está incluida en el SDK ESP-IDF, y el acceso a este se realiza desde el módulo ADC 2 \cite{ESP32_adc}. Por este motivo, cuando el sistema embebido utiliza el módulo Wi-Fi, el uso del ADC2 queda restringido a esta funcionalidad por lo tanto cualquier otro dispositivo que deba hacer uso del ADC debe ser configurado para utilizar el ADC1, como en el caso de los módulos de joystick y detección de luminosidad, que se explican en las siguientes secciones.
 
 La configuración del \textit{soft access point Wi-Fi} implementado se realizó en base a los parámetros de red detallados en la siguiente tabla  \ref{tab:configuracion_wifi}:
 
@@ -225,12 +225,12 @@ El desarrollo de este módulo se basó en el ejemplo provisto por Espressif \cit
 
 
 \subsection{Medición de valor de luminosidad}
-Debido a su fuerte dependencia con la temperatura, y especialmente a que su distribución espectral no resulta adecuada para la medición de iluminancia, los fotoresistores no pueden proporcionar una medición precisa de iluminancia como lo haría un luxómetro. No obstante, el fotorresistor resulta puede ser utilizado como sensor para proporcionar medidas cuantitativas sobre el nivel de luz, tanto en interiores como en exteriores.
-Para leer los valores del fotorresistor se utilizó la función \textbf{adc1\textunderscore get\textunderscore raw } del SDK ESP-IDF, donde el valor devuelto se encuentra en el rango [0 - 2050], con \textit{\textbf{0}} el valor de mayor iluminación y \textit{\textbf{2050}} el menor.
-Finalmente, para calcular el nivel de iluminación como valor porcentual, en el rango [0-100], siendo cero el nivel más oscuro y cien más iluminado, se utilizó la siguiente función matemática:
+Debido a su fuerte dependencia con la temperatura, y especialmente a que su distribución espectral no resulta adecuada para la medición de iluminancia, los fotorresistores no pueden proporcionar una medición precisa de iluminancia como lo haría un luxómetro. No obstante, el fotorresistor resulta que puede ser utilizado como sensor para proporcionar medidas cuantitativas sobre el nivel de luz, tanto en interiores como en exteriores.
+Para leer los valores del fotorresistor se utilizó la función \textbf{adc1\textunderscore get\textunderscore raw } del SDK ESP-IDF, donde el valor devuelto se encuentra en el rango [0 - 2050], con "0" el valor de mayor iluminación y "2050" el menor.
+Finalmente, para calcular el nivel de iluminación como valor porcentual, en el rango [0-100], siendo cero el nivel más oscuro y cien el más iluminado, se utilizó la siguiente función matemática:
 
 \begin{equation*}
-\mbox{Nivel de Iluminación}=\frac{\mbox{MaxReading - reading}}{\mbox{MaxReading}} x 100
+\mbox{Nivel de iluminación}=\frac{\mbox{MaxReading - reading}}{\mbox{MaxReading}} x 100
 \end{equation*}
 
 Donde:
@@ -330,7 +330,7 @@ El desarrollo de este módulo se basó en el ejemplo provisto en el enlace \cite
 
 \subsection{Ensamblado final del producto v2.0}
 
-En las siguientes imagenes se pueden apreciar las diferentes perspectivas del robot.
+En las imagenes de la figura \cite{conexionado_fisico} se pueden apreciar las diferentes perspectivas del robot.
 
 \begin{center}
 \includegraphics[scale=0.8]{demo_product/all_perspectives_robot_perspectivas}
