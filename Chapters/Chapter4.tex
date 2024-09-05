@@ -7,7 +7,7 @@
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
-Esta sección presenta los diferentes prototipos realizados para determinar la viabilidad de cada una de las funcionalidades provistas, la metodología de desarrollo, testing y finalmente los entregables finales del trabajo.
+Esta sección presenta los diferentes prototipos realizados para determinar la viabilidad de cada una de las funcionalidades provistas, la metodología de desarrollo, testing y, finalmente, los entregables finales del trabajo.
 
 \section{Proceso de desarrollo y aseguramiento de calidad}
 \label{sec:pruebasHW}
@@ -49,12 +49,16 @@ Se verificó visualmente que los valores obtenidos del fotorresistor, tras ser t
 
 
 \subsection{Verificación del módulo de comunicación UTP sobre Wi-Fi}
-Por medio de dos programas UDP, uno cliente y uno servidor, se probó el establecimiento de la comunicación UDP entre dos ESP32. Luego se incorporó el servicio de comunicaciones UDP en el robot y mientras que desde el programa cliente se enviaban las acciones representando las direcciones del movimiento a realizar (FORWARD, BACKWARD, LEFT, RIGHT) y se observó visualmente cómo el robot giraba sus ruedas en función de los comandos enviados. Finalmente, se incorporó el módulo de comunicaciones en el joystick para enviar los comandos al robot cuando se realizaba dicho
+Por medio de dos programas UDP, uno cliente y uno servidor, se probó el establecimiento de la comunicación UDP entre dos ESP32. Luego se incorporó el servicio de comunicaciones UDP en el robot y mientras que desde el programa cliente se enviaban las acciones representando las direcciones del movimiento a realizar (FORWARD, BACKWARD, LEFT, RIGHT) y se observó visualmente cómo el robot giraba sus ruedas en función de los comandos enviados. Finalmente, se incorporó el módulo de comunicaciones en el joystick y se procedió a activar el desplazamiento en cada una de sus direcciones. Se evidenció el correcto funcionamiento del robot al desplazarse en la dirección de cada comando accionado.
 
 
 \section{Pruebas funcionales y validación del producto}
 
-El proceso de validación y pruebas del producto se realizó comparando el resultado obtenido con los valores esperados en el alcance del proyecto. Las pruebas realizadas fueron las siguientes:
+El proceso de validación y pruebas del producto se realizó comparando el resultado obtenido con los valores esperados en el alcance del proyecto.
+
+Para la medición de temperatura, humedad y presión se utilizó el anemómetro digital de la figura \ref{fig:anemometro}, mientras que para la validación de la medición de luminosidad ambiental se utilizó la observación visual.
+
+Las pruebas realizadas fueron las siguientes:
 \begin{itemize}
 	\item Prueba y validación del módulo de visualización de display.
 	\item Prueba y validación del módulo de medición de temperatura y humedad.
@@ -63,18 +67,7 @@ El proceso de validación y pruebas del producto se realizó comparando el resul
 	\item Prueba y validación del control y desplazamiento del robot.
 \end{itemize}
 
-Para la validación de los parámetros ambientales medidos por el robot se utilizó un dispositivo anemómetro digital AOPUTTRIVER AP-007-WM capaz de medir presión, temperatura y humedad ambiental, y de esta manera poder comparar los valores medidos. En la siguiente figura puede apreciarse una imagen del mismo.
-
-\begin{center}
-\includegraphics[scale=0.3]{electronics/anemometro}
-  \captionof{figure}{Anemometro digital AOPUTTRIVER AP-007-WM.}
-  \label{fig:anemometro}
-\end{center}
-
-Para la validación de la medición de luminosidad ambiental ...
-
 En las siguientes secciones se presentan las diferentes pruebas funcionales realizadas sobre el producto.
-
 
 
 \subsection{Prueba y validación del módulo de visualización de display}
@@ -120,7 +113,7 @@ En la siguiente tabla se pueden apreciar los resultados.
 \textbf{Contexto} & \textbf{Temp. Robot} & \textbf{Temp. Ref.} & \textbf{Hume. Robot}  & \textbf{Hume. Ref.}\\
 \midrule
 Interior & 22,0 & 23,6 & 44,0 - 45,0 & 58,5 \\
-Exterior (dia) & 17,0  & 14,0 & 47,0 - 53,0 & 62,9 - 64,0 \\
+Exterior (día) & 17,0  & 14,0 & 47,0 - 53,0 & 62,9 - 64,0 \\
 Exterior (noche) & - & - & - & - \\
 \bottomrule
 \hline
@@ -154,7 +147,7 @@ A continuación, se pueden apreciar algunas fotografías tomadas durante el proc
   \label{fig:humedad_interior}
 \end{center}
 
-En la siguiente sección puede encontrarse el video que muestra el funcionamiento del módulo de mediciones en el que se aprecia el funcionamiento del módulo de medición de temperatura y humedad \cite{Demo_Mediciones}.
+En la siguiente sección puede encontrarse el video que muestra el funcionamiento del módulo de mediciones, en el que se aprecia el funcionamiento del módulo de medición de temperatura y humedad \cite{Demo_Mediciones}.
 
 \subsection{Prueba y validación del módulo de medición de presión atmosférica}
 
@@ -164,13 +157,13 @@ En la siguiente tabla pueden apreciarse los resultados obtenidos:
 
 \begin{table}[h]
 \centering
-\caption[Resultados de mediciones de presión ambiental.]{Resultados de mediciones de presión ambiental}
+\caption[Resultados de mediciones de presión ambiental.]{Resultados de mediciones de presión ambiental.}
 \begin{tabular}{l c c}
 \toprule
 \textbf{Contexto} & \textbf{Presión. Robot} & \textbf{Presión. Ref.} \\
 \midrule
-Dia 1 & 1013 & 1018,9 \\
-Dia 2 & 1003,9 & 998 \\
+Día 1 & 1013 & 1018,9 \\
+Día 2 & 1003,9 & 998 \\
 \bottomrule
 \hline
 \end{tabular}
@@ -201,24 +194,24 @@ Se compararon los valores medidos por el módulo de medición de luminosidad bas
 	\item En interiores a oscuras.
 \end{itemize}
 
-Los resultados mostraron que los valores porcentuales indicados por el módulo de medición de luminosidad son consistentes con los niveles de luz detectados por el ojo humano. En las siguientes imagenes pueden apreciarse los resultados de las mediciones.
+Los resultados mostraron que los valores porcentuales indicados por el módulo de medición de luminosidad son consistentes con los niveles de luz detectados por el ojo humano. En las figuras \ref{fig:DisplayLuminosidadExteriorDia}, \ref{fig:DisplayLuminosidadInteriorDia} y \ref{fig:DisplayLuminosidadInteriorNoche} pueden apreciarse los resultados de las mediciones.
 
 \begin{center}
 \includegraphics[scale=0.8]{demo_product/DisplayLuminosidadExteriorDia}
   \captionof{figure}{Medición de luminosidad ambiental en el exterior durante el día.}
-  \label{fig:humedad_interior}
+  \label{fig:DisplayLuminosidadExteriorDia}
 \end{center}
 
 \begin{center}
 \includegraphics[scale=0.23]{demo_product/DisplayLuminosidadInteriorDia}
   \captionof{figure}{Medición de luminosidad ambiental en interiores durante el día.}
-  \label{fig:humedad_interior}
+  \label{fig:DisplayLuminosidadInteriorDia}
 \end{center}
 
 \begin{center}
 \includegraphics[scale=0.82]{demo_product/DisplayLuminosidadInteriorNoche}
   \captionof{figure}{Medición de luminosidad ambiental en interiores durante la noche.}
-  \label{fig:humedad_interior}
+  \label{fig:DisplayLuminosidadInteriorNoche}
 \end{center}
 
 En la siguiente sección puede encontrarse el video que muestra el funcionamiento del módulo de mediciones, en el que se aprecia el funcionamiento del módulo de medición de luminosidad ambiental \cite{Demo_Mediciones}.
@@ -229,7 +222,7 @@ Se verificó el control del desplazamiento del robot de forma visual por medio d
 
 \begin{itemize}
 	\item La dirección del movimiento del robot sea acorde al accionamiento del joystick.
-	\item El tiempo de respuesta en el movimiento del robot y tras accionar del joystick sea mínimo, permitiendo una buena experiencia de usuario.
+	\item El tiempo de respuesta en el movimiento del robot y tras el accionar del joystick sea mínimo, permitiendo una buena experiencia de usuario.
 \end{itemize}
 
 En la siguiente sección pueden encontrarse los videos \cite{Demo_Control_Movimiento_1} y \cite{Demo_Control_Movimiento_2} evidenciando la demostración de este experimento.
