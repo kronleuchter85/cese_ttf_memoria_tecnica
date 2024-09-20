@@ -382,12 +382,63 @@ En la figura \ref{fig:conexionado_fisico} se puede apreciar el conexionado físi
   \label{fig:conexionado_fisico}
 \end{center}
 
+\vspace{2cm}
 
 
 
-\section{Ciclo de desarrollo}
+\section{Plataforma de desarrollo y ciclo de CI/CD}
 
-Durante el ciclo de desarrollo se utilizaron las herramientas explicadas en el capítulo anterior, y se creó por cada prototipo una imagen Docker extendiendo la de espressif/idf \cite{Espressif_docker_image}. El proceso de compilación y despliegue está explicado en la documentación técnica del producto \cite{Robot_Tecnical_doc}.
+Durante el ciclo de desarrollo se utilizaron las herramientas explicadas en el capítulo anterior, y se creó por cada prototipo una imagen Docker extendiendo la de espressif/idf \cite{Espressif_docker_image}. En el proceso de desarrollo del producto se utilizó CI/CD (\textit{continuous integration / continuous delivery}) mediante la integración de Github con Google Cloud Build, Google Artifact Registry y el uso de imágenes Docker. El conjunto de actividades del mismo fue el siguiente:
+
+\begin{enumerate}
+	\item Codificar localmente en Ubuntu utilizando VSCode.
+	\item Construcción local en Ubuntu de imagen Docker de acuerdo a la especificación de los siguientes pasos en el archivo docker-compose.yml:
+	\begin{enumerate}
+		\item Compilación del código, enlazado de bibliotecas y empaquetado de la aplicación.
+		\item Ejecución de los tests unitarios con \textit{ceedling}.
+		\item Despliegue (flash) de la aplicación en el ESP32.
+	\end{enumerate}
+	\item Versionado del código en el repositorio Github por medio de git commit-push.
+	\item Construcción en el ambiente de CI/CD por medio de Google Cloud Build de acuerdo a la especificacion de los siguientes pasos definidos en el archivo cloudbuild.yml:
+	\begin{enumerate}
+		\item Compilación del código, enlazado de bibliotecas y empaquetado de la aplicación.
+		\item Ejecución de los tests unitarios con ceedling.
+		\item Construcción de imagen docker.
+		\item Tagging y versionado de imagen docker en Google Artifact Registry.
+	\end{enumerate}
+\end{enumerate}
+
+
+A continuación se pueden apreciar capturas de pantallas de cada uno de los sistemas utilizados y pasos ejecutados. En la imagen \ref{fig:LocalTestingBuild} se puede apreciar la salida por consola tras la ejecución de los tests unitarios y construcción de la imagen Docker de manera local. Luego de realizar \textit{commit} y \textit{push} de los cambios locales a Github, en la imagen \ref{fig:CloudBuild} se pueden apreciar los diferentes builds disparados en Cloud Build referenciando los commits de Github, que pueden ser apreciados en la imagen \ref{fig:Github}. Finalmente en la imagen \ref{fig:ArtifactRegistry} se pueden apreciar las imagenes Docker versionadas y almacenadas en Artifact Registry.
+
+
+
+\begin{center}
+   \includegraphics[scale=0.5]{software/LocalTestingBuild}
+   \captionof{figure}{Ejecución de tests por consola.}
+   \label{fig:LocalTestingBuild}
+\end{center}
+
+
+\begin{center}
+   \includegraphics[scale=0.3]{software/CloudBuild}
+   \captionof{figure}{CloudBuild.}
+   \label{fig:CloudBuild}
+\end{center}
+
+
+\begin{center}
+   \includegraphics[scale=0.3]{software/Github}
+   \captionof{figure}{Github.}
+   \label{fig:Github}
+\end{center}
+
+
+\begin{center}
+   \includegraphics[scale=0.3]{software/ArtifactRegistry}
+   \captionof{figure}{ArtifactRegistry.}
+   \label{fig:ArtifactRegistry}
+\end{center}
 
 
 
