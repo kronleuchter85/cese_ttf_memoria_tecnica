@@ -229,6 +229,30 @@ En la figura \ref{fig:esp-idf} se puede apreciar una imagen del proceso de desar
 Docker \cite{docker_website} es un proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software, proporcionando una capa adicional de abstracción y automatización de virtualización de aplicaciones en múltiples sistemas operativos. Docker utiliza características de aislamiento de recursos del kernel Linux, tales como cgroups y espacios de nombres (namespaces) para permitir que contenedores livianos independientes se ejecuten en paralelo de manera aislada evitando la sobrecarga de iniciar y mantener máquinas virtuales.
 
 %\includegraphics[scale=0.15]{docker}
+
+
+\subsection{Testing unitario}
+Con el fin de maximizar la calidad durante el proceso de desarrollo del producto se implementaron test unitarios para todos los servicios del robot y del joystick. El conjunto de herramientas utilizadas para tal fin fueron:
+\begin{itemize}
+	\item Ceedling \cite{SoftwareTool_Ceedling}: herramienta de orquestacion de tests unitarios, inyección de objetos mocks.
+	\item CMock \cite{SoftwareTool_CMock}: framework de mock objects para sistemas embebidos.
+	\item Unity \cite{SoftwareTool_Unity}: framework de unit testing para sistemas embebidos.
+	\item Gcov \cite{SoftwareTool_CeedlingGCov}: plugin the ceedling para evaluar y reportar la cobertura.
+\end{itemize}
+
+En los capítulos siguientes se describe la configuración de dichas herramientas y se presentan los resultados tras su ejecución.
+
+\subsection{Plataforma de CI/CD}
+Durante el proceso de desarrollo del producto se utilizó CI/CD (\textit{continuous integration / continuous delivery}) mediante la integración de las siguientes herramientas:
+
+\begin{itemize}
+	\item Github \cite{SoftwareTool_Github}: servicio de repositorio y control de versiones de código fuente.
+	\item Google Cloud Build \cite{SoftwareTool_CloudBuild}: servicio de compilación, empaquetado y ejecución \textit{builds}.
+	\item Google Artifact Registry \cite{SoftwareTool_ArtifactRegistry}: servicio de repositorio y control de versiones de imágenes Docker.
+\end{itemize}
+
+El objetivo de esta configuración de servicios es permitir que por cada cambio en el código fuente versionado en el controlador de versiones Github, se dispare un proceso de compilación y ejecución de tests unitarios notificando en tiempo real si dicho cambio agrega o no una falla al actual estado del desarrollo. En caso de pasar satisfactoriamente la compilación y ejecución de los tests entonces se genera una nueva imagen docker con la última versión del codigo compilado y se versiona en Artifact Registry.
+
 \subsection{Visual Studio Code}
 
 Visual Studio Code \cite{vscode_website} es un editor de código fuente desarrollado por Microsoft para Windows, Linux, macOS y Web. Incluye soporte para la depuración, control integrado de Git, resaltado de sintaxis, finalización inteligente de código, fragmentos y refactorización de código.
@@ -239,10 +263,3 @@ Visual Studio Code \cite{vscode_website} es un editor de código fuente desarrol
 Ubuntu \cite{ubuntu_website} es una distribución Linux basada en Debian GNU/Linux y patrocinado por Canonical, que incluye principalmente software libre y de código abierto. Puede utilizarse en ordenadores y servidores, está orientado al usuario promedio, con un fuerte enfoque en la facilidad de uso y en mejorar la experiencia del usuario.
 
 %\includegraphics[scale=0.25]{ubuntu}
-
-
-
-
-
-
-

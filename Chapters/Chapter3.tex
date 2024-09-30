@@ -388,7 +388,7 @@ En la figura \ref{fig:conexionado_fisico} se puede apreciar el conexionado físi
 
 \section{Plataforma de desarrollo y ciclo de CI/CD}
 
-Durante el ciclo de desarrollo se utilizaron las herramientas explicadas en el capítulo anterior, y se creó por cada prototipo una imagen Docker extendiendo la de espressif/idf \cite{Espressif_docker_image}. En el proceso de desarrollo del producto se utilizó CI/CD (\textit{continuous integration / continuous delivery}) mediante la integración de Github con Google Cloud Build, Google Artifact Registry y el uso de imágenes Docker. El conjunto de actividades del mismo fue el siguiente:
+Durante el ciclo de desarrollo se utilizaron las herramientas explicadas en el capítulo anterior, y se creó por cada prototipo una imagen Docker extendiendo la de espressif/idf \cite{Espressif_docker_image}. El conjunto de actividades del mismo fue el siguiente:
 
 \begin{enumerate}
 	\item Codificar localmente en Ubuntu utilizando VSCode.
@@ -442,6 +442,28 @@ A continuación se pueden apreciar capturas de pantallas de cada uno de los sist
 
 
 
+
+
+
+\section{Reportes de ejecución y cobertura de testing unitario}
+
+A continuación se presentan los reportes de testing generados por la herramienta \textit{ceedling} con el complemento \textit{gcov} donde se puede apreciar el nivel de cobertura logrado para cada servicio.
+
+En la siguiente imagen \ref{fig:ConsoleReporting} se puede apreciar la salida por pantalla tras la ejecución local de ceedling con el plugin de cobertura, en donde se evidencia la cantidad de test cases. 
+
+\begin{center}
+   \includegraphics[scale=0.5]{testing/ConsoleReporting}
+   \captionof{figure}{Reportes de testing por consola.}
+   \label{fig:ConsoleReporting}
+\end{center}
+
+En la siguiente imagen \ref{fig:WebReporting} se pueden apreciar los detalles de la cobertura por cada servicio.
+
+\begin{center}
+   \includegraphics[scale=0.4]{testing/WebReporting}
+   \captionof{figure}{Reportes de testing web.}
+   \label{fig:WebReporting}
+\end{center}
 
 
 
