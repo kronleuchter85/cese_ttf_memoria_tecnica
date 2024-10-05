@@ -422,13 +422,7 @@ A continuación, se pueden apreciar capturas de pantallas de cada uno de los sis
 \end{center}
 
 
-Luego de realizar \textit{commit} y \textit{push} de los cambios locales a Github, en la imagen \ref{fig:CloudBuild} se pueden apreciar los diferentes builds disparados en Cloud Build referenciando los commits de Github, que pueden ser apreciados en la imagen \ref{fig:Github}. Finalmente en la imagen \ref{fig:ArtifactRegistry} se pueden apreciar las imagenes Docker versionadas y almacenadas en Artifact Registry.
-
-\begin{center}
-   \includegraphics[scale=0.37]{software/CloudBuild}
-   \captionof{figure}{Listado de \textit{builds} en Google CloudBuild.}
-   \label{fig:CloudBuild}
-\end{center}
+Luego de realizar \textit{commit} y \textit{push} de los cambios locales se pueden apreciar en la imagen \ref{fig:Github} el listado de las versiones en Github.
 
 
 \begin{center}
@@ -438,9 +432,19 @@ Luego de realizar \textit{commit} y \textit{push} de los cambios locales a Githu
 \end{center}
 
 
+En la imagen \ref{fig:CloudBuild} se pueden apreciar los diferentes builds disparados en Cloud Build referenciando los commits de Github.
+
+\begin{center}
+   \includegraphics[scale=0.37]{software/CloudBuild}
+   \captionof{figure}{Listado de \textit{builds} en Google CloudBuild.}
+   \label{fig:CloudBuild}
+\end{center}
+
+Finalmente en la imagen \ref{fig:ArtifactRegistry} se pueden apreciar las imagenes Docker versionadas y almacenadas en Artifact Registry.
+
 \begin{center}
    \includegraphics[scale=0.42]{software/ArtifactRegistry}
-   \captionof{figure}{ArtifactRegistry.}
+   \captionof{figure}{Listado de versiones de imágenes doker en Google ArtifactRegistry.}
    \label{fig:ArtifactRegistry}
 \end{center}
 
@@ -453,7 +457,7 @@ Luego de realizar \textit{commit} y \textit{push} de los cambios locales a Githu
 
 A continuación se presentan los reportes de testing generados por la herramienta \textit{ceedling} con el complemento \textit{gcov} donde se puede apreciar el nivel de cobertura logrado para cada servicio.
 
-En la siguiente imagen \ref{fig:ConsoleReporting} se puede apreciar la salida por pantalla tras la ejecución local de ceedling con el plugin de cobertura, en donde se evidencia la cantidad de test cases. 
+En la imagen \ref{fig:ConsoleReporting}, se puede apreciar la salida por pantalla tras la ejecución local de ceedling con el plugin de cobertura, en donde se evidencia la cantidad de test cases. 
 
 \begin{center}
    \includegraphics[scale=0.5]{testing/ConsoleReporting}

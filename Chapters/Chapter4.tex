@@ -12,14 +12,14 @@ Esta sección presenta los diferentes prototipos realizados para determinar la v
 \section{Proceso de desarrollo y aseguramiento de calidad}
 \label{sec:pruebasHW}
 
-Para el proceso de desarrollo se realizaron pruebas de concepto de las diferentes funcionalidades utilizando como materiales la bibliografía encontrada en Internet, las hojas de datos y los ejemplos de código provistos por el SDK y bibliotecas empleadas. Una vez logrado el objetivo funcional de componente se optimizó y encapsuló cada módulo para ser integrado de manera individual a un prototipo integrador sin afectar el funcionamiento de cualquier otro módulo.
-De esta manera se desarrolló un prototipo integrador como la sumatoria de todos los módulos de forma incremental, probándose por regresión que los módulos ya integrados previamente siguieran funcionando de forma óptima.
+Para el proceso de desarrollo se realizaron pruebas de concepto de las diferentes funcionalidades utilizando como materiales la bibliografía encontrada en Internet, las hojas de datos y los ejemplos de código provistos por el SDK y bibliotecas empleadas. Una vez logrado el objetivo funcional de cada componente, se optimizó y encapsuló cada módulo para ser integrado de manera individual a un prototipo integrador sin afectar el funcionamiento de cualquier otro módulo.
+De esta manera, se desarrolló un prototipo integrador como la sumatoria de todos los módulos de forma incremental, probándose por regresión que los módulos ya integrados previamente siguieran funcionando de forma óptima.
 
-Una vez logrado el prototipo integrador con todas las funcionalidades de la versión v1.0, se procedió a expandir el hardware para crear la versión v2.0. Para ello, se extrajeron los módulos de joystick y display, que posteriormente se agregarían al sistema embebido del joystick, y se incorporaron los módulos de conectividad UDP sobre Wi-Fi.
+Una vez logrado el prototipo integrador, con todas las funcionalidades de la versión v1.0, se procedió a expandir el hardware para crear la versión v2.0. Para ello, se extrajeron los módulos de joystick y display, que posteriormente se agregarían al sistema embebido del joystick, y se incorporaron los módulos de conectividad UDP sobre Wi-Fi.
 
 Tras lograr la versión v2.0 se repite el proceso de control de calidad de los diferentes módulos ya integrados.
 
-A continuación, se detallan las diferentes pruebas realizadas.
+En las siguientes secciones, se detallan las diferentes pruebas realizadas.
 
 \section{Verificación técnica de los diferentes módulos}
 
@@ -31,32 +31,32 @@ Todos los módulos fueron probados mediante una inspección visual durante el pr
 Se verificó visualmente que los valores del joystick analógico puedan ser leídos apropiadamente, y que sean representativos y relevantes con la dirección del movimiento de la palanca sobre sus coordenadas X e Y.
 
 \subsection{Verificación del módulo de control del display}
-Se verificó visualmente que el display representa los caracteres programados en la prueba de concepto con una intensidad de luz aceptable para poder leerlos apropiadamente.
+Se verificó visualmente que el display mostraba los caracteres programados en la prueba de concepto con una intensidad de luz aceptable para poder leerlos apropiadamente.
 
 
 \subsection{Verificación del módulo de control de motores}
 Se verificó visualmente que individualmente el motor pudiera girar en ambos sentidos. Luego, al implementarse los cuatro motores con sus ruedas, se probó que se puedan realizar los giros en todas las direcciones.
 
 \subsection{Verificación del módulo de medición de temperatura y humedad}
-Se verificó visualmente que los valores obtenidos por el sensor DHT11 fueran cercanos a lo esperado en relación a la temperatura en el interior del lugar de experimentación y la humedad en un valor cercano a lo reportado en Google.
+Se verificó visualmente que los valores obtenidos por el sensor DHT11 coincidieran con los esperados en relación a la temperatura en el interior del lugar de experimentación y que la humedad detectada se aproximara a los valores resportados por Google.
 
 \subsection{Verificación del módulo de medición de presión atmosférica}
 Se verificó visualmente que el valor obtenido por el sensor BMP280 fuera cercano a lo esperado en relación al valor reportado por Google.
 
 
 \subsection{Verificación del módulo de medición de luminosidad}
-Se verificó visualmente que los valores obtenidos del fotorresistor, tras ser transformados a valores absolutos porcentuales, guardan relación con el nivel de luminosidad ambiental del interior del lugar de experimentación.
+Se verificó visualmente que los valores obtenidos del fotorresistor, una vez transformados a valores absolutos porcentuales, reflejaban el nivel de luminosidad ambiental del interior del lugar de experimentación.
 
 
 \subsection{Verificación del módulo de comunicación UTP sobre Wi-Fi}
-Por medio de dos programas UDP, uno cliente y uno servidor, se probó el establecimiento de la comunicación UDP entre dos ESP32. Luego se incorporó el servicio de comunicaciones UDP en el robot y mientras que desde el programa cliente se enviaban las acciones representando las direcciones del movimiento a realizar (FORWARD, BACKWARD, LEFT, RIGHT) y se observó visualmente cómo el robot giraba sus ruedas en función de los comandos enviados. Finalmente, se incorporó el módulo de comunicaciones en el joystick y se procedió a activar el desplazamiento en cada una de sus direcciones. Se evidenció el correcto funcionamiento del robot al desplazarse en la dirección de cada comando accionado.
+Por medio de dos programas UDP, uno cliente y uno servidor, se probó el establecimiento de la comunicación UDP entre dos ESP32. Posteriormente, se incorporó el servicio de comunicaciones UDP en el robot, y desde el programa cliente se enviaban las acciones que representaban las direcciones del movimiento (FORWARD, BACKWARD, LEFT, RIGHT). Se observó visualmente cómo el robot giraba sus ruedas en función de los comandos enviados. Finalmente, se incorporó el módulo de comunicaciones en el joystick y activó el desplazamiento en cada una de sus direcciones. El robot se desplazó correctamente en respuesta a cada comando recibido.
 
 
 \section{Pruebas funcionales y validación del producto}
 
-El proceso de validación y pruebas del producto se realizó comparando el resultado obtenido con los valores esperados en el alcance del proyecto.
+El proceso de validación y pruebas del producto, se realizó comparando el resultado obtenido con los valores esperados en el alcance del proyecto.
 
-Para la medición de temperatura, humedad y presión se utilizó el anemómetro digital de la figura \ref{fig:anemometro}, mientras que para la validación de la medición de luminosidad ambiental se utilizó la observación visual.
+Para la medición de temperatura, humedad y presión, se utilizó el anemómetro digital de la figura \ref{fig:anemometro}, mientras que para la validación de la medición de luminosidad ambiental se utilizó la observación visual.
 
 Las pruebas realizadas fueron las siguientes:
 \begin{itemize}
@@ -229,7 +229,7 @@ En la siguiente sección pueden encontrarse los videos \cite{Demo_Control_Movimi
 
 
 
-\section{Videos del producto durante el prototipado, ensamblado y experimentación}
+\section{Videos del producto durante el ensamblado y experimentación}
 
 En las siguientes subsecciones se listan los videos realizados durante el proceso de demostración del producto funcionando así como los grabados casualmente durante armado y prototipado del mismo.
 
@@ -239,7 +239,7 @@ En las siguientes subsecciones se listan los videos realizados durante el proces
 Los experimentos realizados para evidenciar el cumplimiento con los requerimientos funcionales del producto son los siguientes:
 \begin{itemize}
 	\item Demo - Hardware del producto \cite{Demo_Hardware}.
-	\item Demo - Comunicacion Wi-Fi \cite{Demo_ComWifi}.
+	\item Demo - Comunicación Wi-Fi \cite{Demo_ComWifi}.
 	\item Demo - Control de movimiento de las ruedas \cite{Demo_Control_Movimiento_1}.
 	\item Demo - Medición y visualización de parámetros ambientales \cite{Demo_Mediciones}.
 	\item Demo - Control de desplazamiento en un circuito \cite{Demo_Control_Movimiento_2}.
