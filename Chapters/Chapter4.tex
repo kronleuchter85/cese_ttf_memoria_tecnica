@@ -22,35 +22,34 @@ Tras lograr la versión v2.0 se repite el proceso de control de calidad de los d
 En las siguientes secciones, se detallan las diferentes pruebas realizadas.
 
 \section{Verificación técnica de los diferentes módulos}
-
-
 Todos los módulos fueron probados mediante una inspección visual durante el proceso de pruebas de concepto.
 
-
 \subsection{Verificación del módulo de joystick}
-Se verificó visualmente que los valores del joystick analógico puedan ser leídos apropiadamente, y que sean representativos y relevantes con la dirección del movimiento de la palanca sobre sus coordenadas X e Y.
+Se verificó visualmente que los valores del joystick analógico puedan ser leídos apropiadamente, y que sean representativos y relevantes con la dirección del movimiento de la palanca sobre sus coordenadas X e Y. En los videos \cite{Prototipado_Ensamblado_1} y \cite{Prototipado_Ensamblado_2} puede apreciarse el funcionamiento del módulo de control de joystick.
+
+
 
 \subsection{Verificación del módulo de control del display}
-Se verificó visualmente que el display mostraba los caracteres programados en la prueba de concepto con una intensidad de luz aceptable para poder leerlos apropiadamente.
+Se verificó visualmente que el display mostraba los caracteres programados en la prueba de concepto con una intensidad de luz aceptable para poder leerlos apropiadamente. En las figuras \ref{fig:DisplayNoche}, \ref{fig:DisplayLuminosidadExteriorDia}, \ref{fig:DisplayLuminosidadInteriorDia} y \ref{fig:DisplayLuminosidadInteriorNoche} puede apreciarse el funcionamiento del módulo del display bajo diferentes condiciones de luminosidad.
 
 
 \subsection{Verificación del módulo de control de motores}
-Se verificó visualmente que individualmente el motor pudiera girar en ambos sentidos. Luego, al implementarse los cuatro motores con sus ruedas, se probó que se puedan realizar los giros en todas las direcciones.
+Se verificó visualmente que individualmente el motor pudiera girar en ambos sentidos. Luego, al implementarse los cuatro motores con sus ruedas, se probó que se puedan realizar los giros en todas las direcciones. En los videos \cite{Prototipado_Ensamblado_1} y \cite{Prototipado_Ensamblado_2} puede apreciarse el funcionamiento del módulo de control de los motores.
 
 \subsection{Verificación del módulo de medición de temperatura y humedad}
-Se verificó visualmente que los valores obtenidos por el sensor DHT11 coincidieran con los esperados en relación a la temperatura en el interior del lugar de experimentación y que la humedad detectada se aproximara a los valores resportados por Google.
+Se verificó visualmente que los valores obtenidos por el sensor DHT11 coincidieran con los esperados en relación a la temperatura en el interior del lugar de experimentación y que la humedad detectada se aproximara a los valores resportados por Google. En las figuras \ref{fig:humedad_interior}, \ref{fig:humedad_interior}, \ref{fig:humedad_interior} y \ref{fig:humedad_interior} puede apreciarse el funcionamiento del módulo de medición de temperatura y humedad.
 
 \subsection{Verificación del módulo de medición de presión atmosférica}
-Se verificó visualmente que el valor obtenido por el sensor BMP280 fuera cercano a lo esperado en relación al valor reportado por Google.
+Se verificó visualmente que el valor obtenido por el sensor BMP280 fuera cercano a lo esperado en relación al valor reportado por Google. En las figuras \ref{fig:humedad_interior} y \ref{fig:humedad_interior} puede apreciarse el funcionamiento del módulo de presión atmosférica.
 
 
 \subsection{Verificación del módulo de medición de luminosidad}
 Se verificó visualmente que los valores obtenidos del fotorresistor, una vez transformados a valores absolutos porcentuales, reflejaban el nivel de luminosidad ambiental del interior del lugar de experimentación.
-
+En las figuras \ref{fig:DisplayLuminosidadExteriorDia}, \ref{fig:DisplayLuminosidadInteriorDia} y \ref{fig:DisplayLuminosidadInteriorNoche} puede apreciarse el funcionamiento del módulo de luminosidad.
 
 \subsection{Verificación del módulo de comunicación UTP sobre Wi-Fi}
 Por medio de dos programas UDP, uno cliente y uno servidor, se probó el establecimiento de la comunicación UDP entre dos ESP32. Posteriormente, se incorporó el servicio de comunicaciones UDP en el robot, y desde el programa cliente se enviaban las acciones que representaban las direcciones del movimiento (FORWARD, BACKWARD, LEFT, RIGHT). Se observó visualmente cómo el robot giraba sus ruedas en función de los comandos enviados. Finalmente, se incorporó el módulo de comunicaciones en el joystick y activó el desplazamiento en cada una de sus direcciones. El robot se desplazó correctamente en respuesta a cada comando recibido.
-
+En los videos \cite{Demo_ComWifi}, \cite{Prototipado_Comunicacion_JoystickRobot1} y \cite{Prototipado_Comunicacion_JoystickRobot2} puede apreciarse el funcionamiento de la comunicación UDP sobre Wi-Fi entre el robot y el joystick.
 
 \section{Pruebas funcionales y validación del producto}
 
