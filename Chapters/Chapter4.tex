@@ -37,7 +37,7 @@ Se verificó visualmente que el display mostraba los caracteres programados en l
 Se verificó visualmente que individualmente el motor pudiera girar en ambos sentidos. Luego, al implementarse los cuatro motores con sus ruedas, se probó que se puedan realizar los giros en todas las direcciones. En los videos \cite{Prototipado_Ensamblado_1} y \cite{Prototipado_Ensamblado_2} puede apreciarse el funcionamiento del módulo de control de los motores.
 
 \subsection{Verificación del módulo de medición de temperatura y humedad}
-Se verificó visualmente que los valores obtenidos por el sensor DHT11 coincidieran con los esperados en relación a la temperatura en el interior del lugar de experimentación y que la humedad detectada se aproximara a los valores resportados por Google. En las figuras \ref{fig:humedad_interior}, \ref{fig:humedad_interior}, \ref{fig:humedad_interior} y \ref{fig:humedad_interior} puede apreciarse el funcionamiento del módulo de medición de temperatura y humedad.
+Se verificó visualmente que los valores obtenidos por el sensor DHT11 coincidieran con los esperados en relación a la temperatura en el interior del lugar de experimentación y que la humedad detectada se aproximara a los valores resportados por Google. En las figuras \ref{fig:humedad_interior_retouched}, \ref{fig:temp_interior_retouched}, \ref{fig:humedad_exterior_retouched} y \ref{fig:temp_exterior_dia_retouched} puede apreciarse el funcionamiento del módulo de medición de temperatura y humedad.
 
 \subsection{Verificación del módulo de medición de presión atmosférica}
 Se verificó visualmente que el valor obtenido por el sensor BMP280 fuera cercano a lo esperado en relación al valor reportado por Google. En las figuras \ref{fig:humedad_interior} y \ref{fig:humedad_interior} puede apreciarse el funcionamiento del módulo de presión atmosférica.
@@ -124,27 +124,28 @@ A continuación, se pueden apreciar algunas fotografías tomadas durante el proc
 \begin{center}
 \includegraphics[scale=0.094]{demo_product/humedad_interior_retouched}
   \captionof{figure}{Medición de humedad en el interior.}
-  \label{fig:humedad_interior}
+  \label{fig:humedad_interior_retouched}
 \end{center}
 
 \begin{center}
 \includegraphics[scale=0.1]{demo_product/temp_interior_retouched}
   \captionof{figure}{Medición de temperatura en el interior.}
-  \label{fig:humedad_interior}
+  \label{fig:temp_interior_retouched}
 \end{center}
 
 
 \begin{center}
 \includegraphics[scale=0.125]{demo_product/humedad_exterior_retouched}
   \captionof{figure}{Medición de humedad en el exterior.}
-  \label{fig:humedad_interior}
+  \label{fig:humedad_exterior_retouched}
 \end{center}
 
 \begin{center}
 \includegraphics[scale=0.1]{demo_product/temp_exterior_dia_retouched}
   \captionof{figure}{Medición de temperatura en el exterior.}
-  \label{fig:humedad_interior}
+  \label{fig:temp_exterior_dia_retouched}
 \end{center}
+
 
 En la siguiente sección puede encontrarse el video que muestra el funcionamiento del módulo de mediciones, en el que se aprecia el funcionamiento del módulo de medición de temperatura y humedad \cite{Demo_Mediciones}.
 
@@ -185,7 +186,7 @@ En la siguiente sección puede encontrarse el video que muestra el funcionamient
 
 \subsection{Prueba y validación del módulo de medición de luminosidad ambiental}
 
-Se compararon los valores medidos por el módulo de medición de luminosidad basado en un fotorresistor percibidos por el ojo humano sin utilizar ningún dispositivo de medición. Se realizó la medición en diferentes escenarios:
+Se compararon los valores medidos por el módulo de medición de luminosidad en diferentes escenarios:
 
 \begin{itemize}
 	\item En exteriores durante el día con luz ambiental.
@@ -193,12 +194,20 @@ Se compararon los valores medidos por el módulo de medición de luminosidad bas
 	\item En interiores a oscuras.
 \end{itemize}
 
-Los resultados mostraron que los valores porcentuales indicados por el módulo de medición de luminosidad son consistentes con los niveles de luz detectados por el ojo humano. En las figuras \ref{fig:DisplayLuminosidadExteriorDia}, \ref{fig:DisplayLuminosidadInteriorDia} y \ref{fig:DisplayLuminosidadInteriorNoche} pueden apreciarse los resultados de las mediciones.
+Los resultados mostraron que los valores porcentuales indicados por el módulo de medición de luminosidad son consistentes con los niveles de luz detectados por el ojo humano. Además, con el fin de cuantificar en unidades estandares el proceso de validación, se comparó los niveles porcentuales reportados por el robot con los niveles de iluminancia medidos en Lux \cite{Wikipedia_Lux}, utilizando la aplicación Light Meter \cite{Playstore_Lightmeter} instalada en un smartphone Android. 
+
+En las figuras \ref{fig:DisplayLuminosidadExteriorDia}, \ref{fig:Lux_100}, \ref{fig:DisplayLuminosidadInteriorDia}, \ref{fig:Lux_80}, \ref{fig:DisplayLuminosidadInteriorNoche} y \ref{fig:Lux_0} pueden apreciarse los resultados de las mediciones.
 
 \begin{center}
 \includegraphics[scale=0.8]{demo_product/DisplayLuminosidadExteriorDia}
   \captionof{figure}{Medición de luminosidad ambiental en el exterior durante el día.}
   \label{fig:DisplayLuminosidadExteriorDia}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.23]{demo_product/Lux_100}
+  \captionof{figure}{Iluminancia [Lux] reporatada por la aplicación Light Meter en el exterior durante el día.}
+  \label{fig:Lux_100}
 \end{center}
 
 \begin{center}
@@ -208,12 +217,29 @@ Los resultados mostraron que los valores porcentuales indicados por el módulo d
 \end{center}
 
 \begin{center}
+\includegraphics[scale=0.23]{demo_product/Lux_80}
+  \captionof{figure}{Iluminancia [Lux] reporatada por la aplicación Light Meter en interiores durante el día.}
+  \label{fig:Lux_80}
+\end{center}
+
+
+\begin{center}
 \includegraphics[scale=0.82]{demo_product/DisplayLuminosidadInteriorNoche}
   \captionof{figure}{Medición de luminosidad ambiental en interiores durante la noche.}
   \label{fig:DisplayLuminosidadInteriorNoche}
 \end{center}
 
+\begin{center}
+\includegraphics[scale=0.23]{demo_product/Lux_0}
+  \captionof{figure}{Iluminancia [Lux] reporatada por la aplicación Light Meter en interiores durante la noche.}
+  \label{fig:Lux_0}
+\end{center}
+
 En la siguiente sección puede encontrarse el video que muestra el funcionamiento del módulo de mediciones, en el que se aprecia el funcionamiento del módulo de medición de luminosidad ambiental \cite{Demo_Mediciones}.
+
+
+\vspace{2cm}
+
 
 \subsection{Prueba y validación del control y desplazamiento del robot}
 
