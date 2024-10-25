@@ -82,31 +82,43 @@ Queda fuera del alcance:
 \section{Requerimientos}
 A continuación se listan los requerimientos del producto:
 \begin{enumerate}	
-	
 	\item Requerimientos funcionales		
 	\begin{enumerate}			
-		\item El sistema debe contar con funciones de desplazamiento para poder moverse hacia adelante y atrás, y poder girar radialmente un ángulo de 360 grados.			
+		\item El sistema debe contar con funciones de desplazamiento para poder moverse hacia adelante y atrás, y poder girar radialmente hasta un ángulo de 360 grados.			
 		\item El sistema debe ser capaz de realizar las siguientes operaciones de exploración:			
-			\begin{itemize}
-				\item Medición de humedad ambiental.				
-				\item Medición de temperatura ambiental.				
-				\item Medición de luminosidad ambiental.				
-				\item Medición de presión ambiental.			
-			\end{itemize}			
-		\item El sistema debe poder ser controlado a distancia mediante un joystick para que el dispositivo pueda realizar sus movimientos. En caso de que alguna de sus operaciones de exploración requiera algún otro mecanismo de control, el mismo también será integrado en el joystick.		
+			\begin{enumerate}				
+				\item medición de humedad ambiental,				
+				\item medición de temperatura ambiental,				
+				\item medición de luminosidad ambiental,				
+				\item medición de presión ambiental.			
+			\end{enumerate}			
+		\item El sistema debe poder ser controlado a distancia mediante un joystick para que el dispositivo pueda realizar sus movimientos. En caso de que alguna de sus operaciones de exploración requiera algún mecanismo de control, el mismo también será integrado en el joystick.		
 		\item El sistema debe proveer un mecanismo de visualización de las operaciones de exploración al usuario que controla el dispositivo para poder ver el estado y lectura de las operaciones de exploración.		
-		\begin{itemize}	
-			\item La interfaz de usuario debe permitir visualizar las lecturas de cada uno de los sensores.
-			\item Debe haber una pequeña leyenda de la magnitud que se está midiendo y la unidad utilizada junto con el valor.
-		\end{itemize}		
-		
-	\end{enumerate}	
-	
-	\item Requerimientos no funcionales		
-		\begin{enumerate}			
-			\item La arquitectura del producto debe ser robusta y tolerante a fallas.
-			\item A fin de maximizar la mantenibilidad, la arquitectura del producto debe estar modularizada para permitir que los diferentes módulos puedan ser integrados y orquestados separadamente.
-			
 		\end{enumerate}	
-	
+	\item Requerimientos de documentación		
+		\begin{enumerate}			
+			\item documentación de arquitectura técnica a alto nivel del diseño del sistema.			
+			\item documentación técnica de la implementación del software.			
+			\item documentación técnica de la implementación del hardware.			
+			\item manual de usuario.	
+			\item informe de avance.
+			\item memoria final.	
+		\end{enumerate}	
+	\item Requerimiento de testing		
+		\begin{enumerate}			
+			\item se debe incluir tests de integración de componentes,
+			\item se debe incluir tests funcionales (smoke test) del producto general.		
+		\end{enumerate}	
+	\item Requerimientos de la interfaz		
+		\begin{enumerate}			
+			\item la interfaz de usuario debe permitir visualizar las lecturas de cada uno de los sensores,			
+			\item debe haber una pequeña leyenda de la magnitud que se está midiendo y la unidad utilizada junto con el valor.		
+		\end{enumerate}	
+	\item Requerimientos opcionales		
+		\begin{enumerate}			
+			\item De interfaz: se permite agregar cualquier otra interfaz adicional que agregue mejoras en la experiencia de usuario			
+			\item De operaciones de exploración: se permite agregar cualquier otra operación adicional de exploración que agregue valor a exploración.	
+			\item De comunicación: se permite agregar comunicación inalámbrica.		
+	\end{enumerate}
 \end{enumerate}
+
