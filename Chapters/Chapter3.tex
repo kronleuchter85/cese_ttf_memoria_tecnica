@@ -392,7 +392,15 @@ En la figura \ref{fig:conexionado_fisico} se puede apreciar el conexionado físi
 
 \section{Plataforma de desarrollo y ciclo de CI/CD}
 
-Durante el ciclo de desarrollo, se utilizaron las herramientas descritas en el capítulo anterior, y para cada prototipo se creó una imagen Docker, extendiendo la de espressif/idf \cite{Espressif_docker_image}. El conjunto de actividades del mismo fue el siguiente:
+Durante el ciclo de desarrollo, se utilizó la infraestructura de CI formada por las herramientas descritas en el capítulo anterior. En la figura \ref{fig:plataforma_CI} se puede apreciar su arquitectura.
+
+\begin{center}
+   \includegraphics[scale=0.55]{software/plataforma_CI}
+   \captionof{figure}{Plataforma de CI/CD utilizada.}
+   \label{fig:plataforma_CI}
+\end{center}
+
+Para cada prototipo desarrollado se creó una imagen Docker, extendiendo la de espressif/idf \cite{Espressif_docker_image}. El conjunto de actividades del mismo fue el siguiente:
 
 \begin{enumerate}
 	\item Codificar localmente en Ubuntu utilizando VSCode.
@@ -414,8 +422,6 @@ Durante el ciclo de desarrollo, se utilizaron las herramientas descritas en el c
 
 
 A continuación, se pueden apreciar capturas de pantallas de cada uno de los sistemas utilizados y los pasos ejecutados. En la imagen \ref{fig:LocalTestingBuild}, se puede apreciar la salida por consola tras la ejecución de los tests unitarios y construcción de la imagen Docker de manera local. 
-
-
 
 \begin{center}
    \includegraphics[scale=0.55]{software/LocalTestingBuild}
